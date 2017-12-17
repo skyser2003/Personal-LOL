@@ -11,6 +11,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="header\ApiList.h" />
     <ClInclude Include="header\FullUrl.h" />
     <ClInclude Include="header\RegionalEndpoint.h" />
     <ClInclude Include="pch\stdafx.h" />

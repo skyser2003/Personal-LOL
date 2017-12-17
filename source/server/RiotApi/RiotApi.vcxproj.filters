@@ -4,13 +4,13 @@
     <Filter Include="pch">
       <UniqueIdentifier>{42b6ef04-69db-495c-9763-5cb009abf414}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ApiUrl">
-      <UniqueIdentifier>{bb42c1f1-9477-4b6b-8804-aa5f987dddc0}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Proxy">
       <UniqueIdentifier>{436bb897-eb78-4915-81c4-48c3602b8d57}</UniqueIdentifier>
     </Filter>
-    <Filter Include="NewFilter1">
+    <Filter Include="FullUrl">
+      <UniqueIdentifier>{bb42c1f1-9477-4b6b-8804-aa5f987dddc0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Api">
       <UniqueIdentifier>{1bef27a1-ad91-4502-9d8b-04d1e4c661d9}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
@@ -22,7 +22,10 @@
       <Filter>Proxy</Filter>
     </ClInclude>
     <ClInclude Include="header\FullUrl.h">
-      <Filter>ApiUrl</Filter>
+      <Filter>FullUrl</Filter>
+    </ClInclude>
+    <ClInclude Include="header\ApiList.h">
+      <Filter>Api</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -33,7 +36,7 @@
       <Filter>Proxy</Filter>
     </ClCompile>
     <ClCompile Include="src\FullUrl.cpp">
-      <Filter>ApiUrl</Filter>
+      <Filter>FullUrl</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
