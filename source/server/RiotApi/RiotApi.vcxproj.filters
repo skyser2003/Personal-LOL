@@ -18,10 +18,7 @@
     <ClInclude Include="pch\stdafx.h">
       <Filter>pch</Filter>
     </ClInclude>
-    <ClInclude Include="header\ServiceProxy.h">
-      <Filter>Proxy</Filter>
-    </ClInclude>
-    <ClInclude Include="header\RegionalProxy.h">
+    <ClInclude Include="header\RegionalEndpoint.h">
       <Filter>Proxy</Filter>
     </ClInclude>
   </ItemGroup>
@@ -32,10 +29,7 @@
     <ClCompile Include="pch\stdafx.cpp">
       <Filter>pch</Filter>
     </ClCompile>
-    <ClCompile Include="src\RegionalProxy.cpp">
-      <Filter>Proxy</Filter>
-    </ClCompile>
-    <ClCompile Include="src\ServiceProxy.cpp">
+    <ClCompile Include="src\RegionalEndpoint.cpp">
       <Filter>Proxy</Filter>
     </ClCompile>
   </ItemGroup>

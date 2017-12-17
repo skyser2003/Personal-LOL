@@ -12,8 +12,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="header\ApiUrl.h" />
-    <ClInclude Include="header\RegionalProxy.h" />
-    <ClInclude Include="header\ServiceProxy.h" />
+    <ClInclude Include="header\RegionalEndpoint.h" />
     <ClInclude Include="pch\stdafx.h" />
   </ItemGroup>
   <ItemGroup>
@@ -22,8 +21,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="src\ApiUrl.cpp" />
-    <ClCompile Include="src\RegionalProxy.cpp" />
-    <ClCompile Include="src\ServiceProxy.cpp" />
+    <ClCompile Include="src\RegionalEndpoint.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
