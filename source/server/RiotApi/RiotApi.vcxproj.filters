@@ -10,27 +10,30 @@
     <Filter Include="Proxy">
       <UniqueIdentifier>{436bb897-eb78-4915-81c4-48c3602b8d57}</UniqueIdentifier>
     </Filter>
+    <Filter Include="NewFilter1">
+      <UniqueIdentifier>{1bef27a1-ad91-4502-9d8b-04d1e4c661d9}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="header\ApiUrl.h">
-      <Filter>ApiUrl</Filter>
-    </ClInclude>
     <ClInclude Include="pch\stdafx.h">
       <Filter>pch</Filter>
     </ClInclude>
     <ClInclude Include="header\RegionalEndpoint.h">
       <Filter>Proxy</Filter>
     </ClInclude>
+    <ClInclude Include="header\FullUrl.h">
+      <Filter>ApiUrl</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\ApiUrl.cpp">
-      <Filter>ApiUrl</Filter>
-    </ClCompile>
     <ClCompile Include="pch\stdafx.cpp">
       <Filter>pch</Filter>
     </ClCompile>
     <ClCompile Include="src\RegionalEndpoint.cpp">
       <Filter>Proxy</Filter>
+    </ClCompile>
+    <ClCompile Include="src\FullUrl.cpp">
+      <Filter>ApiUrl</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
