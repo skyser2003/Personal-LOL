@@ -7,6 +7,9 @@
     <Filter Include="ApiUrl">
       <UniqueIdentifier>{bb42c1f1-9477-4b6b-8804-aa5f987dddc0}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ServiceProxy">
+      <UniqueIdentifier>{436bb897-eb78-4915-81c4-48c3602b8d57}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="header\ApiUrl.h">
@@ -15,6 +18,9 @@
     <ClInclude Include="pch\stdafx.h">
       <Filter>pch</Filter>
     </ClInclude>
+    <ClInclude Include="header\ServiceProxy.h">
+      <Filter>ServiceProxy</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\ApiUrl.cpp">
@@ -22,6 +28,9 @@
     </ClCompile>
     <ClCompile Include="pch\stdafx.cpp">
       <Filter>pch</Filter>
+    </ClCompile>
+    <ClCompile Include="header\ServiceProxy.cpp">
+      <Filter>ServiceProxy</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
