@@ -1,5 +1,5 @@
 #include "stdafx.h"
-#include "ApiPath.h"
+#include "SubUrl.h"
 
 namespace RiotApi
 {

@@ -13,7 +13,7 @@
     <Filter Include="Api">
       <UniqueIdentifier>{1bef27a1-ad91-4502-9d8b-04d1e4c661d9}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Api\ApiPath">
+    <Filter Include="SubUrl">
       <UniqueIdentifier>{00d2831b-39f0-4114-ada4-df6156f4f6c5}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
@@ -27,11 +27,14 @@
     <ClInclude Include="header\FullUrl.h">
       <Filter>FullUrl</Filter>
     </ClInclude>
-    <ClInclude Include="header\ApiPath.h">
-      <Filter>Api\ApiPath</Filter>
-    </ClInclude>
     <ClInclude Include="header\ApiType.h">
       <Filter>Api</Filter>
+    </ClInclude>
+    <ClInclude Include="header\SubUrl.h">
+      <Filter>SubUrl</Filter>
+    </ClInclude>
+    <ClInclude Include="ChampionSubUrl.h">
+      <Filter>SubUrl</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -44,8 +47,8 @@
     <ClCompile Include="src\FullUrl.cpp">
       <Filter>FullUrl</Filter>
     </ClCompile>
-    <ClCompile Include="src\ApiPath.cpp">
-      <Filter>Api\ApiPath</Filter>
+    <ClCompile Include="src\SubUrl.cpp">
+      <Filter>SubUrl</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -1,10 +1,14 @@
 #pragma once
 
+#include "ApiType.h"
+
 namespace RiotApi
 {
 	enum class ApiType;
 
-	// Declaration only
-	template <ApiType type>
-	class SubUrl;
+	template <template <ApiType> class Component, ApiType type>
+	class SubUrl
+	{
+	public:
+	};
 }
