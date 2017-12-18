@@ -13,6 +13,9 @@
     <Filter Include="Api">
       <UniqueIdentifier>{1bef27a1-ad91-4502-9d8b-04d1e4c661d9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Api\ApiPath">
+      <UniqueIdentifier>{00d2831b-39f0-4114-ada4-df6156f4f6c5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch\stdafx.h">
@@ -24,7 +27,10 @@
     <ClInclude Include="header\FullUrl.h">
       <Filter>FullUrl</Filter>
     </ClInclude>
-    <ClInclude Include="header\ApiList.h">
+    <ClInclude Include="header\ApiPath.h">
+      <Filter>Api\ApiPath</Filter>
+    </ClInclude>
+    <ClInclude Include="header\ApiType.h">
       <Filter>Api</Filter>
     </ClInclude>
   </ItemGroup>
@@ -37,6 +43,9 @@
     </ClCompile>
     <ClCompile Include="src\FullUrl.cpp">
       <Filter>FullUrl</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ApiPath.cpp">
+      <Filter>Api\ApiPath</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

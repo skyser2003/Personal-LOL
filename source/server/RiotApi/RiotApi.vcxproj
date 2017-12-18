@@ -11,7 +11,8 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="header\ApiList.h" />
+    <ClInclude Include="header\ApiType.h" />
+    <ClInclude Include="header\ApiPath.h" />
     <ClInclude Include="header\FullUrl.h" />
     <ClInclude Include="header\RegionalEndpoint.h" />
     <ClInclude Include="pch\stdafx.h" />
@@ -21,6 +22,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="src\ApiPath.cpp" />
     <ClCompile Include="src\FullUrl.cpp" />
     <ClCompile Include="src\RegionalEndpoint.cpp" />
   </ItemGroup>

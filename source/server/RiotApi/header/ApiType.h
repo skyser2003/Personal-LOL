@@ -2,7 +2,7 @@
 
 namespace RiotApi
 {
-	enum class ApiList
+	enum class ApiType
 	{
 		// Champion mastery
 		CHAMPION_MASTERY_MASTERIES_BY_SUMMONER,
