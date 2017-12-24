@@ -1,6 +1,6 @@
 #pragma once
 
-#include <array>
+#include <vector>
 #include <string>
 
 namespace RiotApi
@@ -21,5 +21,5 @@ namespace RiotApi
 		PBE
 	};
 
-	std::string
+	std::vector<std::string> GetSubDomain(ServiceProxy proxy);
 }
