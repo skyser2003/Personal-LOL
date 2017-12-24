@@ -4,6 +4,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 15.0.27130.2010
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "main", "..\main\main.vcxproj", "{98A70788-70A5-4444-8DA4-FA17CF748F47}"
+	ProjectSection(ProjectDependencies) = postProject
+		{4D52ED29-36FC-446B-B38D-6D9D9CD7354C} = {4D52ED29-36FC-446B-B38D-6D9D9CD7354C}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libRiotApi", "..\libRiotApi\libRiotApi.vcxproj", "{4D52ED29-36FC-446B-B38D-6D9D9CD7354C}"
 EndProject
