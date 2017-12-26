@@ -49,7 +49,7 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>pch;header;../RiotApi/header;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>pch;header;../RiotApi/header;../HttpServer/header;../external/boost;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PrecompiledHeader>Use</PrecompiledHeader>
     </ClCompile>
     <Link>
@@ -64,7 +64,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>pch;header;../RiotApi/header;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>pch;header;../RiotApi/header;../HttpServer/header;../external/boost;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PrecompiledHeader>Use</PrecompiledHeader>
     </ClCompile>
     <Link>
@@ -81,6 +81,9 @@
     <ClCompile Include="src\main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\HttpServer\HttpServer.vcxproj">
+      <Project>{dd84034a-7e8c-4a57-9922-2c2a416857f0}</Project>
+    </ProjectReference>
     <ProjectReference Include="..\RiotApi\RiotApi.vcxproj">
       <Project>{59999766-96c1-4709-a307-b2777d863926}</Project>
     </ProjectReference>
