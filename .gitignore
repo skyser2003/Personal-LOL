@@ -45,3 +45,6 @@
 **/Debug/
 **/Release/
 **/x64/
+
+# Boost
+source/server/external/boost/
