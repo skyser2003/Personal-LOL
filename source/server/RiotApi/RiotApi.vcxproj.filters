@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="FullUrl">
+      <UniqueIdentifier>{dbb678f2-da81-49ef-a8a1-c6c0412afee9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="pch">
+      <UniqueIdentifier>{e7d956ff-fdc8-46a4-a1f9-0aedc08c3c0f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Static">
+      <UniqueIdentifier>{dceae5fd-8722-4bdc-8854-780cd9e67b19}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SubUrl">
+      <UniqueIdentifier>{3e4d30a9-78ca-4ac0-96bc-23e9b59b3098}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="pch\stdafx.h">
+      <Filter>pch</Filter>
+    </ClInclude>
+    <ClInclude Include="header\RegionalEndpoint.h">
+      <Filter>Static</Filter>
+    </ClInclude>
+    <ClInclude Include="header\ServerRegion.h">
+      <Filter>Static</Filter>
+    </ClInclude>
+    <ClInclude Include="header\ApiType.h">
+      <Filter>Static</Filter>
+    </ClInclude>
+    <ClInclude Include="header\SubUrl.h">
+      <Filter>SubUrl</Filter>
+    </ClInclude>
+    <ClInclude Include="header\FullUrl.h">
+      <Filter>FullUrl</Filter>
+    </ClInclude>
+    <ClInclude Include="header\ChampionSubUrl.h">
+      <Filter>SubUrl</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="pch\stdafx.cpp">
+      <Filter>pch</Filter>
+    </ClCompile>
+    <ClCompile Include="src\RegionalEndpoint.cpp">
+      <Filter>Static</Filter>
+    </ClCompile>
+    <ClCompile Include="src\SubUrl.cpp">
+      <Filter>SubUrl</Filter>
+    </ClCompile>
+    <ClCompile Include="src\FullUrl.cpp">
+      <Filter>FullUrl</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
