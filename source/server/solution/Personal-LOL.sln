@@ -7,6 +7,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Main", "..\Main\Main.vcxpro
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "RiotApi", "..\RiotApi\RiotApi.vcxproj", "{59999766-96C1-4709-A307-B2777D863926}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "HttpServer", "..\HttpServer\HttpServer.vcxproj", "{DD84034A-7E8C-4A57-9922-2C2A416857F0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -21,6 +23,10 @@ Global
 		{59999766-96C1-4709-A307-B2777D863926}.Debug|x64.Build.0 = Debug|x64
 		{59999766-96C1-4709-A307-B2777D863926}.Release|x64.ActiveCfg = Release|x64
 		{59999766-96C1-4709-A307-B2777D863926}.Release|x64.Build.0 = Release|x64
+		{DD84034A-7E8C-4A57-9922-2C2A416857F0}.Debug|x64.ActiveCfg = Debug|x64
+		{DD84034A-7E8C-4A57-9922-2C2A416857F0}.Debug|x64.Build.0 = Debug|x64
+		{DD84034A-7E8C-4A57-9922-2C2A416857F0}.Release|x64.ActiveCfg = Release|x64
+		{DD84034A-7E8C-4A57-9922-2C2A416857F0}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
