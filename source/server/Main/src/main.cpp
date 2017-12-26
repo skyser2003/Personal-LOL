@@ -1,12 +1,18 @@
 #include <iostream>
+#include <memory>
 #include "FullUrl.h"
+#include "ChampionSubUrl.h"
+
 using namespace std;
+using namespace RiotApi;
 
 int main()
 {
-	RiotApi::FullUrl url(RiotApi::RegionalEndpoint::KR);
+	unique_ptr<ISubUrl> subUrl = make_unique<SubUrl<ApiType::CHAMPION_CHAMPIONS_BY_ID>>(3);
 
-	cout << url.GetUrlFormat() << endl;
+	FullUrl url(RegionalEndpoint::KR, subUrl);
+
+	cout << url.GetUrl() << endl;
 
 	return 0;
 }

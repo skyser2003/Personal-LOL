@@ -1,14 +1,19 @@
 #pragma once
 
-#include "ApiType.h"
+#include <string>
 
 namespace RiotApi
 {
-	enum class ApiType;
-
-	template <template <ApiType> class Component, ApiType type>
-	class SubUrl
+	class ISubUrl
 	{
 	public:
+		virtual ~ISubUrl() = default;
+		virtual std::string GetUrl() const = 0;
 	};
+
+	enum class ApiType;
+
+	// Declaration only
+	template <ApiType type>
+	class SubUrl;
 }

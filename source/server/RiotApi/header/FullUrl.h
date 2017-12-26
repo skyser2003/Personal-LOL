@@ -1,8 +1,10 @@
 #pragma once
 
 #include <string>
+#include <memory>
 
 #include "RegionalEndpoint.h"
+#include "SubUrl.h"
 
 namespace RiotApi
 {
@@ -11,11 +13,16 @@ namespace RiotApi
 	class FullUrl
 	{
 	public:
-		FullUrl(RegionalEndpoint endpoint);
+		~FullUrl();
 
 		static std::string GetUrlFormat();
+
+		explicit FullUrl(RegionalEndpoint endpoint, std::unique_ptr<ISubUrl>& subUrl);
+
+		std::string GetUrl() const;
 		
 	private:
 		RegionalEndpoint endpoint;
+		std::unique_ptr<ISubUrl> subUrl;
 	};
 }

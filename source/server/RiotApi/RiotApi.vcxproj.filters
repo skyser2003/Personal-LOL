@@ -50,5 +50,8 @@
     <ClCompile Include="src\FullUrl.cpp">
       <Filter>FullUrl</Filter>
     </ClCompile>
+    <ClCompile Include="src\ChampionSubUrl.cpp">
+      <Filter>SubUrl</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
