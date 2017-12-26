@@ -72,7 +72,6 @@
     <ClInclude Include="header\ChampionSubUrl.h" />
     <ClInclude Include="header\FullUrl.h" />
     <ClInclude Include="header\RegionalEndpoint.h" />
-    <ClInclude Include="header\ServerRegion.h" />
     <ClInclude Include="header\SubUrl.h" />
     <ClInclude Include="pch\stdafx.h" />
   </ItemGroup>

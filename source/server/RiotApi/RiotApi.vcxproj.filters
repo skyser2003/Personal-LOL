@@ -21,9 +21,6 @@
     <ClInclude Include="header\RegionalEndpoint.h">
       <Filter>Static</Filter>
     </ClInclude>
-    <ClInclude Include="header\ServerRegion.h">
-      <Filter>Static</Filter>
-    </ClInclude>
     <ClInclude Include="header\ApiType.h">
       <Filter>Static</Filter>
     </ClInclude>
