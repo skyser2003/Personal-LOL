@@ -1,5 +1,4 @@
-#include <iostream>
-#include <memory>
+#include "stdafx.h"
 #include "FullUrl.h"
 #include "ChampionSubUrl.h"
 
