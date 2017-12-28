@@ -2,7 +2,6 @@
 #include "WebServer.h"
 
 #include <fstream>
-#include <sstream>
 
 WebServer::WebServer(int port) : port(port), app(new decltype(app)::element_type)
 {
