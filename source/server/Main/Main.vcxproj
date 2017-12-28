@@ -115,6 +115,9 @@
     <ClInclude Include="header\WebServer.h" />
     <ClInclude Include="pch\stdafx.h" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="html\template\main.mustache" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

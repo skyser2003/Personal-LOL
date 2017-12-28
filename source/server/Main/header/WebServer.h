@@ -23,7 +23,7 @@ public:
 	void Run();
 
 	// Routes
-	std::string Test();
+	std::string Test() const;
 
 private:
 	int port;

@@ -27,6 +27,12 @@
     <Filter Include="WebServer">
       <UniqueIdentifier>{549849be-4c05-4556-a6e0-c5b05c0d1af8}</UniqueIdentifier>
     </Filter>
+    <Filter Include="html">
+      <UniqueIdentifier>{7850fa53-27ea-4af2-93fb-45eaab97b58b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="html\template">
+      <UniqueIdentifier>{896b6570-cd3b-4a47-a29e-f0f0caac8f4d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch\stdafx.h">
@@ -104,5 +110,10 @@
     <ClInclude Include="header\WebServer.h">
       <Filter>WebServer</Filter>
     </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="html\template\main.mustache">
+      <Filter>html\template</Filter>
+    </None>
   </ItemGroup>
 </Project>
