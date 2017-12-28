@@ -15,10 +15,85 @@
     <Filter Include="Main">
       <UniqueIdentifier>{1a502fd9-268b-41c4-897d-2d1a2f5f54d4}</UniqueIdentifier>
     </Filter>
+    <Filter Include="crow">
+      <UniqueIdentifier>{65dd63c8-2a4c-4af6-b074-bc66b5f0880f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="crow\crow">
+      <UniqueIdentifier>{6811006f-a295-4504-a937-f8bc9f2a58ed}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch\stdafx.h">
       <Filter>pch</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\crow-master\include\crow.h">
+      <Filter>crow</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\crow-master\include\crow\app.h">
+      <Filter>crow\crow</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\crow-master\include\crow\ci_map.h">
+      <Filter>crow\crow</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\crow-master\include\crow\common.h">
+      <Filter>crow\crow</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\crow-master\include\crow\dumb_timer_queue.h">
+      <Filter>crow\crow</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\crow-master\include\crow\http_connection.h">
+      <Filter>crow\crow</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\crow-master\include\crow\http_parser_merged.h">
+      <Filter>crow\crow</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\crow-master\include\crow\http_request.h">
+      <Filter>crow\crow</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\crow-master\include\crow\http_response.h">
+      <Filter>crow\crow</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\crow-master\include\crow\http_server.h">
+      <Filter>crow\crow</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\crow-master\include\crow\json.h">
+      <Filter>crow\crow</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\crow-master\include\crow\logging.h">
+      <Filter>crow\crow</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\crow-master\include\crow\middleware.h">
+      <Filter>crow\crow</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\crow-master\include\crow\middleware_context.h">
+      <Filter>crow\crow</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\crow-master\include\crow\mustache.h">
+      <Filter>crow\crow</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\crow-master\include\crow\parser.h">
+      <Filter>crow\crow</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\crow-master\include\crow\query_string.h">
+      <Filter>crow\crow</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\crow-master\include\crow\routing.h">
+      <Filter>crow\crow</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\crow-master\include\crow\settings.h">
+      <Filter>crow\crow</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\crow-master\include\crow\socket_adaptors.h">
+      <Filter>crow\crow</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\crow-master\include\crow\TinySHA1.hpp">
+      <Filter>crow\crow</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\crow-master\include\crow\utility.h">
+      <Filter>crow\crow</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\crow-master\include\crow\websocket.h">
+      <Filter>crow\crow</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

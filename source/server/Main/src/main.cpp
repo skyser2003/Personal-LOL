@@ -3,8 +3,6 @@
 #include "FullUrl.h"
 #include "ChampionSubUrl.h"
 
-#include "Server.h"
-
 using namespace std;
 using namespace RiotApi;
 
