@@ -10,6 +10,9 @@
     <ClCompile Include="src\WebServer.cpp">
       <Filter>WebServer</Filter>
     </ClCompile>
+    <ClCompile Include="src\WebClient.cpp">
+      <Filter>WebClient</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="pch">
@@ -32,6 +35,9 @@
     </Filter>
     <Filter Include="html\template">
       <UniqueIdentifier>{896b6570-cd3b-4a47-a29e-f0f0caac8f4d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="WebClient">
+      <UniqueIdentifier>{0b19f8cc-f765-4f3f-8e6f-e2bd8ad041b7}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -109,6 +115,9 @@
     </ClInclude>
     <ClInclude Include="header\WebServer.h">
       <Filter>WebServer</Filter>
+    </ClInclude>
+    <ClInclude Include="header\WebClient.h">
+      <Filter>WebClient</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
