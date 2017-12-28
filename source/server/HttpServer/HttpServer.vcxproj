@@ -50,7 +50,8 @@
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>Use</PrecompiledHeader>
-      <AdditionalIncludeDirectories>pch;header;../external/boost;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>pch;header;../external/boost;../external/crow;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_SCL_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -62,7 +63,8 @@
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>Use</PrecompiledHeader>
-      <AdditionalIncludeDirectories>pch;header;../external/boost;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>pch;header;../external/boost;../external/crow;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_SCL_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
@@ -70,6 +72,29 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="..\external\crow\crow.h" />
+    <ClInclude Include="..\external\crow\crow\app.h" />
+    <ClInclude Include="..\external\crow\crow\ci_map.h" />
+    <ClInclude Include="..\external\crow\crow\common.h" />
+    <ClInclude Include="..\external\crow\crow\dumb_timer_queue.h" />
+    <ClInclude Include="..\external\crow\crow\http_connection.h" />
+    <ClInclude Include="..\external\crow\crow\http_parser_merged.h" />
+    <ClInclude Include="..\external\crow\crow\http_request.h" />
+    <ClInclude Include="..\external\crow\crow\http_response.h" />
+    <ClInclude Include="..\external\crow\crow\http_server.h" />
+    <ClInclude Include="..\external\crow\crow\json.h" />
+    <ClInclude Include="..\external\crow\crow\logging.h" />
+    <ClInclude Include="..\external\crow\crow\middleware.h" />
+    <ClInclude Include="..\external\crow\crow\middleware_context.h" />
+    <ClInclude Include="..\external\crow\crow\mustache.h" />
+    <ClInclude Include="..\external\crow\crow\parser.h" />
+    <ClInclude Include="..\external\crow\crow\query_string.h" />
+    <ClInclude Include="..\external\crow\crow\routing.h" />
+    <ClInclude Include="..\external\crow\crow\settings.h" />
+    <ClInclude Include="..\external\crow\crow\socket_adaptors.h" />
+    <ClInclude Include="..\external\crow\crow\TinySHA1.hpp" />
+    <ClInclude Include="..\external\crow\crow\utility.h" />
+    <ClInclude Include="..\external\crow\crow\websocket.h" />
     <ClInclude Include="header\Server.h" />
     <ClInclude Include="pch\stdafx.h" />
   </ItemGroup>
