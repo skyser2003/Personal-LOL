@@ -4,7 +4,6 @@
 #include "ChampionSubUrl.h"
 
 #include "Server.h"
-#include <boost/asio/io_context.hpp>
 
 using namespace std;
 using namespace RiotApi;
@@ -16,10 +15,6 @@ int main()
 	FullUrl url(RegionalEndpoint::KR, subUrl);
 
 	cout << url.GetUrl() << endl;
-
-	boost::asio::io_context ioc{ 8 };
-
-	HttpServer::Server server{ ioc };
 
 	return 0;
 }
