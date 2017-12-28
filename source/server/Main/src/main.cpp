@@ -17,7 +17,7 @@ int main()
 
 	if (input.is_open())
 	{
-		std::string jsonStr{ std::istreambuf_iterator<char>(input), std::istreambuf_iterator<char>() };
+		string jsonStr{ istreambuf_iterator<char>(input), istreambuf_iterator<char>() };
 
 		auto json = crow::json::load(jsonStr);
 		apiKey = json["key"].s();
