@@ -7,6 +7,9 @@
     <ClCompile Include="src\main.cpp">
       <Filter>Main</Filter>
     </ClCompile>
+    <ClCompile Include="src\WebServer.cpp">
+      <Filter>WebServer</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="pch">
@@ -20,6 +23,9 @@
     </Filter>
     <Filter Include="crow\crow">
       <UniqueIdentifier>{6811006f-a295-4504-a937-f8bc9f2a58ed}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="WebServer">
+      <UniqueIdentifier>{549849be-4c05-4556-a6e0-c5b05c0d1af8}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -94,6 +100,9 @@
     </ClInclude>
     <ClInclude Include="..\..\..\..\crow-master\include\crow\websocket.h">
       <Filter>crow\crow</Filter>
+    </ClInclude>
+    <ClInclude Include="header\WebServer.h">
+      <Filter>WebServer</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

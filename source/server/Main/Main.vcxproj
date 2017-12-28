@@ -81,6 +81,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\WebServer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\RiotApi\RiotApi.vcxproj">
@@ -111,6 +112,7 @@
     <ClInclude Include="..\..\..\..\crow-master\include\crow\TinySHA1.hpp" />
     <ClInclude Include="..\..\..\..\crow-master\include\crow\utility.h" />
     <ClInclude Include="..\..\..\..\crow-master\include\crow\websocket.h" />
+    <ClInclude Include="header\WebServer.h" />
     <ClInclude Include="pch\stdafx.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
