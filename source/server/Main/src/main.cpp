@@ -4,6 +4,7 @@
 #include "ChampionSubUrl.h"
 
 #include "WebServer.h"
+#include "WebClient.h"
 
 using namespace std;
 using namespace RiotApi;
@@ -25,10 +26,14 @@ int main()
 
 	// API url
 	unique_ptr<ISubUrl> subUrl = make_unique<SubUrl<ApiType::CHAMPION_CHAMPIONS_BY_ID>>(3);
-	FullUrl url(RegionalEndpoint::KR, subUrl);
+	FullUrl url(apiKey, RegionalEndpoint::KR, subUrl);
 
-	cout << url.GetUrl() + "?api_key=" + apiKey << endl;
+	cout << url.GetUrl() << endl;
 
+	// Get API data
+	WebClient client;
+	client.Get(url.GetUrl());
+	
 	// Web server
 	WebServer server(8080);
 	server.Run();

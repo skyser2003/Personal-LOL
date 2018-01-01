@@ -8,7 +8,7 @@ public:
 	WebClient();
 	~WebClient();
 
-	void Fetch(const std::string& url);
+	std::string Get(const std::string& url);
 
 private:
 	CURL* curl;

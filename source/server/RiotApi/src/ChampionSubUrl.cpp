@@ -11,7 +11,7 @@ namespace RiotApi
 
 	std::string ImplChamp::GetUrl() const
 	{
-		return "/lol/platform/v3/champions/";
+		return "platform/v3/champions/";
 	}
 
 	// Champions by id
@@ -24,6 +24,6 @@ namespace RiotApi
 
 	std::string ImplChampById::GetUrl() const
 	{
-		return "/lol/platform/v3/champions/" + id;
+		return (boost::format("platform/v3/champions/%d") % id).str();
 	}
 }

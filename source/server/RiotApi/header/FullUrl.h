@@ -16,13 +16,13 @@ namespace RiotApi
 		~FullUrl();
 
 		static std::string GetUrlFormat();
+		static std::string GetUrl(const std::string& apiKey, RegionalEndpoint endpoint, std::unique_ptr<ISubUrl>& subUrl);
 
-		explicit FullUrl(RegionalEndpoint endpoint, std::unique_ptr<ISubUrl>& subUrl);
+		explicit FullUrl(const std::string& apiKey, RegionalEndpoint endpoint, std::unique_ptr<ISubUrl>& subUrl);
 
 		std::string GetUrl() const;
 		
 	private:
-		RegionalEndpoint endpoint;
-		std::unique_ptr<ISubUrl> subUrl;
+		std::string url;
 	};
 }
