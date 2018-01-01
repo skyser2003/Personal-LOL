@@ -71,6 +71,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="header\ApiType.h" />
+    <ClInclude Include="header\ChampionMasterySuburl.h" />
     <ClInclude Include="header\ChampionSubUrl.h" />
     <ClInclude Include="header\FullUrl.h" />
     <ClInclude Include="header\RegionalEndpoint.h" />
@@ -82,6 +83,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="src\ChampionMasterySubUrl.cpp" />
     <ClCompile Include="src\ChampionSubUrl.cpp" />
     <ClCompile Include="src\FullUrl.cpp" />
     <ClCompile Include="src\RegionalEndpoint.cpp" />
