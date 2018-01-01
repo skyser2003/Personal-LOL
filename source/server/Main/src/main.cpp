@@ -32,7 +32,10 @@ int main()
 
 	// Get API data
 	WebClient client;
-	client.Get(url.GetUrl());
+	const auto ret = client.Get(url.GetUrl());
+	auto jsonVal = crow::json::load(ret);
+
+	cout << jsonVal.key();
 	
 	// Web server
 	WebServer server(8080);
