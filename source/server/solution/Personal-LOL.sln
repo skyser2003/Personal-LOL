@@ -7,6 +7,10 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Main", "..\Main\Main.vcxpro
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "RiotApi", "..\RiotApi\RiotApi.vcxproj", "{59999766-96C1-4709-A307-B2777D863926}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Server", "Server", "{0A140DE9-C8DE-48FD-9F8C-B8B40AC18524}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Client", "Client", "{290BC940-F32E-494B-A136-181DC038084D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -24,6 +28,10 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{9D04D30F-7D05-4BB5-98EB-12945747DDAE} = {0A140DE9-C8DE-48FD-9F8C-B8B40AC18524}
+		{59999766-96C1-4709-A307-B2777D863926} = {0A140DE9-C8DE-48FD-9F8C-B8B40AC18524}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {5D11FBB3-5D3C-43AD-9206-F986D2996CE0}
