@@ -38,7 +38,7 @@ int main()
 	cout << jsonVal.key();
 	
 	// Web server
-	WebServer server(8080);
+	WebServer server(8080, "../../client/main/dist/");
 	server.Run();
 
 	return 0;

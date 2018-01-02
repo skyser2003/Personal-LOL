@@ -3,12 +3,13 @@
 
 #include <fstream>
 
-WebServer::WebServer(int port) : port(port), app(new decltype(app)::element_type)
+WebServer::WebServer(int port, const std::string& rootPath) : port(port), app(new decltype(app)::element_type), rootPath(rootPath)
 {
-	app->port(port).multithreaded();
-
 	auto& localApp = *app;
-	CROW_ROUTE(localApp, "/test")(std::bind(&WebServer::Test, this));
+	localApp.port(port).multithreaded();
+
+	CROW_ROUTE(localApp, "/")(std::bind(&WebServer::Index, this));
+	CROW_ROUTE(localApp, "/<string>")(std::bind(&WebServer::Js, this, std::placeholders::_1));
 }
 
 WebServer::~WebServer()
@@ -20,17 +21,36 @@ void WebServer::Run()
 	app->run();
 }
 
-std::string WebServer::Test() const
+std::string WebServer::Index() const
 {
-	auto filename = "html/template/main.mustache";
+	auto filename = rootPath + "index.html";
 	std::ifstream input(filename);
-	std::string content {std::istreambuf_iterator<char>(input), std::istreambuf_iterator<char>()};
+	std::string content{ std::istreambuf_iterator<char>(input), std::istreambuf_iterator<char>() };
 	input.close();
 
-	auto t = crow::mustache::compile(content);
+	return content;
+}
 
-	crow::mustache::context ctx;
-	ctx["name"] = "Pikachu";
+crow::response WebServer::Js(const std::string jsFilename) const
+{
+	auto filename = rootPath + jsFilename;
+	std::ifstream input(filename);
+	std::string content{ std::istreambuf_iterator<char>(input), std::istreambuf_iterator<char>() };
+	input.close();
 
-	return t.render(ctx);
+	crow::response r;
+	r.add_header("Content-Type", "application/javascript");
+	r.body = content;
+
+	return r;
+}
+
+std::string WebServer::Css(const std::string cssFilename) const
+{
+	auto filename = rootPath + cssFilename;
+	std::ifstream input(filename);
+	std::string content{ std::istreambuf_iterator<char>(input), std::istreambuf_iterator<char>() };
+	input.close();
+
+	return content;
 }
