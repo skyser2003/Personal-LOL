@@ -26,6 +26,8 @@
     <Content Include="index.html" />
     <Content Include="package-lock.json" />
     <Content Include="package.json" />
+    <Content Include="src\components\Hello.vue" />
+    <Content Include="src\components\HelloDecorator.vue" />
     <Content Include="tsconfig.json" />
     <Content Include="tslint.json" />
     <Content Include="README.md" />
