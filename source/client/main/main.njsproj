@@ -5,7 +5,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{9b7bbcb8-32cb-433c-ad75-62c1f8ea203d}</ProjectGuid>
     <ProjectHome />
-    <ProjectView>ShowAllFiles</ProjectView>
+    <ProjectView>ProjectFiles</ProjectView>
     <StartupFile>karma.conf.js</StartupFile>
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
@@ -42,10 +42,10 @@
     <TypeScriptCompile Include="src\polyfills.ts" />
     <TypeScriptCompile Include="src\test.ts" />
     <TypeScriptCompile Include="src\typings.d.ts" />
-    <Content Include="src\app\app.component.html" />
-    <Content Include="src\app\app.component.css" />
+    <Content Include="src\app\component\template\app.component.html" />
+    <Content Include="src\app\component\css\app.component.css" />
     <TypeScriptCompile Include="src\app\app.component.spec.ts" />
-    <TypeScriptCompile Include="src\app\app.component.ts" />
+    <TypeScriptCompile Include="src\app\component\ts\app.component.ts" />
     <TypeScriptCompile Include="src\app\app.module.ts" />
     <TypeScriptCompile Include="src\environments\environment.prod.ts" />
     <TypeScriptCompile Include="src\environments\environment.ts" />
@@ -54,6 +54,10 @@
     <Folder Include="e2e" />
     <Folder Include="src" />
     <Folder Include="src\app" />
+    <Folder Include="src\app\component\" />
+    <Folder Include="src\app\component\css\" />
+    <Folder Include="src\app\component\template\" />
+    <Folder Include="src\app\component\ts\" />
     <Folder Include="src\assets" />
     <Folder Include="src\environments" />
   </ItemGroup>
