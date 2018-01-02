@@ -48,3 +48,6 @@
 
 # Boost
 source/server/external/boost/
+
+# Project
+source/client/Main/built/
