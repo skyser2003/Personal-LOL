@@ -30,12 +30,10 @@
     <Content Include="tslint.json" />
     <Content Include="README.md" />
     <Compile Include="webpack.config.js" />
-    <Compile Include="dist\build.js" />
     <TypeScriptCompile Include="src\index.ts" />
     <TypeScriptCompile Include="src\vue-shims.d.ts" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="dist" />
     <Folder Include="src" />
     <Folder Include="src\components" />
   </ItemGroup>
