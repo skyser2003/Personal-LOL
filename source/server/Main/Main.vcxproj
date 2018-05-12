@@ -52,6 +52,7 @@
       <AdditionalIncludeDirectories>pch;header;../RiotApi/header;../HttpServer/header;../external/boost;../external/crow;../external/libcurl/include;../external/libcurl/lib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PreprocessorDefinitions>_SCL_SECURE_NO_WARNINGS;BUILDING_LIBCURL;USE_SSL;USE_SCHANNEL;USE_WINDOWS_SSPI;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
     </ClCompile>
     <Link>
       <AdditionalLibraryDirectories>../external/boost/stage/lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
@@ -69,6 +70,7 @@
       <AdditionalIncludeDirectories>pch;header;../RiotApi/header;../HttpServer/header;../external/boost;../external/crow;../external/libcurl/include;../external/libcurl/lib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PreprocessorDefinitions>_SCL_SECURE_NO_WARNINGS;BUILDING_LIBCURL;USE_SSL;USE_SCHANNEL;USE_WINDOWS_SSPI;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
