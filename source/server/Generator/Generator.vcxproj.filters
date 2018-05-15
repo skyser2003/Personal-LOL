@@ -1,87 +1,35 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="pch\stdafx.cpp">
-      <Filter>pch</Filter>
-    </ClCompile>
-    <ClCompile Include="src\main.cpp">
-      <Filter>Main</Filter>
-    </ClCompile>
-    <ClCompile Include="src\WebClient.cpp">
-      <Filter>WebClient</Filter>
-    </ClCompile>
-    <ClCompile Include="..\external\libcurl\lib\vauth\cleartext.c">
-      <Filter>libcurl\lib\vauth</Filter>
-    </ClCompile>
-    <ClCompile Include="..\external\libcurl\lib\vauth\cram.c">
-      <Filter>libcurl\lib\vauth</Filter>
-    </ClCompile>
-    <ClCompile Include="..\external\libcurl\lib\vauth\digest.c">
-      <Filter>libcurl\lib\vauth</Filter>
-    </ClCompile>
-    <ClCompile Include="..\external\libcurl\lib\vauth\digest_sspi.c">
-      <Filter>libcurl\lib\vauth</Filter>
-    </ClCompile>
-    <ClCompile Include="..\external\libcurl\lib\vauth\krb5_gssapi.c">
-      <Filter>libcurl\lib\vauth</Filter>
-    </ClCompile>
-    <ClCompile Include="..\external\libcurl\lib\vauth\krb5_sspi.c">
-      <Filter>libcurl\lib\vauth</Filter>
-    </ClCompile>
-    <ClCompile Include="..\external\libcurl\lib\vauth\ntlm.c">
-      <Filter>libcurl\lib\vauth</Filter>
-    </ClCompile>
-    <ClCompile Include="..\external\libcurl\lib\vauth\ntlm_sspi.c">
-      <Filter>libcurl\lib\vauth</Filter>
-    </ClCompile>
-    <ClCompile Include="..\external\libcurl\lib\vauth\oauth2.c">
-      <Filter>libcurl\lib\vauth</Filter>
-    </ClCompile>
-    <ClCompile Include="..\external\libcurl\lib\vauth\spnego_gssapi.c">
-      <Filter>libcurl\lib\vauth</Filter>
-    </ClCompile>
-    <ClCompile Include="..\external\libcurl\lib\vauth\spnego_sspi.c">
-      <Filter>libcurl\lib\vauth</Filter>
-    </ClCompile>
-    <ClCompile Include="..\external\libcurl\lib\vauth\vauth.c">
-      <Filter>libcurl\lib\vauth</Filter>
-    </ClCompile>
-    <ClCompile Include="..\external\libcurl\lib\vtls\darwinssl.c">
-      <Filter>libcurl\lib\vtls</Filter>
-    </ClCompile>
-    <ClCompile Include="..\external\libcurl\lib\vtls\gskit.c">
-      <Filter>libcurl\lib\vtls</Filter>
-    </ClCompile>
-    <ClCompile Include="..\external\libcurl\lib\vtls\gtls.c">
-      <Filter>libcurl\lib\vtls</Filter>
-    </ClCompile>
-    <ClCompile Include="..\external\libcurl\lib\vtls\mbedtls.c">
-      <Filter>libcurl\lib\vtls</Filter>
-    </ClCompile>
-    <ClCompile Include="..\external\libcurl\lib\vtls\nss.c">
-      <Filter>libcurl\lib\vtls</Filter>
-    </ClCompile>
-    <ClCompile Include="..\external\libcurl\lib\vtls\openssl.c">
-      <Filter>libcurl\lib\vtls</Filter>
-    </ClCompile>
-    <ClCompile Include="..\external\libcurl\lib\vtls\polarssl.c">
-      <Filter>libcurl\lib\vtls</Filter>
-    </ClCompile>
-    <ClCompile Include="..\external\libcurl\lib\vtls\polarssl_threadlock.c">
-      <Filter>libcurl\lib\vtls</Filter>
-    </ClCompile>
-    <ClCompile Include="..\external\libcurl\lib\vtls\schannel.c">
-      <Filter>libcurl\lib\vtls</Filter>
-    </ClCompile>
-    <ClCompile Include="..\external\libcurl\lib\vtls\vtls.c">
-      <Filter>libcurl\lib\vtls</Filter>
-    </ClCompile>
-    <ClCompile Include="..\external\libcurl\lib\vtls\axtls.c">
-      <Filter>libcurl\lib\vtls</Filter>
-    </ClCompile>
-    <ClCompile Include="..\external\libcurl\lib\vtls\cyassl.c">
-      <Filter>libcurl\lib\vtls</Filter>
-    </ClCompile>
+    <Filter Include="pch">
+      <UniqueIdentifier>{30127aa5-9b97-4b28-9133-b7618bdafd08}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="WebClient">
+      <UniqueIdentifier>{5817cbaf-9992-49e4-83a0-9d3974b6fe4f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main">
+      <UniqueIdentifier>{f68dfc63-2ab3-4aaa-bcb4-201b9693f1a6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="libcurl">
+      <UniqueIdentifier>{4b512e05-fcfe-4775-a49c-48b78e7e4704}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="libcurl\lib">
+      <UniqueIdentifier>{226d7f6d-c7be-4019-88b0-d635b8021803}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="libcurl\lib\vauth">
+      <UniqueIdentifier>{08b49e8b-9ba9-4887-8532-67cc45e8071c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="libcurl\lib\vtls">
+      <UniqueIdentifier>{72b0f8e4-ea4a-4817-bb09-72e1b09faebd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="libcurl\include">
+      <UniqueIdentifier>{b24f14cf-1c4c-40fa-bcef-00b3a0960bbc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="libcurl\include\curl">
+      <UniqueIdentifier>{962e7022-cefc-4e8d-b4b9-4f57709f1429}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
     <ClCompile Include="..\external\libcurl\lib\amigaos.c">
       <Filter>libcurl\lib</Filter>
     </ClCompile>
@@ -211,6 +159,9 @@
     <ClCompile Include="..\external\libcurl\lib\http.c">
       <Filter>libcurl\lib</Filter>
     </ClCompile>
+    <ClCompile Include="..\external\libcurl\lib\http2.c">
+      <Filter>libcurl\lib</Filter>
+    </ClCompile>
     <ClCompile Include="..\external\libcurl\lib\http_chunks.c">
       <Filter>libcurl\lib</Filter>
     </ClCompile>
@@ -224,9 +175,6 @@
       <Filter>libcurl\lib</Filter>
     </ClCompile>
     <ClCompile Include="..\external\libcurl\lib\http_proxy.c">
-      <Filter>libcurl\lib</Filter>
-    </ClCompile>
-    <ClCompile Include="..\external\libcurl\lib\http2.c">
       <Filter>libcurl\lib</Filter>
     </ClCompile>
     <ClCompile Include="..\external\libcurl\lib\idn_win32.c">
@@ -400,157 +348,89 @@
     <ClCompile Include="..\external\libcurl\lib\x509asn1.c">
       <Filter>libcurl\lib</Filter>
     </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <Filter Include="pch">
-      <UniqueIdentifier>{4e8e720f-83ae-4f46-b691-7d2b96f29578}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Main">
-      <UniqueIdentifier>{1a502fd9-268b-41c4-897d-2d1a2f5f54d4}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="WebClient">
-      <UniqueIdentifier>{0b19f8cc-f765-4f3f-8e6f-e2bd8ad041b7}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="libcurl">
-      <UniqueIdentifier>{071544ae-82ac-4ee5-8aa0-c74740673c80}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="libcurl\lib">
-      <UniqueIdentifier>{025e8526-d760-4904-ad24-2875beede9d8}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="libcurl\include">
-      <UniqueIdentifier>{4161fd28-b0c6-40fd-9de2-09380265ed8b}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="libcurl\include\curl">
-      <UniqueIdentifier>{563e9209-a1be-4108-a038-0488420823cc}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="libcurl\lib\vauth">
-      <UniqueIdentifier>{3cc95122-7de4-4818-a7c3-44f6a0f4e7ad}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="libcurl\lib\vtls">
-      <UniqueIdentifier>{786c1d84-201e-4402-87b4-2be49862c4d3}</UniqueIdentifier>
-    </Filter>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="pch\stdafx.h">
+    <ClCompile Include="..\external\libcurl\lib\vauth\cleartext.c">
+      <Filter>libcurl\lib\vauth</Filter>
+    </ClCompile>
+    <ClCompile Include="..\external\libcurl\lib\vauth\cram.c">
+      <Filter>libcurl\lib\vauth</Filter>
+    </ClCompile>
+    <ClCompile Include="..\external\libcurl\lib\vauth\digest.c">
+      <Filter>libcurl\lib\vauth</Filter>
+    </ClCompile>
+    <ClCompile Include="..\external\libcurl\lib\vauth\digest_sspi.c">
+      <Filter>libcurl\lib\vauth</Filter>
+    </ClCompile>
+    <ClCompile Include="..\external\libcurl\lib\vauth\krb5_gssapi.c">
+      <Filter>libcurl\lib\vauth</Filter>
+    </ClCompile>
+    <ClCompile Include="..\external\libcurl\lib\vauth\krb5_sspi.c">
+      <Filter>libcurl\lib\vauth</Filter>
+    </ClCompile>
+    <ClCompile Include="..\external\libcurl\lib\vauth\ntlm.c">
+      <Filter>libcurl\lib\vauth</Filter>
+    </ClCompile>
+    <ClCompile Include="..\external\libcurl\lib\vauth\ntlm_sspi.c">
+      <Filter>libcurl\lib\vauth</Filter>
+    </ClCompile>
+    <ClCompile Include="..\external\libcurl\lib\vauth\oauth2.c">
+      <Filter>libcurl\lib\vauth</Filter>
+    </ClCompile>
+    <ClCompile Include="..\external\libcurl\lib\vauth\spnego_gssapi.c">
+      <Filter>libcurl\lib\vauth</Filter>
+    </ClCompile>
+    <ClCompile Include="..\external\libcurl\lib\vauth\spnego_sspi.c">
+      <Filter>libcurl\lib\vauth</Filter>
+    </ClCompile>
+    <ClCompile Include="..\external\libcurl\lib\vauth\vauth.c">
+      <Filter>libcurl\lib\vauth</Filter>
+    </ClCompile>
+    <ClCompile Include="..\external\libcurl\lib\vtls\axtls.c">
+      <Filter>libcurl\lib\vtls</Filter>
+    </ClCompile>
+    <ClCompile Include="..\external\libcurl\lib\vtls\cyassl.c">
+      <Filter>libcurl\lib\vtls</Filter>
+    </ClCompile>
+    <ClCompile Include="..\external\libcurl\lib\vtls\darwinssl.c">
+      <Filter>libcurl\lib\vtls</Filter>
+    </ClCompile>
+    <ClCompile Include="..\external\libcurl\lib\vtls\gskit.c">
+      <Filter>libcurl\lib\vtls</Filter>
+    </ClCompile>
+    <ClCompile Include="..\external\libcurl\lib\vtls\gtls.c">
+      <Filter>libcurl\lib\vtls</Filter>
+    </ClCompile>
+    <ClCompile Include="..\external\libcurl\lib\vtls\mbedtls.c">
+      <Filter>libcurl\lib\vtls</Filter>
+    </ClCompile>
+    <ClCompile Include="..\external\libcurl\lib\vtls\nss.c">
+      <Filter>libcurl\lib\vtls</Filter>
+    </ClCompile>
+    <ClCompile Include="..\external\libcurl\lib\vtls\openssl.c">
+      <Filter>libcurl\lib\vtls</Filter>
+    </ClCompile>
+    <ClCompile Include="..\external\libcurl\lib\vtls\polarssl.c">
+      <Filter>libcurl\lib\vtls</Filter>
+    </ClCompile>
+    <ClCompile Include="..\external\libcurl\lib\vtls\polarssl_threadlock.c">
+      <Filter>libcurl\lib\vtls</Filter>
+    </ClCompile>
+    <ClCompile Include="..\external\libcurl\lib\vtls\schannel.c">
+      <Filter>libcurl\lib\vtls</Filter>
+    </ClCompile>
+    <ClCompile Include="..\external\libcurl\lib\vtls\vtls.c">
+      <Filter>libcurl\lib\vtls</Filter>
+    </ClCompile>
+    <ClCompile Include="pch\stdafx.cpp">
       <Filter>pch</Filter>
-    </ClInclude>
-    <ClInclude Include="header\WebClient.h">
+    </ClCompile>
+    <ClCompile Include="src\WebClient.cpp">
       <Filter>WebClient</Filter>
-    </ClInclude>
-    <ClInclude Include="..\external\libcurl\include\curl\curl.h">
-      <Filter>libcurl\include\curl</Filter>
-    </ClInclude>
-    <ClInclude Include="..\external\libcurl\include\curl\curlver.h">
-      <Filter>libcurl\include\curl</Filter>
-    </ClInclude>
-    <ClInclude Include="..\external\libcurl\include\curl\easy.h">
-      <Filter>libcurl\include\curl</Filter>
-    </ClInclude>
-    <ClInclude Include="..\external\libcurl\include\curl\mprintf.h">
-      <Filter>libcurl\include\curl</Filter>
-    </ClInclude>
-    <ClInclude Include="..\external\libcurl\include\curl\multi.h">
-      <Filter>libcurl\include\curl</Filter>
-    </ClInclude>
-    <ClInclude Include="..\external\libcurl\include\curl\stdcheaders.h">
-      <Filter>libcurl\include\curl</Filter>
-    </ClInclude>
-    <ClInclude Include="..\external\libcurl\include\curl\system.h">
-      <Filter>libcurl\include\curl</Filter>
-    </ClInclude>
-    <ClInclude Include="..\external\libcurl\include\curl\typecheck-gcc.h">
-      <Filter>libcurl\include\curl</Filter>
-    </ClInclude>
-    <ClInclude Include="..\external\libcurl\lib\vauth\digest.h">
-      <Filter>libcurl\lib\vauth</Filter>
-    </ClInclude>
-    <ClInclude Include="..\external\libcurl\lib\vauth\ntlm.h">
-      <Filter>libcurl\lib\vauth</Filter>
-    </ClInclude>
-    <ClInclude Include="..\external\libcurl\lib\vauth\vauth.h">
-      <Filter>libcurl\lib\vauth</Filter>
-    </ClInclude>
-    <ClInclude Include="..\external\libcurl\lib\vtls\cyassl.h">
-      <Filter>libcurl\lib\vtls</Filter>
-    </ClInclude>
-    <ClInclude Include="..\external\libcurl\lib\vtls\darwinssl.h">
-      <Filter>libcurl\lib\vtls</Filter>
-    </ClInclude>
-    <ClInclude Include="..\external\libcurl\lib\vtls\gskit.h">
-      <Filter>libcurl\lib\vtls</Filter>
-    </ClInclude>
-    <ClInclude Include="..\external\libcurl\lib\vtls\gtls.h">
-      <Filter>libcurl\lib\vtls</Filter>
-    </ClInclude>
-    <ClInclude Include="..\external\libcurl\lib\vtls\mbedtls.h">
-      <Filter>libcurl\lib\vtls</Filter>
-    </ClInclude>
-    <ClInclude Include="..\external\libcurl\lib\vtls\nssg.h">
-      <Filter>libcurl\lib\vtls</Filter>
-    </ClInclude>
-    <ClInclude Include="..\external\libcurl\lib\vtls\openssl.h">
-      <Filter>libcurl\lib\vtls</Filter>
-    </ClInclude>
-    <ClInclude Include="..\external\libcurl\lib\vtls\polarssl.h">
-      <Filter>libcurl\lib\vtls</Filter>
-    </ClInclude>
-    <ClInclude Include="..\external\libcurl\lib\vtls\polarssl_threadlock.h">
-      <Filter>libcurl\lib\vtls</Filter>
-    </ClInclude>
-    <ClInclude Include="..\external\libcurl\lib\vtls\schannel.h">
-      <Filter>libcurl\lib\vtls</Filter>
-    </ClInclude>
-    <ClInclude Include="..\external\libcurl\lib\vtls\vtls.h">
-      <Filter>libcurl\lib\vtls</Filter>
-    </ClInclude>
-    <ClInclude Include="..\external\libcurl\lib\vtls\axtls.h">
-      <Filter>libcurl\lib\vtls</Filter>
-    </ClInclude>
-    <ClInclude Include="..\external\libcurl\lib\strcase.h">
-      <Filter>libcurl\lib</Filter>
-    </ClInclude>
-    <ClInclude Include="..\external\libcurl\lib\strdup.h">
-      <Filter>libcurl\lib</Filter>
-    </ClInclude>
-    <ClInclude Include="..\external\libcurl\lib\strerror.h">
-      <Filter>libcurl\lib</Filter>
-    </ClInclude>
-    <ClInclude Include="..\external\libcurl\lib\strtok.h">
-      <Filter>libcurl\lib</Filter>
-    </ClInclude>
-    <ClInclude Include="..\external\libcurl\lib\strtoofft.h">
-      <Filter>libcurl\lib</Filter>
-    </ClInclude>
-    <ClInclude Include="..\external\libcurl\lib\system_win32.h">
-      <Filter>libcurl\lib</Filter>
-    </ClInclude>
-    <ClInclude Include="..\external\libcurl\lib\telnet.h">
-      <Filter>libcurl\lib</Filter>
-    </ClInclude>
-    <ClInclude Include="..\external\libcurl\lib\tftp.h">
-      <Filter>libcurl\lib</Filter>
-    </ClInclude>
-    <ClInclude Include="..\external\libcurl\lib\timeval.h">
-      <Filter>libcurl\lib</Filter>
-    </ClInclude>
-    <ClInclude Include="..\external\libcurl\lib\transfer.h">
-      <Filter>libcurl\lib</Filter>
-    </ClInclude>
-    <ClInclude Include="..\external\libcurl\lib\url.h">
-      <Filter>libcurl\lib</Filter>
-    </ClInclude>
-    <ClInclude Include="..\external\libcurl\lib\urldata.h">
-      <Filter>libcurl\lib</Filter>
-    </ClInclude>
-    <ClInclude Include="..\external\libcurl\lib\warnless.h">
-      <Filter>libcurl\lib</Filter>
-    </ClInclude>
-    <ClInclude Include="..\external\libcurl\lib\wildcard.h">
-      <Filter>libcurl\lib</Filter>
-    </ClInclude>
-    <ClInclude Include="..\external\libcurl\lib\x509asn1.h">
-      <Filter>libcurl\lib</Filter>
-    </ClInclude>
+    </ClCompile>
+    <ClCompile Include="src\main.cpp">
+      <Filter>Main</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
     <ClInclude Include="..\external\libcurl\lib\amigaos.h">
       <Filter>libcurl\lib</Filter>
     </ClInclude>
@@ -600,6 +480,9 @@
       <Filter>libcurl\lib</Filter>
     </ClInclude>
     <ClInclude Include="..\external\libcurl\lib\cookie.h">
+      <Filter>libcurl\lib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\external\libcurl\lib\curlx.h">
       <Filter>libcurl\lib</Filter>
     </ClInclude>
     <ClInclude Include="..\external\libcurl\lib\curl_addrinfo.h">
@@ -677,9 +560,6 @@
     <ClInclude Include="..\external\libcurl\lib\curl_threads.h">
       <Filter>libcurl\lib</Filter>
     </ClInclude>
-    <ClInclude Include="..\external\libcurl\lib\curlx.h">
-      <Filter>libcurl\lib</Filter>
-    </ClInclude>
     <ClInclude Include="..\external\libcurl\lib\dict.h">
       <Filter>libcurl\lib</Filter>
     </ClInclude>
@@ -725,6 +605,9 @@
     <ClInclude Include="..\external\libcurl\lib\http.h">
       <Filter>libcurl\lib</Filter>
     </ClInclude>
+    <ClInclude Include="..\external\libcurl\lib\http2.h">
+      <Filter>libcurl\lib</Filter>
+    </ClInclude>
     <ClInclude Include="..\external\libcurl\lib\http_chunks.h">
       <Filter>libcurl\lib</Filter>
     </ClInclude>
@@ -738,9 +621,6 @@
       <Filter>libcurl\lib</Filter>
     </ClInclude>
     <ClInclude Include="..\external\libcurl\lib\http_proxy.h">
-      <Filter>libcurl\lib</Filter>
-    </ClInclude>
-    <ClInclude Include="..\external\libcurl\lib\http2.h">
       <Filter>libcurl\lib</Filter>
     </ClInclude>
     <ClInclude Include="..\external\libcurl\lib\if2ip.h">
@@ -844,6 +724,126 @@
     </ClInclude>
     <ClInclude Include="..\external\libcurl\lib\ssh.h">
       <Filter>libcurl\lib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\external\libcurl\lib\strcase.h">
+      <Filter>libcurl\lib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\external\libcurl\lib\strdup.h">
+      <Filter>libcurl\lib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\external\libcurl\lib\strerror.h">
+      <Filter>libcurl\lib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\external\libcurl\lib\strtok.h">
+      <Filter>libcurl\lib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\external\libcurl\lib\strtoofft.h">
+      <Filter>libcurl\lib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\external\libcurl\lib\system_win32.h">
+      <Filter>libcurl\lib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\external\libcurl\lib\telnet.h">
+      <Filter>libcurl\lib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\external\libcurl\lib\tftp.h">
+      <Filter>libcurl\lib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\external\libcurl\lib\timeval.h">
+      <Filter>libcurl\lib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\external\libcurl\lib\transfer.h">
+      <Filter>libcurl\lib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\external\libcurl\lib\url.h">
+      <Filter>libcurl\lib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\external\libcurl\lib\urldata.h">
+      <Filter>libcurl\lib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\external\libcurl\lib\warnless.h">
+      <Filter>libcurl\lib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\external\libcurl\lib\wildcard.h">
+      <Filter>libcurl\lib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\external\libcurl\lib\x509asn1.h">
+      <Filter>libcurl\lib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\external\libcurl\lib\vauth\digest.h">
+      <Filter>libcurl\lib\vauth</Filter>
+    </ClInclude>
+    <ClInclude Include="..\external\libcurl\lib\vauth\ntlm.h">
+      <Filter>libcurl\lib\vauth</Filter>
+    </ClInclude>
+    <ClInclude Include="..\external\libcurl\lib\vauth\vauth.h">
+      <Filter>libcurl\lib\vauth</Filter>
+    </ClInclude>
+    <ClInclude Include="..\external\libcurl\lib\vtls\axtls.h">
+      <Filter>libcurl\lib\vtls</Filter>
+    </ClInclude>
+    <ClInclude Include="..\external\libcurl\lib\vtls\cyassl.h">
+      <Filter>libcurl\lib\vtls</Filter>
+    </ClInclude>
+    <ClInclude Include="..\external\libcurl\lib\vtls\darwinssl.h">
+      <Filter>libcurl\lib\vtls</Filter>
+    </ClInclude>
+    <ClInclude Include="..\external\libcurl\lib\vtls\gskit.h">
+      <Filter>libcurl\lib\vtls</Filter>
+    </ClInclude>
+    <ClInclude Include="..\external\libcurl\lib\vtls\gtls.h">
+      <Filter>libcurl\lib\vtls</Filter>
+    </ClInclude>
+    <ClInclude Include="..\external\libcurl\lib\vtls\mbedtls.h">
+      <Filter>libcurl\lib\vtls</Filter>
+    </ClInclude>
+    <ClInclude Include="..\external\libcurl\lib\vtls\nssg.h">
+      <Filter>libcurl\lib\vtls</Filter>
+    </ClInclude>
+    <ClInclude Include="..\external\libcurl\lib\vtls\openssl.h">
+      <Filter>libcurl\lib\vtls</Filter>
+    </ClInclude>
+    <ClInclude Include="..\external\libcurl\lib\vtls\polarssl.h">
+      <Filter>libcurl\lib\vtls</Filter>
+    </ClInclude>
+    <ClInclude Include="..\external\libcurl\lib\vtls\polarssl_threadlock.h">
+      <Filter>libcurl\lib\vtls</Filter>
+    </ClInclude>
+    <ClInclude Include="..\external\libcurl\lib\vtls\schannel.h">
+      <Filter>libcurl\lib\vtls</Filter>
+    </ClInclude>
+    <ClInclude Include="..\external\libcurl\lib\vtls\vtls.h">
+      <Filter>libcurl\lib\vtls</Filter>
+    </ClInclude>
+    <ClInclude Include="..\external\libcurl\include\curl\curl.h">
+      <Filter>libcurl\include\curl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\external\libcurl\include\curl\curlver.h">
+      <Filter>libcurl\include\curl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\external\libcurl\include\curl\easy.h">
+      <Filter>libcurl\include\curl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\external\libcurl\include\curl\mprintf.h">
+      <Filter>libcurl\include\curl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\external\libcurl\include\curl\multi.h">
+      <Filter>libcurl\include\curl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\external\libcurl\include\curl\stdcheaders.h">
+      <Filter>libcurl\include\curl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\external\libcurl\include\curl\system.h">
+      <Filter>libcurl\include\curl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\external\libcurl\include\curl\typecheck-gcc.h">
+      <Filter>libcurl\include\curl</Filter>
+    </ClInclude>
+    <ClInclude Include="header\WebClient.h">
+      <Filter>WebClient</Filter>
+    </ClInclude>
+    <ClInclude Include="pch\stdafx.h">
+      <Filter>pch</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

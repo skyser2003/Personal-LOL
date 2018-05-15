@@ -3,39 +3,33 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27130.2010
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Main", "..\Main\Main.vcxproj", "{9D04D30F-7D05-4BB5-98EB-12945747DDAE}"
-EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "RiotApi", "..\RiotApi\RiotApi.vcxproj", "{59999766-96C1-4709-A307-B2777D863926}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Server", "Server", "{0A140DE9-C8DE-48FD-9F8C-B8B40AC18524}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Generator", "..\Generator\Generator.vcxproj", "{7936F7EF-2582-449D-B629-EF2A88178F6D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
-		Debug|Any CPU = Debug|Any CPU
 		Debug|x64 = Debug|x64
-		Release|Any CPU = Release|Any CPU
 		Release|x64 = Release|x64
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{9D04D30F-7D05-4BB5-98EB-12945747DDAE}.Debug|Any CPU.ActiveCfg = Debug|x64
-		{9D04D30F-7D05-4BB5-98EB-12945747DDAE}.Debug|x64.ActiveCfg = Debug|x64
-		{9D04D30F-7D05-4BB5-98EB-12945747DDAE}.Debug|x64.Build.0 = Debug|x64
-		{9D04D30F-7D05-4BB5-98EB-12945747DDAE}.Release|Any CPU.ActiveCfg = Release|x64
-		{9D04D30F-7D05-4BB5-98EB-12945747DDAE}.Release|x64.ActiveCfg = Release|x64
-		{9D04D30F-7D05-4BB5-98EB-12945747DDAE}.Release|x64.Build.0 = Release|x64
-		{59999766-96C1-4709-A307-B2777D863926}.Debug|Any CPU.ActiveCfg = Debug|x64
 		{59999766-96C1-4709-A307-B2777D863926}.Debug|x64.ActiveCfg = Debug|x64
 		{59999766-96C1-4709-A307-B2777D863926}.Debug|x64.Build.0 = Debug|x64
-		{59999766-96C1-4709-A307-B2777D863926}.Release|Any CPU.ActiveCfg = Release|x64
 		{59999766-96C1-4709-A307-B2777D863926}.Release|x64.ActiveCfg = Release|x64
 		{59999766-96C1-4709-A307-B2777D863926}.Release|x64.Build.0 = Release|x64
+		{7936F7EF-2582-449D-B629-EF2A88178F6D}.Debug|x64.ActiveCfg = Debug|x64
+		{7936F7EF-2582-449D-B629-EF2A88178F6D}.Debug|x64.Build.0 = Debug|x64
+		{7936F7EF-2582-449D-B629-EF2A88178F6D}.Release|x64.ActiveCfg = Release|x64
+		{7936F7EF-2582-449D-B629-EF2A88178F6D}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{9D04D30F-7D05-4BB5-98EB-12945747DDAE} = {0A140DE9-C8DE-48FD-9F8C-B8B40AC18524}
 		{59999766-96C1-4709-A307-B2777D863926} = {0A140DE9-C8DE-48FD-9F8C-B8B40AC18524}
+		{7936F7EF-2582-449D-B629-EF2A88178F6D} = {0A140DE9-C8DE-48FD-9F8C-B8B40AC18524}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {5D11FBB3-5D3C-43AD-9206-F986D2996CE0}
