@@ -9,10 +9,6 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "RiotApi", "..\RiotApi\RiotA
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Server", "Server", "{0A140DE9-C8DE-48FD-9F8C-B8B40AC18524}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Client", "Client", "{290BC940-F32E-494B-A136-181DC038084D}"
-EndProject
-Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "main", "..\..\client\main\main.njsproj", "{9B7BBCB8-32CB-433C-AD75-62C1F8EA203D}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,14 +29,6 @@ Global
 		{59999766-96C1-4709-A307-B2777D863926}.Release|Any CPU.ActiveCfg = Release|x64
 		{59999766-96C1-4709-A307-B2777D863926}.Release|x64.ActiveCfg = Release|x64
 		{59999766-96C1-4709-A307-B2777D863926}.Release|x64.Build.0 = Release|x64
-		{9B7BBCB8-32CB-433C-AD75-62C1F8EA203D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9B7BBCB8-32CB-433C-AD75-62C1F8EA203D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9B7BBCB8-32CB-433C-AD75-62C1F8EA203D}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{9B7BBCB8-32CB-433C-AD75-62C1F8EA203D}.Debug|x64.Build.0 = Debug|Any CPU
-		{9B7BBCB8-32CB-433C-AD75-62C1F8EA203D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9B7BBCB8-32CB-433C-AD75-62C1F8EA203D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{9B7BBCB8-32CB-433C-AD75-62C1F8EA203D}.Release|x64.ActiveCfg = Release|Any CPU
-		{9B7BBCB8-32CB-433C-AD75-62C1F8EA203D}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -48,7 +36,6 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{9D04D30F-7D05-4BB5-98EB-12945747DDAE} = {0A140DE9-C8DE-48FD-9F8C-B8B40AC18524}
 		{59999766-96C1-4709-A307-B2777D863926} = {0A140DE9-C8DE-48FD-9F8C-B8B40AC18524}
-		{9B7BBCB8-32CB-433C-AD75-62C1F8EA203D} = {290BC940-F32E-494B-A136-181DC038084D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {5D11FBB3-5D3C-43AD-9206-F986D2996CE0}

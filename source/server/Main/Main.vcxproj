@@ -56,7 +56,7 @@
     </ClCompile>
     <Link>
       <AdditionalLibraryDirectories>../external/boost/stage/lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>wldap32.lib;crypt32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>wldap32.lib;crypt32.lib;ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -76,7 +76,7 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <AdditionalLibraryDirectories>../external/boost/stage/lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>wldap32.lib;crypt32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>wldap32.lib;crypt32.lib;ws2_32.lib.;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -606,7 +606,6 @@
     </ClCompile>
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\WebClient.cpp" />
-    <ClCompile Include="src\WebServer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\RiotApi\RiotApi.vcxproj">
@@ -614,29 +613,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\..\crow-master\include\crow.h" />
-    <ClInclude Include="..\..\..\..\crow-master\include\crow\app.h" />
-    <ClInclude Include="..\..\..\..\crow-master\include\crow\ci_map.h" />
-    <ClInclude Include="..\..\..\..\crow-master\include\crow\common.h" />
-    <ClInclude Include="..\..\..\..\crow-master\include\crow\dumb_timer_queue.h" />
-    <ClInclude Include="..\..\..\..\crow-master\include\crow\http_connection.h" />
-    <ClInclude Include="..\..\..\..\crow-master\include\crow\http_parser_merged.h" />
-    <ClInclude Include="..\..\..\..\crow-master\include\crow\http_request.h" />
-    <ClInclude Include="..\..\..\..\crow-master\include\crow\http_response.h" />
-    <ClInclude Include="..\..\..\..\crow-master\include\crow\http_server.h" />
-    <ClInclude Include="..\..\..\..\crow-master\include\crow\json.h" />
-    <ClInclude Include="..\..\..\..\crow-master\include\crow\logging.h" />
-    <ClInclude Include="..\..\..\..\crow-master\include\crow\middleware.h" />
-    <ClInclude Include="..\..\..\..\crow-master\include\crow\middleware_context.h" />
-    <ClInclude Include="..\..\..\..\crow-master\include\crow\mustache.h" />
-    <ClInclude Include="..\..\..\..\crow-master\include\crow\parser.h" />
-    <ClInclude Include="..\..\..\..\crow-master\include\crow\query_string.h" />
-    <ClInclude Include="..\..\..\..\crow-master\include\crow\routing.h" />
-    <ClInclude Include="..\..\..\..\crow-master\include\crow\settings.h" />
-    <ClInclude Include="..\..\..\..\crow-master\include\crow\socket_adaptors.h" />
-    <ClInclude Include="..\..\..\..\crow-master\include\crow\TinySHA1.hpp" />
-    <ClInclude Include="..\..\..\..\crow-master\include\crow\utility.h" />
-    <ClInclude Include="..\..\..\..\crow-master\include\crow\websocket.h" />
     <ClInclude Include="..\external\libcurl\include\curl\curl.h" />
     <ClInclude Include="..\external\libcurl\include\curl\curlver.h" />
     <ClInclude Include="..\external\libcurl\include\curl\easy.h" />
@@ -774,11 +750,7 @@
     <ClInclude Include="..\external\libcurl\lib\wildcard.h" />
     <ClInclude Include="..\external\libcurl\lib\x509asn1.h" />
     <ClInclude Include="header\WebClient.h" />
-    <ClInclude Include="header\WebServer.h" />
     <ClInclude Include="pch\stdafx.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="html\template\main.mustache" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

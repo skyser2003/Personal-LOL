@@ -3,7 +3,6 @@
 #include "FullUrl.h"
 #include "ChampionSubUrl.h"
 
-#include "WebServer.h"
 #include "WebClient.h"
 
 using namespace std;
@@ -19,9 +18,6 @@ int main()
 	if (input.is_open())
 	{
 		string jsonStr{ istreambuf_iterator<char>(input), istreambuf_iterator<char>() };
-
-		auto json = crow::json::load(jsonStr);
-		apiKey = json["key"].s();
 	}
 
 	// API url
@@ -33,13 +29,6 @@ int main()
 	// Get API data
 	WebClient client;
 	const auto ret = client.Get(url.GetUrl());
-	auto jsonVal = crow::json::load(ret);
-
-	cout << jsonVal.key();
-	
-	// Web server
-	WebServer server(8080, "../../client/main/dist/");
-	server.Run();
 
 	return 0;
 }
