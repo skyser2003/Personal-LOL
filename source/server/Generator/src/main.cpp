@@ -38,5 +38,7 @@ int main()
 	WebClient client;
 	const auto ret = client.Get(url.GetUrl());
 
+	cout << ret << endl;
+
 	return 0;
 }
