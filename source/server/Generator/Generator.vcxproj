@@ -49,7 +49,7 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>pch;header;../RiotApi/header;../HttpServer/header;../external/boost;../external/crow;../external/libcurl/include;../external/libcurl/lib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>pch;header;../RiotApi/header;../external/boost;../external/libcurl/include;../external/libcurl/lib;../external/nlohmann;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>BUILDING_LIBCURL;USE_WINDOWS_SSPI;USE_SCHANNEL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
@@ -65,7 +65,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>pch;header;../RiotApi/header;../HttpServer/header;../external/boost;../external/crow;../external/libcurl/include;../external/libcurl/lib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>pch;header;../RiotApi/header;../external/boost;../external/libcurl/include;../external/libcurl/lib;../external/nlohmann;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>BUILDING_LIBCURL;USE_WINDOWS_SSPI;USE_SCHANNEL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
@@ -737,6 +737,7 @@
     <ClInclude Include="..\external\libcurl\lib\warnless.h" />
     <ClInclude Include="..\external\libcurl\lib\wildcard.h" />
     <ClInclude Include="..\external\libcurl\lib\x509asn1.h" />
+    <ClInclude Include="..\external\nlohmann\json.hpp" />
     <ClInclude Include="header\WebClient.h" />
     <ClInclude Include="pch\stdafx.h" />
   </ItemGroup>
@@ -744,6 +745,9 @@
     <ProjectReference Include="..\RiotApi\RiotApi.vcxproj">
       <Project>{59999766-96c1-4709-a307-b2777d863926}</Project>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Natvis Include="..\external\nlohmann\nlohmann_json.natvis" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

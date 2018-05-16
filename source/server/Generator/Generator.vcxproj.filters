@@ -28,6 +28,9 @@
     <Filter Include="libcurl\include\curl">
       <UniqueIdentifier>{962e7022-cefc-4e8d-b4b9-4f57709f1429}</UniqueIdentifier>
     </Filter>
+    <Filter Include="nlohmann">
+      <UniqueIdentifier>{09be8e37-9b5f-4e45-9781-5a106d128511}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\external\libcurl\lib\amigaos.c">
@@ -845,5 +848,13 @@
     <ClInclude Include="pch\stdafx.h">
       <Filter>pch</Filter>
     </ClInclude>
+    <ClInclude Include="..\external\nlohmann\json.hpp">
+      <Filter>nlohmann</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Natvis Include="..\external\nlohmann\nlohmann_json.natvis">
+      <Filter>nlohmann</Filter>
+    </Natvis>
   </ItemGroup>
 </Project>
