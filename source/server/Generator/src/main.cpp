@@ -7,18 +7,26 @@
 
 using namespace std;
 using namespace RiotApi;
+using json = nlohmann::json;
 
 int main()
 {
 	// API key
-	string apiKey;
-
-	ifstream input("../../../data/api_key.json");
-
-	if (input.is_open())
+	const auto apiKey = []() -> string
 	{
-		string jsonStr{ istreambuf_iterator<char>(input), istreambuf_iterator<char>() };
-	}
+		ifstream input("../../../data/api_key.json");
+		if (input.is_open())
+		{
+			json j;
+			input >> j;
+
+			return j["key"].get<string>();
+		}
+		else
+		{
+			return "";
+		}
+	}();
 
 	// API url
 	unique_ptr<ISubUrl> subUrl = make_unique<SubUrl<ApiType::CHAMPION_CHAMPIONS_BY_ID>>(3);
