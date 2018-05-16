@@ -76,6 +76,7 @@
     <ClInclude Include="header\FullUrl.h" />
     <ClInclude Include="header\RegionalEndpoint.h" />
     <ClInclude Include="header\SubUrl.h" />
+    <ClInclude Include="header\SummonerSuburl.h" />
     <ClInclude Include="pch\stdafx.h" />
   </ItemGroup>
   <ItemGroup>
@@ -88,6 +89,7 @@
     <ClCompile Include="src\FullUrl.cpp" />
     <ClCompile Include="src\RegionalEndpoint.cpp" />
     <ClCompile Include="src\SubUrl.cpp" />
+    <ClCompile Include="src\SummonerSuburl.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
