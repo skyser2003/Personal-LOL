@@ -9,7 +9,7 @@ namespace RiotApi
 	class SubUrl<ApiType::SUMMONER_SUMMONERS_BY_ACCOUNT> : public ISubUrl
 	{
 	public:
-		~SubUrl();
+		virtual ~SubUrl();
 
 	private:
 	};
