@@ -9,8 +9,12 @@ namespace RiotApi
 	class SubUrl<ApiType::SUMMONER_SUMMONERS_BY_ACCOUNT> : public ISubUrl
 	{
 	public:
+		SubUrl(long accountId);
 		virtual ~SubUrl();
 
+		std::string GetUrl() const final;
+
 	private:
+		const long accountId;
 	};
 }
