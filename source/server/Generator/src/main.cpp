@@ -2,6 +2,7 @@
 
 #include "FullUrl.h"
 #include "ChampionSubUrl.h"
+#include "SummonerSuburl.h"
 
 #include "WebClient.h"
 
@@ -29,7 +30,7 @@ int main()
 	}();
 
 	// API url
-	unique_ptr<ISubUrl> subUrl = make_unique<SubUrl<ApiType::CHAMPION_CHAMPIONS_BY_ID>>(3);
+	unique_ptr<ISubUrl> subUrl = make_unique<SubUrl<ApiType::SUMMONER_SUMMONERS_BY_NAME>>("%EC%97%90%ED%8E%A0%ED%83%91");
 	FullUrl url(apiKey, RegionalEndpoint::KR, subUrl);
 
 	cout << url.GetUrl() << endl;
@@ -40,5 +41,6 @@ int main()
 
 	cout << ret << endl;
 
+	system("pause");
 	return 0;
 }
