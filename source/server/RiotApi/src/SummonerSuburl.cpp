@@ -28,7 +28,7 @@ namespace RiotApi
 
 	std::string ByName::GetUrl() const
 	{
-		return (boost::format("summoner/v3/summoners/by-name/%L") % summonerName).str();
+		return (boost::format("summoner/v3/summoners/by-name/%s") % summonerName).str();
 	}
 
 	ById::SubUrl(long summonerId): summonerId(summonerId)
