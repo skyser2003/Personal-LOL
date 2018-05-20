@@ -52,3 +52,4 @@ source/server/external/boost/
 # Project
 source/client/Main/dist/
 source/client/Main/built/
+data/
