@@ -8,6 +8,7 @@ Put the following files inside /data folder, using your own settings
 
 # db.json
 {
+	"host":"db host",
 	"user":"db user",
 	"password":"db password"
 }
