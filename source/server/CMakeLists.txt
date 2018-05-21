@@ -20,7 +20,7 @@ SET(PCH_HEADER ${PCH_DIR}/stdafx.h)
 SET(PCH_SRC ${PCH_DIR}/stdafx.cpp)
 
 SET(BOOST_DIR ${SERVER_DIR}/external/boost)
-SET(CURL_DIR ${SERVER_DIR}/external/libcurl/include)
+SET(CURL_DIR ${SERVER_DIR}/external/libcurl)
 SET(JSON_DIR ${SERVER_DIR}/external/nlohmann)
 
 # Project directory
