@@ -1,0 +1,6 @@
+[submodule "CMakeHelper"]
+	path = CMakeHelper
+	url = https://github.com/skyser2003/CMakeHelper
+[submodule "source/server/FTL"]
+	path = source/server/FTL
+	url = https://github.com/skyser2003/FTL
