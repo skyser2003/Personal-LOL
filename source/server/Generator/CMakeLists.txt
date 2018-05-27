@@ -64,8 +64,4 @@ IF(MSVC)
         ws2_32.lib
         ${MARIADB_DIR}/lib/libmariadb.lib
     )
-ELSE(MSVC)
-    TARGET_LINK_LIBRARIES(${PROJECT_NAME}
-        ${MARIADB_DIR}/lib/mariadb/libmariadbclient.a
-    )
 ENDIF(MSVC)
