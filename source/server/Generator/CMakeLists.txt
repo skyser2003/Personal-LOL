@@ -31,6 +31,7 @@ INCLUDE_DIRECTORIES(${BOOST_DIR})
 INCLUDE_DIRECTORIES(${CURL_DIR}/include)
 INCLUDE_DIRECTORIES(${CURL_DIR}/lib)
 INCLUDE_DIRECTORIES(${JSON_DIR})
+INCLUDE_DIRECTORIES(${MARIADB_DIR}/include)
 
 ADD_EXECUTABLE(${PROJECT_NAME}
     ${HEADER_FILES}
@@ -61,5 +62,10 @@ IF(MSVC)
         wldap32.lib
         crypt32.lib
         ws2_32.lib
+        ${MARIADB_DIR}/lib/libmariadb.lib
+    )
+ELSE(MSVC)
+    TARGET_LINK_LIBRARIES(${PROJECT_NAME}
+        ${MARIADB_DIR}/lib/mariadb/libmariadbclient.a
     )
 ENDIF(MSVC)

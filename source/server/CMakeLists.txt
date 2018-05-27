@@ -19,9 +19,16 @@ SET(PCH_DIR "pch")
 SET(PCH_HEADER ${PCH_DIR}/stdafx.h)
 SET(PCH_SRC ${PCH_DIR}/stdafx.cpp)
 
-SET(BOOST_DIR ${SERVER_DIR}/external/boost)
-SET(CURL_DIR ${SERVER_DIR}/external/libcurl)
-SET(JSON_DIR ${SERVER_DIR}/external/nlohmann)
+SET(EXTERNAL_DIR ${SERVER_DIR}/external)
+SET(BOOST_DIR ${EXTERNAL_DIR}/boost)
+SET(CURL_DIR ${EXTERNAL_DIR}/libcurl)
+SET(JSON_DIR ${EXTERNAL_DIR}/nlohmann)
+
+IF(MSVC)
+	SET(MARIADB_DIR "C:\\Program Files\\MariaDB\\MariaDB Connector C 64-bit")
+ELSE(MSVC)
+	SET(MARIADB_DIR ${EXTERNAL_DIR}/mariadb)
+ENDIF(MSVC)
 
 # Project directory
 SET(GENERATOR_ROOT_DIR ${SERVER_DIR}/Generator)
