@@ -41,6 +41,9 @@ int main()
 
 	cout << ret << endl;
 
+	MYSQL config;
+	mysql_change_user(&config, "root", "root", "test");
+
 	system("pause");
 	return 0;
 }

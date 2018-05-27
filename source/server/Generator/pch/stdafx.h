@@ -15,3 +15,4 @@ namespace std
 
 #include "curl/curl.h"
 #include "json.hpp"
+#include "mysql.h"
