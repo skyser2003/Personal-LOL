@@ -441,6 +441,9 @@
     <ClCompile Include="src\DBResult.cpp">
       <Filter>DB</Filter>
     </ClCompile>
+    <ClCompile Include="src\DBRow.cpp">
+      <Filter>DB</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\external\libcurl\lib\amigaos.h">
@@ -864,6 +867,9 @@
       <Filter>DB</Filter>
     </ClInclude>
     <ClInclude Include="header\DBResult.h">
+      <Filter>DB</Filter>
+    </ClInclude>
+    <ClInclude Include="header\DBRow.h">
       <Filter>DB</Filter>
     </ClInclude>
   </ItemGroup>

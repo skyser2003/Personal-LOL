@@ -10,3 +10,11 @@ int DBResult::Count() const
 {
 	return count;
 }
+
+DBRow DBResult::Next()
+{
+	auto row = mysql_fetch_row(&ret);
+
+	// TODO
+	return DBRow();
+}
