@@ -31,6 +31,9 @@
     <Filter Include="nlohmann">
       <UniqueIdentifier>{09be8e37-9b5f-4e45-9781-5a106d128511}</UniqueIdentifier>
     </Filter>
+    <Filter Include="DB">
+      <UniqueIdentifier>{c9e821c3-0f16-47a3-adc1-d015a539499c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\external\libcurl\lib\amigaos.c">
@@ -431,6 +434,9 @@
     </ClCompile>
     <ClCompile Include="src\main.cpp">
       <Filter>Main</Filter>
+    </ClCompile>
+    <ClCompile Include="src\DBConnection.cpp">
+      <Filter>DB</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -850,6 +856,9 @@
     </ClInclude>
     <ClInclude Include="..\external\nlohmann\json.hpp">
       <Filter>nlohmann</Filter>
+    </ClInclude>
+    <ClInclude Include="header\DBConnection.h">
+      <Filter>DB</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

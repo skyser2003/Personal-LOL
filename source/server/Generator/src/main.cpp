@@ -5,18 +5,12 @@
 #include "SummonerSuburl.h"
 
 #include "WebClient.h"
+#include "DBConnection.h"
 
 using namespace std;
 using namespace RiotApi;
 using json = nlohmann::json;
-
-struct DBInfo
-{
-	std::string host;
-	std::string db;
-	std::string user;
-	std::string pw;
-};
+using DBInfo = DBConnection::DBInfo;
 
 int main()
 {
