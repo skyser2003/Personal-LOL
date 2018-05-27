@@ -65,9 +65,9 @@ int main()
 
 	cout << ret << endl;
 
-	MYSQL* mysql = mysql_init(nullptr);
-	const auto connResult = mysql_real_connect(mysql, dbInfo.host.c_str(), dbInfo.user.c_str(), dbInfo.pw.c_str(), dbInfo.db.c_str(), 3306, nullptr, 0);
-	if (connResult == nullptr)
+	DBConnection conn(dbInfo);
+
+	if (conn.Connect() == false)
 	{
 		cout << "DB connect error" << endl;
 	}

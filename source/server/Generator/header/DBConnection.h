@@ -11,5 +11,12 @@ public:
 		std::string pw;
 	};
 
+	DBConnection(const DBInfo& info);
+	~DBConnection();
+
+	bool Connect();
+
 private:
+	const DBInfo info;
+	MYSQL& conn;
 };
