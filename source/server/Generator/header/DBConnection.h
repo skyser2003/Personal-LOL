@@ -1,5 +1,7 @@
 #pragma once
 
+#include "DBResult.h"
+
 class DBConnection
 {
 public:
@@ -15,6 +17,7 @@ public:
 	~DBConnection();
 
 	bool Connect();
+	DBResult Query(const std::string& query);
 
 private:
 	const DBInfo info;
