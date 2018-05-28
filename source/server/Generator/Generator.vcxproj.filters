@@ -37,6 +37,9 @@
     <Filter Include="external\nlohmann">
       <UniqueIdentifier>{09be8e37-9b5f-4e45-9781-5a106d128511}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Server">
+      <UniqueIdentifier>{9506d8ba-a587-4740-b8e1-a98950f37e0f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\external\libcurl\lib\amigaos.c">
@@ -446,6 +449,9 @@
     </ClCompile>
     <ClCompile Include="src\DBRow.cpp">
       <Filter>DB</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Server.cpp">
+      <Filter>Server</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -874,6 +880,9 @@
     </ClInclude>
     <ClInclude Include="header\DBRow.h">
       <Filter>DB</Filter>
+    </ClInclude>
+    <ClInclude Include="header\Server.h">
+      <Filter>Server</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
