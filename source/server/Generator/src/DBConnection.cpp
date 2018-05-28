@@ -31,12 +31,12 @@ DBResult DBConnection::Query(const std::string& query)
 	if (mysql_real_query(&conn, query.c_str(), query.size()) != 0)
 	{
 		// TODO: some error logging
-		auto* result = mysql_store_result(&conn);
-
-		return DBResult(result);
+		return DBResult(nullptr);
 	}
 	else
 	{
-		return DBResult(nullptr);
+		auto* result = mysql_store_result(&conn);
+
+		return DBResult(result);
 	}
 }

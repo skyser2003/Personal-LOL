@@ -4,6 +4,7 @@
 #include <memory>
 #include <fstream>
 #include <malloc.h>
+#include <map>
 
 #ifndef WIN32
 #include <experimental/string_view>

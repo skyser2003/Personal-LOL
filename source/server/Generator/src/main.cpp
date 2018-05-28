@@ -72,6 +72,10 @@ int main()
 		cout << "DB connect error" << endl;
 	}
 
+	auto result = conn.Query("SELECT count(*) FROM `user`");
+	auto row = result.Next();
+	auto* count = row.Get("count(*)");
+
 	system("pause");
 	return 0;
 }

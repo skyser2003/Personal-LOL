@@ -1,9 +1,12 @@
 #include "stdafx.h"
 #include "DBResult.h"
 
-DBResult::DBResult(MYSQL_RES* ret) : ret(*ret), count(ret == nullptr ? 0 : mysql_num_rows(ret))
+DBResult::DBResult(MYSQL_RES* res) : res(*res), count(res == nullptr ? 0 : mysql_num_rows(res))
 {
-	
+	for (auto i = 0; auto* field = mysql_fetch_field(res); ++i)
+	{
+		fieldIndexMap[field->name] = i;
+	}
 }
 
 int DBResult::Count() const
@@ -13,8 +16,7 @@ int DBResult::Count() const
 
 DBRow DBResult::Next()
 {
-	auto row = mysql_fetch_row(&ret);
+	auto row = mysql_fetch_row(&res);
 
-	// TODO
-	return DBRow();
+	return DBRow{ row, fieldIndexMap };
 }
