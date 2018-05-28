@@ -6,7 +6,7 @@ DBRow::DBRow(MYSQL_ROW row, const std::map<std::string, int>& fieldIndexMap) : r
 
 }
 
-const char* DBRow::Get(const std::string & fieldName) const
+const char* DBRow::GetRaw(const std::string & fieldName) const
 {
 	auto it = fieldIndexMap.find(fieldName);
 
@@ -18,4 +18,30 @@ const char* DBRow::Get(const std::string & fieldName) const
 	{
 		return row[it->second];
 	}
+}
+
+template <>
+int DBRow::Get(const std::string& fieldName) const
+{
+	const auto* raw = GetRaw(fieldName);
+
+	if (raw == nullptr)
+	{
+		return 0;
+	}
+
+	return std::stoi(raw);
+}
+
+template <>
+std::string DBRow::Get(const std::string& fieldName) const
+{
+	const auto* raw = GetRaw(fieldName);
+
+	if (raw == nullptr)
+	{
+		return "";
+	}
+
+	return raw;
 }

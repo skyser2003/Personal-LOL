@@ -74,7 +74,9 @@ int main()
 
 	auto result = conn.Query("SELECT count(*) FROM `user`");
 	auto row = result.Next();
-	auto* count = row.Get("count(*)");
+	auto count = row.Get<int>("count(*)");
+
+	cout << "Count: " << count << endl;
 
 	system("pause");
 	return 0;
