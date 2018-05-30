@@ -7,6 +7,9 @@
 #include <map>
 #include <chrono>
 #include <thread>
+#include <functional>
+#include <mutex>
+#include <queue>
 
 #ifndef WIN32
 #include <experimental/string_view>

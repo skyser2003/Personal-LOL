@@ -453,6 +453,9 @@
     <ClCompile Include="src\Server.cpp">
       <Filter>Server</Filter>
     </ClCompile>
+    <ClCompile Include="src\ServerJob.cpp">
+      <Filter>Server</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\external\libcurl\lib\amigaos.h">
@@ -882,6 +885,9 @@
       <Filter>DB</Filter>
     </ClInclude>
     <ClInclude Include="header\Server.h">
+      <Filter>Server</Filter>
+    </ClInclude>
+    <ClInclude Include="header\ServerJob.h">
       <Filter>Server</Filter>
     </ClInclude>
   </ItemGroup>

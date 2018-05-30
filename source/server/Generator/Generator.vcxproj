@@ -607,6 +607,7 @@
     <ClCompile Include="src\DBRow.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\Server.cpp" />
+    <ClCompile Include="src\ServerJob.cpp" />
     <ClCompile Include="src\WebClient.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -751,6 +752,7 @@
     <ClInclude Include="header\DBResult.h" />
     <ClInclude Include="header\DBRow.h" />
     <ClInclude Include="header\Server.h" />
+    <ClInclude Include="header\ServerJob.h" />
     <ClInclude Include="header\WebClient.h" />
     <ClInclude Include="pch\stdafx.h" />
   </ItemGroup>
