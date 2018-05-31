@@ -10,18 +10,20 @@ void Server::Run()
 {
 	while (isRunning)
 	{
-		decltype(jobQueue) localQueue;
-
+		auto localQueue = [this]()
 		{
+			decltype(jobQueue) tempQueue;
+
 			std::lock_guard<std::mutex> lock(mutex);
+			std::swap(tempQueue, jobQueue);
 
-			if (jobQueue.size() == 0)
-			{
-				std::this_thread::sleep_for(std::chrono::milliseconds(1));
-				continue;
-			}
+			return tempQueue;
+		}();
 
-			std::swap(localQueue, jobQueue);
+		if (localQueue.size() == 0)
+		{
+			std::this_thread::sleep_for(std::chrono::milliseconds(1));
+			continue;
 		}
 
 		while (localQueue.empty() == false)
