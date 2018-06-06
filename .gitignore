@@ -49,6 +49,11 @@
 # Boost
 source/server/external/boost/
 
+# NodeJS & Typescript
+**/node_modules/
+*.js
+*.js.map
+
 # Project
 source/client/Main/dist/
 source/client/Main/built/
