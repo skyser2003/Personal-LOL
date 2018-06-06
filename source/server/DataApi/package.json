@@ -14,8 +14,7 @@
     "debug": "^2.2.0",
     "ejs": "^2.6.1",
     "express": "^4.14.0",
-    "grpc": "^1.12.2",
-    "pug": "^2.0.0-rc.3"
+    "grpc": "^1.12.2"
   },
   "devDependencies": {
     "@types/debug": "0.0.30",
