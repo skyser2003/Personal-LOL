@@ -40,6 +40,12 @@
     <Filter Include="Server">
       <UniqueIdentifier>{9506d8ba-a587-4740-b8e1-a98950f37e0f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="generated">
+      <UniqueIdentifier>{aeec302a-5782-474a-9094-1e272be34b15}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="proto">
+      <UniqueIdentifier>{8024f1e2-da2e-4247-98a3-b1ada96acde1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\external\libcurl\lib\amigaos.c">
@@ -455,6 +461,9 @@
     </ClCompile>
     <ClCompile Include="src\ServerJob.cpp">
       <Filter>Server</Filter>
+    </ClCompile>
+    <ClCompile Include="generated\packet.pb.cc">
+      <Filter>generated</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -890,10 +899,18 @@
     <ClInclude Include="header\ServerJob.h">
       <Filter>Server</Filter>
     </ClInclude>
+    <ClInclude Include="generated\packet.pb.h">
+      <Filter>generated</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Natvis Include="..\external\nlohmann\nlohmann_json.natvis">
       <Filter>external\nlohmann</Filter>
     </Natvis>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\data\proto\packet.proto">
+      <Filter>proto</Filter>
+    </None>
   </ItemGroup>
 </Project>
