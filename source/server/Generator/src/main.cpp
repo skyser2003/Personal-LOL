@@ -7,6 +7,8 @@
 #include "WebClient.h"
 #include "DBConnection.h"
 
+#include "grpcpp/grpcpp.h"
+
 using namespace std;
 using namespace RiotApi;
 using json = nlohmann::json;
@@ -64,6 +66,9 @@ int main()
 	const auto ret = client.Get(url.GetUrl());
 
 	cout << ret << endl;
+
+	grpc::ServerBuilder builder;
+	builder.AddListeningPort("0.0.0.0:9999", grpc::InsecureServerCredentials());
 
 	DBConnection conn(dbInfo);
 
