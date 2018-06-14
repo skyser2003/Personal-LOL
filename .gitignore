@@ -55,7 +55,7 @@ source/server/external/boost/
 *.js.map
 
 # Project
-source/client/Main/dist/
-source/client/Main/built/
-data/
-source/server/build/
+/source/client/Main/dist/
+/source/client/Main/built/
+/data/
+/source/server/build/
