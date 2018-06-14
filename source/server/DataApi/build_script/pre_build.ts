@@ -11,7 +11,7 @@ function generate(filename: string) {
 
         const match = protoRegex.exec(filename);
         if (match) {
-            const serviceName = match[2];
+            const serviceName = match[1];
             args.push("-r", serviceName);
         }
 
@@ -43,5 +43,9 @@ function generate(filename: string) {
 function generateAll() {
     const files = fs.readdirSync(path.join(__dirname, "..", "..", "data", "proto"));
 
-    const protoFiles = files.filter(filename => protoRegex.test(filename));
+    const protoFiles: string[] = [];
+
+    files.forEach(filename => {
+
+    });
 }
