@@ -63,8 +63,7 @@
   <Import Project="$(VSToolsPath)\Node.js Tools\Microsoft.NodejsTools.targets" />
   <PropertyGroup>
     <PreBuildEvent>
-      tsc build_script/pre_build.ts
-      node build_script/pre_build.js
+      npm run pre_build
     </PreBuildEvent>
   </PropertyGroup>
   <ProjectExtensions>
