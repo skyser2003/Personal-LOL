@@ -465,6 +465,9 @@
     <ClCompile Include="generated\packet.pb.cc">
       <Filter>generated</Filter>
     </ClCompile>
+    <ClCompile Include="generated\packet.grpc.pb.cc">
+      <Filter>generated</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\external\libcurl\lib\amigaos.h">
@@ -902,6 +905,9 @@
     <ClInclude Include="generated\packet.pb.h">
       <Filter>generated</Filter>
     </ClInclude>
+    <ClInclude Include="generated\packet.grpc.pb.h">
+      <Filter>generated</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Natvis Include="..\external\nlohmann\nlohmann_json.natvis">
@@ -909,8 +915,8 @@
     </Natvis>
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\data\proto\packet.proto">
+    <CustomBuild Include="..\data\proto\packet.proto">
       <Filter>proto</Filter>
-    </None>
+    </CustomBuild>
   </ItemGroup>
 </Project>

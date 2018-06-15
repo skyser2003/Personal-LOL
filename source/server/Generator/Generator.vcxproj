@@ -59,7 +59,7 @@
     </Link>
     <PreBuildEvent>
       <Command>cd D:\Projects\vcpkg\installed\x64-windows\tools
-protoc --proto_path=$(ProjectDir)..\data\proto --cpp_out=$(ProjectDir)generated packet.proto</Command>
+protoc --plugin=protoc-gen-grpc=grpc\grpc_cpp_plugin.exe --proto_path=$(ProjectDir)..\data\proto --cpp_out=$(ProjectDir)generated --grpc_out=$(ProjectDir)generated packet.proto</Command>
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -82,7 +82,7 @@ protoc --proto_path=$(ProjectDir)..\data\proto --cpp_out=$(ProjectDir)generated 
     </Link>
     <PreBuildEvent>
       <Command>cd D:\Projects\vcpkg\installed\x64-windows\tools
-protoc --proto_path=$(ProjectDir)..\data\proto --cpp_out=$(ProjectDir)generated packet.proto</Command>
+protoc --plugin=protoc-gen-grpc=grpc\grpc_cpp_plugin.exe --proto_path=$(ProjectDir)..\data\proto --cpp_out=$(ProjectDir)generated --grpc_out=$(ProjectDir)generated packet.proto</Command>
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -606,6 +606,10 @@ protoc --proto_path=$(ProjectDir)..\data\proto --cpp_out=$(ProjectDir)generated 
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="generated\packet.grpc.pb.cc">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
     <ClCompile Include="generated\packet.pb.cc">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
@@ -760,6 +764,7 @@ protoc --proto_path=$(ProjectDir)..\data\proto --cpp_out=$(ProjectDir)generated 
     <ClInclude Include="..\external\libcurl\lib\wildcard.h" />
     <ClInclude Include="..\external\libcurl\lib\x509asn1.h" />
     <ClInclude Include="..\external\nlohmann\json.hpp" />
+    <ClInclude Include="generated\packet.grpc.pb.h" />
     <ClInclude Include="generated\packet.pb.h" />
     <ClInclude Include="header\DBConnection.h" />
     <ClInclude Include="header\DBResult.h" />
@@ -778,7 +783,9 @@ protoc --proto_path=$(ProjectDir)..\data\proto --cpp_out=$(ProjectDir)generated 
     <Natvis Include="..\external\nlohmann\nlohmann_json.natvis" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\data\proto\packet.proto" />
+    <CustomBuild Include="..\data\proto\packet.proto">
+      <FileType>Document</FileType>
+    </CustomBuild>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
