@@ -130,5 +130,112 @@ class TestService final {
   typedef WithStreamedUnaryMethod_TestSend<Service > StreamedService;
 };
 
+class DtoG final {
+ public:
+  static constexpr char const* service_full_name() {
+    return "DtoG";
+  }
+  class StubInterface {
+   public:
+    virtual ~StubInterface() {}
+    virtual ::grpc::Status RegisterUser(::grpc::ClientContext* context, const ::SummonerName& request, ::BoolResult* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::BoolResult>> AsyncRegisterUser(::grpc::ClientContext* context, const ::SummonerName& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::BoolResult>>(AsyncRegisterUserRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::BoolResult>> PrepareAsyncRegisterUser(::grpc::ClientContext* context, const ::SummonerName& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::BoolResult>>(PrepareAsyncRegisterUserRaw(context, request, cq));
+    }
+  private:
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::BoolResult>* AsyncRegisterUserRaw(::grpc::ClientContext* context, const ::SummonerName& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::BoolResult>* PrepareAsyncRegisterUserRaw(::grpc::ClientContext* context, const ::SummonerName& request, ::grpc::CompletionQueue* cq) = 0;
+  };
+  class Stub final : public StubInterface {
+   public:
+    Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel);
+    ::grpc::Status RegisterUser(::grpc::ClientContext* context, const ::SummonerName& request, ::BoolResult* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::BoolResult>> AsyncRegisterUser(::grpc::ClientContext* context, const ::SummonerName& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::BoolResult>>(AsyncRegisterUserRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::BoolResult>> PrepareAsyncRegisterUser(::grpc::ClientContext* context, const ::SummonerName& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::BoolResult>>(PrepareAsyncRegisterUserRaw(context, request, cq));
+    }
+
+   private:
+    std::shared_ptr< ::grpc::ChannelInterface> channel_;
+    ::grpc::ClientAsyncResponseReader< ::BoolResult>* AsyncRegisterUserRaw(::grpc::ClientContext* context, const ::SummonerName& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::BoolResult>* PrepareAsyncRegisterUserRaw(::grpc::ClientContext* context, const ::SummonerName& request, ::grpc::CompletionQueue* cq) override;
+    const ::grpc::internal::RpcMethod rpcmethod_RegisterUser_;
+  };
+  static std::unique_ptr<Stub> NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options = ::grpc::StubOptions());
+
+  class Service : public ::grpc::Service {
+   public:
+    Service();
+    virtual ~Service();
+    virtual ::grpc::Status RegisterUser(::grpc::ServerContext* context, const ::SummonerName* request, ::BoolResult* response);
+  };
+  template <class BaseClass>
+  class WithAsyncMethod_RegisterUser : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithAsyncMethod_RegisterUser() {
+      ::grpc::Service::MarkMethodAsync(0);
+    }
+    ~WithAsyncMethod_RegisterUser() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status RegisterUser(::grpc::ServerContext* context, const ::SummonerName* request, ::BoolResult* response) final override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestRegisterUser(::grpc::ServerContext* context, ::SummonerName* request, ::grpc::ServerAsyncResponseWriter< ::BoolResult>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(0, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  typedef WithAsyncMethod_RegisterUser<Service > AsyncService;
+  template <class BaseClass>
+  class WithGenericMethod_RegisterUser : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithGenericMethod_RegisterUser() {
+      ::grpc::Service::MarkMethodGeneric(0);
+    }
+    ~WithGenericMethod_RegisterUser() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status RegisterUser(::grpc::ServerContext* context, const ::SummonerName* request, ::BoolResult* response) final override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+  };
+  template <class BaseClass>
+  class WithStreamedUnaryMethod_RegisterUser : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithStreamedUnaryMethod_RegisterUser() {
+      ::grpc::Service::MarkMethodStreamed(0,
+        new ::grpc::internal::StreamedUnaryHandler< ::SummonerName, ::BoolResult>(std::bind(&WithStreamedUnaryMethod_RegisterUser<BaseClass>::StreamedRegisterUser, this, std::placeholders::_1, std::placeholders::_2)));
+    }
+    ~WithStreamedUnaryMethod_RegisterUser() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable regular version of this method
+    ::grpc::Status RegisterUser(::grpc::ServerContext* context, const ::SummonerName* request, ::BoolResult* response) final override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    // replace default version of method with streamed unary
+    virtual ::grpc::Status StreamedRegisterUser(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::SummonerName,::BoolResult>* server_unary_streamer) = 0;
+  };
+  typedef WithStreamedUnaryMethod_RegisterUser<Service > StreamedUnaryService;
+  typedef Service SplitStreamedService;
+  typedef WithStreamedUnaryMethod_RegisterUser<Service > StreamedService;
+};
+
 
 #endif  // GRPC_packet_2eproto__INCLUDED

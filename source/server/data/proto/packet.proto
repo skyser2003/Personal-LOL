@@ -4,6 +4,16 @@ message Void
 {
 }
 
+message BoolResult
+{
+	bool result = 1;
+}
+
+message SummonerName
+{
+	string name = 1;
+}
+
 message TestMessage
 {
     int32 x = 1;
@@ -12,4 +22,9 @@ message TestMessage
 service TestService
 {
 	rpc TestSend(TestMessage) returns(Void) {}
+}
+
+service DtoG
+{
+	rpc RegisterUser(SummonerName) returns (BoolResult);
 }

@@ -36,7 +36,7 @@ namespace protobuf_packet_2eproto {
 struct TableStruct {
   static const ::google::protobuf::internal::ParseTableField entries[];
   static const ::google::protobuf::internal::AuxillaryParseTableField aux[];
-  static const ::google::protobuf::internal::ParseTable schema[2];
+  static const ::google::protobuf::internal::ParseTable schema[4];
   static const ::google::protobuf::internal::FieldMetadata field_metadata[];
   static const ::google::protobuf::internal::SerializationTable serialization_table[];
   static const ::google::protobuf::uint32 offsets[];
@@ -44,13 +44,25 @@ struct TableStruct {
 void AddDescriptors();
 void InitDefaultsVoidImpl();
 void InitDefaultsVoid();
+void InitDefaultsBoolResultImpl();
+void InitDefaultsBoolResult();
+void InitDefaultsSummonerNameImpl();
+void InitDefaultsSummonerName();
 void InitDefaultsTestMessageImpl();
 void InitDefaultsTestMessage();
 inline void InitDefaults() {
   InitDefaultsVoid();
+  InitDefaultsBoolResult();
+  InitDefaultsSummonerName();
   InitDefaultsTestMessage();
 }
 }  // namespace protobuf_packet_2eproto
+class BoolResult;
+class BoolResultDefaultTypeInternal;
+extern BoolResultDefaultTypeInternal _BoolResult_default_instance_;
+class SummonerName;
+class SummonerNameDefaultTypeInternal;
+extern SummonerNameDefaultTypeInternal _SummonerName_default_instance_;
 class TestMessage;
 class TestMessageDefaultTypeInternal;
 extern TestMessageDefaultTypeInternal _TestMessage_default_instance_;
@@ -152,6 +164,212 @@ class Void : public ::google::protobuf::Message /* @@protoc_insertion_point(clas
 };
 // -------------------------------------------------------------------
 
+class BoolResult : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:BoolResult) */ {
+ public:
+  BoolResult();
+  virtual ~BoolResult();
+
+  BoolResult(const BoolResult& from);
+
+  inline BoolResult& operator=(const BoolResult& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  #if LANG_CXX11
+  BoolResult(BoolResult&& from) noexcept
+    : BoolResult() {
+    *this = ::std::move(from);
+  }
+
+  inline BoolResult& operator=(BoolResult&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+  #endif
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const BoolResult& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const BoolResult* internal_default_instance() {
+    return reinterpret_cast<const BoolResult*>(
+               &_BoolResult_default_instance_);
+  }
+  static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
+    1;
+
+  void Swap(BoolResult* other);
+  friend void swap(BoolResult& a, BoolResult& b) {
+    a.Swap(&b);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline BoolResult* New() const PROTOBUF_FINAL { return New(NULL); }
+
+  BoolResult* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
+  void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void CopyFrom(const BoolResult& from);
+  void MergeFrom(const BoolResult& from);
+  void Clear() PROTOBUF_FINAL;
+  bool IsInitialized() const PROTOBUF_FINAL;
+
+  size_t ByteSizeLong() const PROTOBUF_FINAL;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) PROTOBUF_FINAL;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const PROTOBUF_FINAL;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const PROTOBUF_FINAL;
+  int GetCachedSize() const PROTOBUF_FINAL { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const PROTOBUF_FINAL;
+  void InternalSwap(BoolResult* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const PROTOBUF_FINAL;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // bool result = 1;
+  void clear_result();
+  static const int kResultFieldNumber = 1;
+  bool result() const;
+  void set_result(bool value);
+
+  // @@protoc_insertion_point(class_scope:BoolResult)
+ private:
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  bool result_;
+  mutable int _cached_size_;
+  friend struct ::protobuf_packet_2eproto::TableStruct;
+  friend void ::protobuf_packet_2eproto::InitDefaultsBoolResultImpl();
+};
+// -------------------------------------------------------------------
+
+class SummonerName : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:SummonerName) */ {
+ public:
+  SummonerName();
+  virtual ~SummonerName();
+
+  SummonerName(const SummonerName& from);
+
+  inline SummonerName& operator=(const SummonerName& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  #if LANG_CXX11
+  SummonerName(SummonerName&& from) noexcept
+    : SummonerName() {
+    *this = ::std::move(from);
+  }
+
+  inline SummonerName& operator=(SummonerName&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+  #endif
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const SummonerName& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const SummonerName* internal_default_instance() {
+    return reinterpret_cast<const SummonerName*>(
+               &_SummonerName_default_instance_);
+  }
+  static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
+    2;
+
+  void Swap(SummonerName* other);
+  friend void swap(SummonerName& a, SummonerName& b) {
+    a.Swap(&b);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline SummonerName* New() const PROTOBUF_FINAL { return New(NULL); }
+
+  SummonerName* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
+  void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void CopyFrom(const SummonerName& from);
+  void MergeFrom(const SummonerName& from);
+  void Clear() PROTOBUF_FINAL;
+  bool IsInitialized() const PROTOBUF_FINAL;
+
+  size_t ByteSizeLong() const PROTOBUF_FINAL;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) PROTOBUF_FINAL;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const PROTOBUF_FINAL;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const PROTOBUF_FINAL;
+  int GetCachedSize() const PROTOBUF_FINAL { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const PROTOBUF_FINAL;
+  void InternalSwap(SummonerName* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const PROTOBUF_FINAL;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // string name = 1;
+  void clear_name();
+  static const int kNameFieldNumber = 1;
+  const ::std::string& name() const;
+  void set_name(const ::std::string& value);
+  #if LANG_CXX11
+  void set_name(::std::string&& value);
+  #endif
+  void set_name(const char* value);
+  void set_name(const char* value, size_t size);
+  ::std::string* mutable_name();
+  ::std::string* release_name();
+  void set_allocated_name(::std::string* name);
+
+  // @@protoc_insertion_point(class_scope:SummonerName)
+ private:
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::internal::ArenaStringPtr name_;
+  mutable int _cached_size_;
+  friend struct ::protobuf_packet_2eproto::TableStruct;
+  friend void ::protobuf_packet_2eproto::InitDefaultsSummonerNameImpl();
+};
+// -------------------------------------------------------------------
+
 class TestMessage : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:TestMessage) */ {
  public:
   TestMessage();
@@ -187,7 +405,7 @@ class TestMessage : public ::google::protobuf::Message /* @@protoc_insertion_poi
                &_TestMessage_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    1;
+    3;
 
   void Swap(TestMessage* other);
   friend void swap(TestMessage& a, TestMessage& b) {
@@ -262,6 +480,81 @@ class TestMessage : public ::google::protobuf::Message /* @@protoc_insertion_poi
 
 // -------------------------------------------------------------------
 
+// BoolResult
+
+// bool result = 1;
+inline void BoolResult::clear_result() {
+  result_ = false;
+}
+inline bool BoolResult::result() const {
+  // @@protoc_insertion_point(field_get:BoolResult.result)
+  return result_;
+}
+inline void BoolResult::set_result(bool value) {
+  
+  result_ = value;
+  // @@protoc_insertion_point(field_set:BoolResult.result)
+}
+
+// -------------------------------------------------------------------
+
+// SummonerName
+
+// string name = 1;
+inline void SummonerName::clear_name() {
+  name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& SummonerName::name() const {
+  // @@protoc_insertion_point(field_get:SummonerName.name)
+  return name_.GetNoArena();
+}
+inline void SummonerName::set_name(const ::std::string& value) {
+  
+  name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:SummonerName.name)
+}
+#if LANG_CXX11
+inline void SummonerName::set_name(::std::string&& value) {
+  
+  name_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:SummonerName.name)
+}
+#endif
+inline void SummonerName::set_name(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  
+  name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:SummonerName.name)
+}
+inline void SummonerName::set_name(const char* value, size_t size) {
+  
+  name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:SummonerName.name)
+}
+inline ::std::string* SummonerName::mutable_name() {
+  
+  // @@protoc_insertion_point(field_mutable:SummonerName.name)
+  return name_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* SummonerName::release_name() {
+  // @@protoc_insertion_point(field_release:SummonerName.name)
+  
+  return name_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void SummonerName::set_allocated_name(::std::string* name) {
+  if (name != NULL) {
+    
+  } else {
+    
+  }
+  name_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), name);
+  // @@protoc_insertion_point(field_set_allocated:SummonerName.name)
+}
+
+// -------------------------------------------------------------------
+
 // TestMessage
 
 // int32 x = 1;
@@ -281,6 +574,10 @@ inline void TestMessage::set_x(::google::protobuf::int32 value) {
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 

@@ -59,3 +59,48 @@ TestService::Service::~Service() {
 }
 
 
+static const char* DtoG_method_names[] = {
+  "/DtoG/RegisterUser",
+};
+
+std::unique_ptr< DtoG::Stub> DtoG::NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options) {
+  (void)options;
+  std::unique_ptr< DtoG::Stub> stub(new DtoG::Stub(channel));
+  return stub;
+}
+
+DtoG::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel)
+  : channel_(channel), rpcmethod_RegisterUser_(DtoG_method_names[0], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  {}
+
+::grpc::Status DtoG::Stub::RegisterUser(::grpc::ClientContext* context, const ::SummonerName& request, ::BoolResult* response) {
+  return ::grpc::internal::BlockingUnaryCall(channel_.get(), rpcmethod_RegisterUser_, context, request, response);
+}
+
+::grpc::ClientAsyncResponseReader< ::BoolResult>* DtoG::Stub::AsyncRegisterUserRaw(::grpc::ClientContext* context, const ::SummonerName& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::BoolResult>::Create(channel_.get(), cq, rpcmethod_RegisterUser_, context, request, true);
+}
+
+::grpc::ClientAsyncResponseReader< ::BoolResult>* DtoG::Stub::PrepareAsyncRegisterUserRaw(::grpc::ClientContext* context, const ::SummonerName& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::BoolResult>::Create(channel_.get(), cq, rpcmethod_RegisterUser_, context, request, false);
+}
+
+DtoG::Service::Service() {
+  AddMethod(new ::grpc::internal::RpcServiceMethod(
+      DtoG_method_names[0],
+      ::grpc::internal::RpcMethod::NORMAL_RPC,
+      new ::grpc::internal::RpcMethodHandler< DtoG::Service, ::SummonerName, ::BoolResult>(
+          std::mem_fn(&DtoG::Service::RegisterUser), this)));
+}
+
+DtoG::Service::~Service() {
+}
+
+::grpc::Status DtoG::Service::RegisterUser(::grpc::ServerContext* context, const ::SummonerName* request, ::BoolResult* response) {
+  (void) context;
+  (void) request;
+  (void) response;
+  return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+}
+
+
