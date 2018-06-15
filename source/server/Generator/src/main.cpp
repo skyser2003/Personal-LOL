@@ -8,6 +8,7 @@
 #include "DBConnection.h"
 
 #include "grpcpp/grpcpp.h"
+#include "DataApiService.h"
 
 using namespace std;
 using namespace RiotApi;
@@ -67,21 +68,31 @@ int main()
 
 	cout << ret << endl;
 
-	grpc::ServerBuilder builder;
-	builder.AddListeningPort("0.0.0.0:9999", grpc::InsecureServerCredentials());
-
+	// DB
 	DBConnection conn(dbInfo);
 
 	if (conn.Connect() == false)
 	{
 		cout << "DB connect error" << endl;
 	}
+	else
+	{
+		auto result = conn.Query("SELECT count(*) FROM `user`");
+		auto row = result.Next();
+		auto count = row.Get<int>("count(*)");
 
-	auto result = conn.Query("SELECT count(*) FROM `user`");
-	auto row = result.Next();
-	auto count = row.Get<int>("count(*)");
+		cout << "Count: " << count << endl;
+	}
 
-	cout << "Count: " << count << endl;
+	// Grpc
+	auto service = DataApiService();
+
+	grpc::ServerBuilder builder;
+	builder.AddListeningPort("0.0.0.0:9999", grpc::InsecureServerCredentials());
+	builder.RegisterService(&service);
+
+	auto server = builder.BuildAndStart();
+	server->Wait();
 
 	system("pause");
 	return 0;

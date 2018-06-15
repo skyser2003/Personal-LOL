@@ -1,6 +1,15 @@
 syntax = "proto3";
 
+message Void
+{
+}
+
 message TestMessage
 {
     int32 x = 1;
+}
+
+service TestService
+{
+	rpc TestSend(TestMessage) returns(Void) {}
 }

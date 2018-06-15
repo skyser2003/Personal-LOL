@@ -36,23 +36,121 @@ namespace protobuf_packet_2eproto {
 struct TableStruct {
   static const ::google::protobuf::internal::ParseTableField entries[];
   static const ::google::protobuf::internal::AuxillaryParseTableField aux[];
-  static const ::google::protobuf::internal::ParseTable schema[1];
+  static const ::google::protobuf::internal::ParseTable schema[2];
   static const ::google::protobuf::internal::FieldMetadata field_metadata[];
   static const ::google::protobuf::internal::SerializationTable serialization_table[];
   static const ::google::protobuf::uint32 offsets[];
 };
 void AddDescriptors();
+void InitDefaultsVoidImpl();
+void InitDefaultsVoid();
 void InitDefaultsTestMessageImpl();
 void InitDefaultsTestMessage();
 inline void InitDefaults() {
+  InitDefaultsVoid();
   InitDefaultsTestMessage();
 }
 }  // namespace protobuf_packet_2eproto
 class TestMessage;
 class TestMessageDefaultTypeInternal;
 extern TestMessageDefaultTypeInternal _TestMessage_default_instance_;
+class Void;
+class VoidDefaultTypeInternal;
+extern VoidDefaultTypeInternal _Void_default_instance_;
 
 // ===================================================================
+
+class Void : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:Void) */ {
+ public:
+  Void();
+  virtual ~Void();
+
+  Void(const Void& from);
+
+  inline Void& operator=(const Void& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  #if LANG_CXX11
+  Void(Void&& from) noexcept
+    : Void() {
+    *this = ::std::move(from);
+  }
+
+  inline Void& operator=(Void&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+  #endif
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const Void& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const Void* internal_default_instance() {
+    return reinterpret_cast<const Void*>(
+               &_Void_default_instance_);
+  }
+  static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
+    0;
+
+  void Swap(Void* other);
+  friend void swap(Void& a, Void& b) {
+    a.Swap(&b);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline Void* New() const PROTOBUF_FINAL { return New(NULL); }
+
+  Void* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
+  void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void CopyFrom(const Void& from);
+  void MergeFrom(const Void& from);
+  void Clear() PROTOBUF_FINAL;
+  bool IsInitialized() const PROTOBUF_FINAL;
+
+  size_t ByteSizeLong() const PROTOBUF_FINAL;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) PROTOBUF_FINAL;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const PROTOBUF_FINAL;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const PROTOBUF_FINAL;
+  int GetCachedSize() const PROTOBUF_FINAL { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const PROTOBUF_FINAL;
+  void InternalSwap(Void* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const PROTOBUF_FINAL;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // @@protoc_insertion_point(class_scope:Void)
+ private:
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  mutable int _cached_size_;
+  friend struct ::protobuf_packet_2eproto::TableStruct;
+  friend void ::protobuf_packet_2eproto::InitDefaultsVoidImpl();
+};
+// -------------------------------------------------------------------
 
 class TestMessage : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:TestMessage) */ {
  public:
@@ -89,7 +187,7 @@ class TestMessage : public ::google::protobuf::Message /* @@protoc_insertion_poi
                &_TestMessage_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    0;
+    1;
 
   void Swap(TestMessage* other);
   friend void swap(TestMessage& a, TestMessage& b) {
@@ -160,6 +258,10 @@ class TestMessage : public ::google::protobuf::Message /* @@protoc_insertion_poi
   #pragma GCC diagnostic push
   #pragma GCC diagnostic ignored "-Wstrict-aliasing"
 #endif  // __GNUC__
+// Void
+
+// -------------------------------------------------------------------
+
 // TestMessage
 
 // int32 x = 1;
@@ -179,6 +281,8 @@ inline void TestMessage::set_x(::google::protobuf::int32 value) {
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
 
 // @@protoc_insertion_point(namespace_scope)
 
