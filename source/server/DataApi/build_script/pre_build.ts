@@ -5,25 +5,20 @@ import { pbjs, pbts } from "protobufjs/cli";
 
 const protoRegex = /^(.*)\.proto$/;
 
-function generate(filename: string) {
+function generate(protoName: string) {
     return new Promise((resolve, reject) => {
         const args: string[] = [];
 
-        const match = protoRegex.exec(filename);
-        if (match) {
-            const serviceName = match[1];
-            args.push("-r", serviceName);
-        }
-
-        args.push("-t", "static-module", "-w", "commonjs", "-o", `generated/${filename}.generated.js`);
-        args.push(`./proto/${filename}.proto`);
+        args.push("-r", protoName);
+        args.push("-t", "static-module", "-w", "commonjs", "-o", `generated/${protoName}.generated.js`);
+        args.push(`../data/proto/${protoName}.proto`);
 
         pbjs.main(args,
             (err, output) => {
                 if (err) {
                     reject(err);
                 } else {
-                    pbts.main(["-o", `generated/${filename}.generated.d.ts`, `generated/${filename}.generated.js`],
+                    pbts.main(["-o", `generated/${protoName}.generated.d.ts`, `generated/${protoName}.generated.js`],
                         (err2, output2) => {
                             if (err2) {
                                 reject(err);
@@ -40,12 +35,20 @@ function generate(filename: string) {
     });
 }
 
-function generateAll() {
+async function generateAll() {
     const files = fs.readdirSync(path.join(__dirname, "..", "..", "data", "proto"));
 
-    const protoFiles: string[] = [];
+    const promises: Promise<{}>[] = [];
 
     files.forEach(filename => {
-
+        const match = protoRegex.exec(filename);
+        if (match) {
+            const protoName = match[1];
+            promises.push(generate(protoName));
+        }
     });
+
+    await Promise.all(promises);
 }
+
+generateAll();

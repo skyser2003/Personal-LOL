@@ -38,6 +38,7 @@
     <TypeScriptCompile Include="build_script\pre_build.ts">
       <SubType>Code</SubType>
     </TypeScriptCompile>
+    <TypeScriptCompile Include="generated\packet.generated.d.ts" />
     <TypeScriptCompile Include="routes\index.ts" />
     <TypeScriptCompile Include="routes\user.ts" />
     <Content Include="tsconfig.json" />
