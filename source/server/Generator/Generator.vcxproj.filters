@@ -46,6 +46,9 @@
     <Filter Include="proto">
       <UniqueIdentifier>{8024f1e2-da2e-4247-98a3-b1ada96acde1}</UniqueIdentifier>
     </Filter>
+    <Filter Include="GrpcService">
+      <UniqueIdentifier>{221a5555-f474-4e88-993a-1b210c3da26b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\external\libcurl\lib\amigaos.c">
@@ -467,6 +470,9 @@
     </ClCompile>
     <ClCompile Include="generated\packet.grpc.pb.cc">
       <Filter>generated</Filter>
+    </ClCompile>
+    <ClCompile Include="src\DataApiService.cpp">
+      <Filter>GrpcService</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -907,6 +913,9 @@
     </ClInclude>
     <ClInclude Include="generated\packet.grpc.pb.h">
       <Filter>generated</Filter>
+    </ClInclude>
+    <ClInclude Include="header\DataApiService.h">
+      <Filter>GrpcService</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
