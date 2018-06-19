@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "node app",
-    "pre_build": "(tsc --lib es2018 build_script/pre_build.ts && node build_script/pre_build.js)"
+    "pre_build": "(tsc -p build_script && node build_script/pre_build.js)"
   },
   "description": "DataApi",
   "author": {

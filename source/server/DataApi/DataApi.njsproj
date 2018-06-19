@@ -34,6 +34,7 @@
     <DebugSymbols>true</DebugSymbols>
   </PropertyGroup>
   <ItemGroup>
+    <Content Include="build_script\tsconfig.json" />
     <Content Include="views\index.ejs" />
     <TypeScriptCompile Include="app.ts" />
     <TypeScriptCompile Include="build_script\pre_build.ts">
