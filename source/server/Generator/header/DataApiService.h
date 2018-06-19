@@ -2,10 +2,10 @@
 
 #include "packet.grpc.pb.h"
 
-class DataApiService : public TestService::Service
+class DataApiService : public DtoGService::Service
 {
 public:
-	virtual ::grpc::Status TestSend(::grpc::ServerContext* context, const ::TestMessage* request, ::Void* response) override;
+	virtual ::grpc::Status RegisterUser(::grpc::ServerContext* context, const ::SummonerName* request, ::BoolResult* response) override;
 
 private:
 };
