@@ -399,11 +399,11 @@ export namespace TestService {
     type TestSendCallback = (error: (Error|null), response?: Void) => void;
 }
 
-/** Represents a DtoG */
-export class DtoG extends $protobuf.rpc.Service {
+/** Represents a DtoGService */
+export class DtoGService extends $protobuf.rpc.Service {
 
     /**
-     * Constructs a new DtoG service.
+     * Constructs a new DtoGService service.
      * @param rpcImpl RPC implementation
      * @param [requestDelimited=false] Whether requests are length-delimited
      * @param [responseDelimited=false] Whether responses are length-delimited
@@ -411,20 +411,20 @@ export class DtoG extends $protobuf.rpc.Service {
     constructor(rpcImpl: $protobuf.RPCImpl, requestDelimited?: boolean, responseDelimited?: boolean);
 
     /**
-     * Creates new DtoG service using the specified rpc implementation.
+     * Creates new DtoGService service using the specified rpc implementation.
      * @param rpcImpl RPC implementation
      * @param [requestDelimited=false] Whether requests are length-delimited
      * @param [responseDelimited=false] Whether responses are length-delimited
      * @returns RPC service. Useful where requests and/or responses are streamed.
      */
-    public static create(rpcImpl: $protobuf.RPCImpl, requestDelimited?: boolean, responseDelimited?: boolean): DtoG;
+    public static create(rpcImpl: $protobuf.RPCImpl, requestDelimited?: boolean, responseDelimited?: boolean): DtoGService;
 
     /**
      * Calls RegisterUser.
      * @param request SummonerName message or plain object
      * @param callback Node-style callback called with the error, if any, and BoolResult
      */
-    public registerUser(request: ISummonerName, callback: DtoG.RegisterUserCallback): void;
+    public registerUser(request: ISummonerName, callback: DtoGService.RegisterUserCallback): void;
 
     /**
      * Calls RegisterUser.
@@ -434,10 +434,10 @@ export class DtoG extends $protobuf.rpc.Service {
     public registerUser(request: ISummonerName): Promise<BoolResult>;
 }
 
-export namespace DtoG {
+export namespace DtoGService {
 
     /**
-     * Callback as used by {@link DtoG#registerUser}.
+     * Callback as used by {@link DtoGService#registerUser}.
      * @param error Error, if any
      * @param [response] BoolResult
      */

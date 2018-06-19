@@ -190,12 +190,12 @@ void AddDescriptorsImpl() {
       "\n\014packet.proto\"\006\n\004Void\"\034\n\nBoolResult\022\016\n\006"
       "result\030\001 \001(\010\"\034\n\014SummonerName\022\014\n\004name\030\001 \001"
       "(\t\"\030\n\013TestMessage\022\t\n\001x\030\001 \001(\00520\n\013TestServ"
-      "ice\022!\n\010TestSend\022\014.TestMessage\032\005.Void\"\00022"
-      "\n\004DtoG\022*\n\014RegisterUser\022\r.SummonerName\032\013."
-      "BoolResultb\006proto3"
+      "ice\022!\n\010TestSend\022\014.TestMessage\032\005.Void\"\00029"
+      "\n\013DtoGService\022*\n\014RegisterUser\022\r.Summoner"
+      "Name\032\013.BoolResultb\006proto3"
   };
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-      descriptor, 218);
+      descriptor, 225);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "packet.proto", &protobuf_RegisterTypes);
 }

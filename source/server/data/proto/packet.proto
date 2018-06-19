@@ -24,7 +24,7 @@ service TestService
 	rpc TestSend(TestMessage) returns(Void) {}
 }
 
-service DtoG
+service DtoGService
 {
 	rpc RegisterUser(SummonerName) returns (BoolResult);
 }

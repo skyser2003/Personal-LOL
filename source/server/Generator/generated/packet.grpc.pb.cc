@@ -59,44 +59,44 @@ TestService::Service::~Service() {
 }
 
 
-static const char* DtoG_method_names[] = {
-  "/DtoG/RegisterUser",
+static const char* DtoGService_method_names[] = {
+  "/DtoGService/RegisterUser",
 };
 
-std::unique_ptr< DtoG::Stub> DtoG::NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options) {
+std::unique_ptr< DtoGService::Stub> DtoGService::NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options) {
   (void)options;
-  std::unique_ptr< DtoG::Stub> stub(new DtoG::Stub(channel));
+  std::unique_ptr< DtoGService::Stub> stub(new DtoGService::Stub(channel));
   return stub;
 }
 
-DtoG::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel)
-  : channel_(channel), rpcmethod_RegisterUser_(DtoG_method_names[0], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+DtoGService::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel)
+  : channel_(channel), rpcmethod_RegisterUser_(DtoGService_method_names[0], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   {}
 
-::grpc::Status DtoG::Stub::RegisterUser(::grpc::ClientContext* context, const ::SummonerName& request, ::BoolResult* response) {
+::grpc::Status DtoGService::Stub::RegisterUser(::grpc::ClientContext* context, const ::SummonerName& request, ::BoolResult* response) {
   return ::grpc::internal::BlockingUnaryCall(channel_.get(), rpcmethod_RegisterUser_, context, request, response);
 }
 
-::grpc::ClientAsyncResponseReader< ::BoolResult>* DtoG::Stub::AsyncRegisterUserRaw(::grpc::ClientContext* context, const ::SummonerName& request, ::grpc::CompletionQueue* cq) {
+::grpc::ClientAsyncResponseReader< ::BoolResult>* DtoGService::Stub::AsyncRegisterUserRaw(::grpc::ClientContext* context, const ::SummonerName& request, ::grpc::CompletionQueue* cq) {
   return ::grpc::internal::ClientAsyncResponseReaderFactory< ::BoolResult>::Create(channel_.get(), cq, rpcmethod_RegisterUser_, context, request, true);
 }
 
-::grpc::ClientAsyncResponseReader< ::BoolResult>* DtoG::Stub::PrepareAsyncRegisterUserRaw(::grpc::ClientContext* context, const ::SummonerName& request, ::grpc::CompletionQueue* cq) {
+::grpc::ClientAsyncResponseReader< ::BoolResult>* DtoGService::Stub::PrepareAsyncRegisterUserRaw(::grpc::ClientContext* context, const ::SummonerName& request, ::grpc::CompletionQueue* cq) {
   return ::grpc::internal::ClientAsyncResponseReaderFactory< ::BoolResult>::Create(channel_.get(), cq, rpcmethod_RegisterUser_, context, request, false);
 }
 
-DtoG::Service::Service() {
+DtoGService::Service::Service() {
   AddMethod(new ::grpc::internal::RpcServiceMethod(
-      DtoG_method_names[0],
+      DtoGService_method_names[0],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
-      new ::grpc::internal::RpcMethodHandler< DtoG::Service, ::SummonerName, ::BoolResult>(
-          std::mem_fn(&DtoG::Service::RegisterUser), this)));
+      new ::grpc::internal::RpcMethodHandler< DtoGService::Service, ::SummonerName, ::BoolResult>(
+          std::mem_fn(&DtoGService::Service::RegisterUser), this)));
 }
 
-DtoG::Service::~Service() {
+DtoGService::Service::~Service() {
 }
 
-::grpc::Status DtoG::Service::RegisterUser(::grpc::ServerContext* context, const ::SummonerName* request, ::BoolResult* response) {
+::grpc::Status DtoGService::Service::RegisterUser(::grpc::ServerContext* context, const ::SummonerName* request, ::BoolResult* response) {
   (void) context;
   (void) request;
   (void) response;

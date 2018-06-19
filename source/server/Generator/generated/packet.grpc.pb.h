@@ -130,10 +130,10 @@ class TestService final {
   typedef WithStreamedUnaryMethod_TestSend<Service > StreamedService;
 };
 
-class DtoG final {
+class DtoGService final {
  public:
   static constexpr char const* service_full_name() {
-    return "DtoG";
+    return "DtoGService";
   }
   class StubInterface {
    public:
