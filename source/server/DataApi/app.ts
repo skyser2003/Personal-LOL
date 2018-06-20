@@ -4,7 +4,6 @@ import * as debug from "debug";
 import * as express from "express";
 
 import routes from "./routes/index";
-import users from "./routes/user";
 import api from "./routes/api";
 
 var app = express();
@@ -16,7 +15,6 @@ app.set("view engine", "ejs");
 app.use(express.static(path.join(__dirname, "public")));
 
 app.use("/", routes);
-app.use("/users", users);
 app.use("/api", api);
 
 // catch 404 and forward to error handler
