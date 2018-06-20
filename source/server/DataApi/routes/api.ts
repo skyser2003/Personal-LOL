@@ -13,9 +13,11 @@ const testClient = (client as object) as packet.DtoGService;
 
 const router = express.Router();
 
-router.get("/",
+router.post("/",
     (req, res) => {
-        testClient.registerUser({ name: encodeURI("에펠탑") },
+        const summonerName = req.body.summoner_name;
+
+        testClient.registerUser({ name: encodeURI(summonerName) },
             (err, res) => {
                 if (err) {
                     console.error(res);
