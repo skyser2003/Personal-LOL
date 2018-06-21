@@ -35,6 +35,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Content Include="build_script\tsconfig.json" />
+    <Content Include="views\error.ejs" />
     <Content Include="views\index.ejs" />
     <TypeScriptCompile Include="app.ts" />
     <TypeScriptCompile Include="build_script\pre_build.ts">
@@ -49,10 +50,15 @@
     <Content Include="package.json" />
     <Content Include="public\stylesheets\main.css" />
     <Content Include="README.md" />
+    <TypeScriptCompile Include="models\server\server.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="build_script\" />
     <Folder Include="generated\" />
+    <Folder Include="models\" />
+    <Folder Include="models\server\" />
     <Folder Include="public\" />
     <Folder Include="public\images\" />
     <Folder Include="public\javascripts\" />
