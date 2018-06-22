@@ -1,9 +1,4 @@
-﻿import * as path from "path";
-
-import * as debug from "debug";
-import * as express from "express";
-
-import routes from "./routes/index";
+﻿import routes from "./routes/index";
 import api from "./routes/api";
 
 import { Server } from "./models/server/server";
