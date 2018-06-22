@@ -14,11 +14,6 @@ const testClient = (client as object) as packet.TestService;
 const router = express.Router();
 
 router.get("/", (req: express.Request, res: express.Response) => {
-    testClient.testSend({ x: 1 },
-        (err, res) => {
-            console.error(err);
-        });
-    
     res.render("index", { title: "Express" });
 });
 
