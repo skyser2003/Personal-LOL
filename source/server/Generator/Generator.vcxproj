@@ -49,12 +49,12 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>pch;header;generated;../RiotApi/header;../external/boost;../external/libcurl/include;../external/libcurl/lib;../external/nlohmann;C:\Program Files\MariaDB\MariaDB Connector C 64-bit\include;D:\Projects\vcpkg\installed\x64-windows\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>pch;header;generated;../RiotApi/header;../external/boost;../external/libcurl/include;../external/libcurl/lib;../external/nlohmann;C:\Program Files\MariaDB\MariaDB Connector C 64-bit\include;../external/vcpkg/installed/x64-windows/include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>CURL_STATICLIB;CURL_STRICTER;USE_WINDOWS_SSPI;USE_SCHANNEL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <PrecompiledHeader>Use</PrecompiledHeader>
     </ClCompile>
     <Link>
-      <AdditionalLibraryDirectories>../external/boost/stage/lib;C:\Program Files\MariaDB\MariaDB Connector C 64-bit\lib;D:\Projects\vcpkg\installed\x64-windows\debug\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>../external/boost/stage/lib;C:\Program Files\MariaDB\MariaDB Connector C 64-bit\lib;../external/vcpkg/installed/x64-windows/debug/lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>wldap32.lib;crypt32.lib;ws2_32.lib;libmariadb.lib;gpr.lib;grpc.lib;grpc_cronet.lib;grpc_plugin_support.lib;grpc_unsecure.lib;grpc++.lib;grpc++_cronet.lib;grpc++_error_details.lib;grpc++_reflection.lib;grpc++_unsecure.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PreBuildEvent>
@@ -70,14 +70,14 @@ protoc --plugin=protoc-gen-grpc=grpc\grpc_cpp_plugin.exe --proto_path=$(ProjectD
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>pch;header;generated;../RiotApi/header;../external/boost;../external/libcurl/include;../external/libcurl/lib;../external/nlohmann;C:\Program Files\MariaDB\MariaDB Connector C 64-bit\include;D:\Projects\vcpkg\installed\x64-windows\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>pch;header;generated;../RiotApi/header;../external/boost;../external/libcurl/include;../external/libcurl/lib;../external/nlohmann;C:\Program Files\MariaDB\MariaDB Connector C 64-bit\include;../external/vcpkg/installed/x64-windows/include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>CURL_STATICLIB;CURL_STRICTER;USE_WINDOWS_SSPI;USE_SCHANNEL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <PrecompiledHeader>Use</PrecompiledHeader>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalLibraryDirectories>../external/boost/stage/lib;C:\Program Files\MariaDB\MariaDB Connector C 64-bit\lib;D:\Projects\vcpkg\installed\x64-windows\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>../external/boost/stage/lib;C:\Program Files\MariaDB\MariaDB Connector C 64-bit\lib;../external/vcpkg/installed/x64-windows/lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>wldap32.lib;crypt32.lib;ws2_32.lib;libmariadb.lib;gpr.lib;grpc.lib;grpc_cronet.lib;grpc_plugin_support.lib;grpc_unsecure.lib;grpc++.lib;grpc++_cronet.lib;grpc++_error_details.lib;grpc++_reflection.lib;grpc++_unsecure.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PreBuildEvent>
