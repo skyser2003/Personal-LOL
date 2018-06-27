@@ -3,6 +3,8 @@ import * as http from "http";
 
 import * as debug from "debug";
 import * as express from "express";
+import * as cookieParser from "cookie-parser";
+import * as bodyParser from "body-parser";
 
 export class Server {
     private readonly app: express.Express;
@@ -16,6 +18,9 @@ export class Server {
         app.set("view engine", "ejs");
 
         app.use(express.static(path.join(__dirname, "..", "..", "public")));
+        app.use(cookieParser());
+        app.use(bodyParser.json());
+        app.use(bodyParser.urlencoded());
 
         routes.forEach((route, rootPath) => {
             app.use(rootPath, route);
