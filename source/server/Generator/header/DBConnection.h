@@ -16,7 +16,7 @@ public:
 	DBConnection(const DBInfo& info);
 	~DBConnection();
 
-	bool Connect();
+	bool Connect(int retryCount, int retrySleepMs = 5000);
 	DBResult Query(const std::string& query);
 
 private:

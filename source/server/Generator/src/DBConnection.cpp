@@ -10,19 +10,60 @@ DBConnection::~DBConnection()
 	mysql_close(&conn);
 }
 
-bool DBConnection::Connect()
+bool DBConnection::Connect(int retryCount, int retrySleepMs)
 {
-	const auto result = mysql_real_connect(&conn, info.host.c_str(), info.user.c_str(), info.pw.c_str(), info.db.c_str(), 3306, nullptr, 0);
-
-	if (result == nullptr)
+	const auto tryConnect = [this]()
 	{
-		// TODO: some error logging
+		return mysql_real_connect(&conn, info.host.c_str(), info.user.c_str(), info.pw.c_str(), info.db.c_str(), 3306, nullptr, 0);;
+	};
 
-		return false;
+	// TODO
+	/*
+	const auto retryCondition = retryCount < 0 ? []() -> bool { return true; }
+		: [&retryCount]()
+	{
+		return (retryCount--) == 0;
+	};
+	*/
+
+	const auto test = [&retryCount]()
+	{
+		return (retryCount--) == 0;
+	};
+
+	const auto test2 = []() {	return true; };
+
+	if (tryConnect() != nullptr)
+	{
+		return true;
+	}
+	else if (retryCount < 0)
+	{
+		while (true)
+		{
+			if (tryConnect() == nullptr)
+			{
+				std::this_thread::sleep_for(std::chrono::milliseconds(retrySleepMs));
+			}
+			else
+			{
+				break;
+			}
+		}
 	}
 	else
 	{
-		return true;
+		while (retryCount--)
+		{
+			if (tryConnect() == nullptr)
+			{
+				std::this_thread::sleep_for(std::chrono::milliseconds(retrySleepMs));
+			}
+			else
+			{
+				break;
+			}
+		}
 	}
 }
 
