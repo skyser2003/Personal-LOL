@@ -67,7 +67,6 @@ async function generateAll() {
             const protoName = match[1];
 
             const root = protobuf.loadSync(path.join(protoDir, protoName));
-            root.deferred
         }
     });
 
