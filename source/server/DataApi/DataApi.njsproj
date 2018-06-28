@@ -35,6 +35,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Content Include="build_script\tsconfig.json" />
+    <Content Include="grpc_template\service_interface.ejs">
+      <SubType>Code</SubType>
+    </Content>
     <Content Include="views\error.ejs" />
     <Content Include="views\index.ejs" />
     <TypeScriptCompile Include="app.ts" />
@@ -59,6 +62,7 @@
     <Folder Include="generated\" />
     <Folder Include="models\" />
     <Folder Include="models\server\" />
+    <Folder Include="grpc_template\" />
     <Folder Include="public\" />
     <Folder Include="public\images\" />
     <Folder Include="public\javascripts\" />

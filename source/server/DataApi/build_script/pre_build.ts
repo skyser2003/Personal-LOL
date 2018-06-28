@@ -1,7 +1,16 @@
 ﻿import * as fs from "fs";
 import * as path from "path";
 
+import * as ejs from "ejs";
+import * as protobuf from "protobufjs";
+
 import { pbjs, pbts } from "protobufjs/cli";
+
+class Method {
+    name: string;
+    requestType: string;
+    responseType: string;
+}
 
 const protoRegex = /^(.*)\.proto$/;
 
@@ -36,7 +45,8 @@ function generate(protoName: string) {
 }
 
 async function generateAll() {
-    const files = fs.readdirSync(path.join(__dirname, "..", "..", "data", "proto"));
+    const protoDir = path.join(__dirname, "..", "..", "data", "proto");
+    const files = fs.readdirSync(protoDir);
 
     const promises: Promise<{}>[] = [];
 
@@ -47,6 +57,29 @@ async function generateAll() {
             promises.push(generate(protoName));
         }
     });
+
+    // Grpc
+    const serviceEjsFile = path.join(__dirname, "..", "grpc_template", "service_interface.ejs");
+
+    files.forEach(filename => {
+        const match = protoRegex.exec(filename);
+        if (match) {
+            const protoName = match[1];
+
+            const root = protobuf.loadSync(path.join(protoDir, protoName));
+            root.deferred
+        }
+    });
+
+
+    ejs.renderFile(serviceEjsFile,
+        null,
+        (err, result) => {
+            if (err) {
+                console.error(err);
+                return;
+            }
+        });
 
     await Promise.all(promises);
 }

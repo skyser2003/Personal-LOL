@@ -1,0 +1,7 @@
+﻿import * as protobuf from "protobufjs";
+
+export class <%= serviceName %> {
+<% for (const method in methods) { %>
+    <%= method.name %>(request: <%= method.requestType %>, callback?: (error: Error, response: <%= method.responseType %>) => void);
+<% } %>
+}
