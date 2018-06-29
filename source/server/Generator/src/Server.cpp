@@ -1,13 +1,44 @@
 #include "stdafx.h"
 #include "Server.h"
 
-Server::Server() : isRunning(true)
-{
+#include "DataApiService.h"
 
+using namespace std;
+
+Server::Server(int port, const DBConnection::DBInfo& dbInfo) : isRunning(true), conn(dbInfo)
+{
+	// Db
+	if (conn.Connect(-1) == false)
+	{
+		cout << "DB connect error" << endl;
+	}
+	else
+	{
+		auto result = conn.Query("SELECT count(*) FROM `user`");
+		auto row = result.Next();
+		auto count = row.Get<int>("count(*)");
+
+		cout << "Count: " << count << endl;
+	}
+
+	// Grpc
+	dataApiService.reset(new DataApiService());
+
+	std::stringstream ss;
+
+	ss << "0.0.0.0:" << port;
+
+	grpc::ServerBuilder builder;
+	builder.AddListeningPort(ss.str(), grpc::InsecureServerCredentials());
+	builder.RegisterService(dataApiService.get());
+
+	grpcServer = builder.BuildAndStart();
 }
 
 void Server::Run()
 {
+	grpcServer->Wait();
+
 	while (isRunning)
 	{
 		auto localQueue = [this]()

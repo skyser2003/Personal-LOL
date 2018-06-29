@@ -10,6 +10,7 @@
 #include <functional>
 #include <mutex>
 #include <queue>
+#include <sstream>
 
 #ifndef WIN32
 #include <experimental/string_view>
@@ -22,3 +23,4 @@ namespace std
 #include "curl/curl.h"
 #include "json.hpp"
 #include "mysql.h"
+#include "grpcpp/grpcpp.h"
