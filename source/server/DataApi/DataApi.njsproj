@@ -46,8 +46,10 @@
       <SubType>Code</SubType>
     </TypeScriptCompile>
     <TypeScriptCompile Include="generated\DtoGService_class.ts" />
+    <TypeScriptCompile Include="generated\DtoGService_interface.ts" />
     <TypeScriptCompile Include="generated\packet.generated.d.ts" />
     <TypeScriptCompile Include="generated\TestService_class.ts" />
+    <TypeScriptCompile Include="generated\TestService_interface.ts" />
     <TypeScriptCompile Include="routes\api.ts">
       <SubType>Code</SubType>
     </TypeScriptCompile>
