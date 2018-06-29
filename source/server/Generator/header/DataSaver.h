@@ -7,8 +7,10 @@ class DBConnection;
 class DataSaver
 {
 public:
-	DataSaver(const std::weak_ptr<DBConnection>& conn);
+	DataSaver(const std::shared_ptr<DBConnection>& conn);
+
+	void RegisterUser(const std::string& summonerName);
 
 private:
-	std::weak_ptr<DBConnection> conn;
+	std::shared_ptr<DBConnection> conn;
 };
