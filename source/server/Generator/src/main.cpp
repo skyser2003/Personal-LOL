@@ -14,7 +14,6 @@
 using namespace std;
 using namespace RiotApi;
 using json = nlohmann::json;
-using DBInfo = DBConnection::DBInfo;
 
 int main()
 {

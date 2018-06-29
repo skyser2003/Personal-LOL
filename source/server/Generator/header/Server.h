@@ -5,14 +5,16 @@
 #include <functional>
 
 #include "ServerJob.h"
-#include "DBConnection.h"
+
+struct DBInfo;
 
 class DataApiService;
+class DBConnection;
 
 class Server
 {
 public:
-	Server(int port, const DBConnection::DBInfo& dbInfo);
+	Server(int port, const DBInfo& dbInfo);
 
 	void Run();
 	void Stop();
@@ -26,7 +28,7 @@ private:
 	bool isRunning;
 
 	// DB
-	DBConnection conn;
+	std::unique_ptr<DBConnection> conn;
 
 	// Grpc
 	std::unique_ptr<grpc::Server> grpcServer;

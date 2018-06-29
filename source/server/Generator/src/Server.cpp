@@ -2,19 +2,20 @@
 #include "Server.h"
 
 #include "DataApiService.h"
+#include "DBConnection.h"
 
 using namespace std;
 
-Server::Server(int port, const DBConnection::DBInfo& dbInfo) : isRunning(true), conn(dbInfo)
+Server::Server(int port, const DBInfo& dbInfo) : isRunning(true), conn(new DBConnection(dbInfo))
 {
 	// Db
-	if (conn.Connect(-1) == false)
+	if (conn->Connect(-1) == false)
 	{
 		cout << "DB connect error" << endl;
 	}
 	else
 	{
-		auto result = conn.Query("SELECT count(*) FROM `user`");
+		auto result = conn->Query("SELECT count(*) FROM `user`");
 		auto row = result.Next();
 		auto count = row.Get<int>("count(*)");
 
