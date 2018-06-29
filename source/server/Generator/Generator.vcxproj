@@ -619,6 +619,7 @@ protoc --plugin=protoc-gen-grpc=grpc\grpc_cpp_plugin.exe --proto_path=$(ProjectD
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="src\DataApiService.cpp" />
+    <ClCompile Include="src\DataSaver.cpp" />
     <ClCompile Include="src\DBConnection.cpp" />
     <ClCompile Include="src\DBResult.cpp" />
     <ClCompile Include="src\DBRow.cpp" />
@@ -768,6 +769,7 @@ protoc --plugin=protoc-gen-grpc=grpc\grpc_cpp_plugin.exe --proto_path=$(ProjectD
     <ClInclude Include="generated\packet.grpc.pb.h" />
     <ClInclude Include="generated\packet.pb.h" />
     <ClInclude Include="header\DataApiService.h" />
+    <ClInclude Include="header\DataSaver.h" />
     <ClInclude Include="header\DBConnection.h" />
     <ClInclude Include="header\DBResult.h" />
     <ClInclude Include="header\DBRow.h" />

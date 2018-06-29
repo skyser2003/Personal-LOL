@@ -49,6 +49,9 @@
     <Filter Include="GrpcService">
       <UniqueIdentifier>{221a5555-f474-4e88-993a-1b210c3da26b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="DataSaver">
+      <UniqueIdentifier>{d78cb9df-8d95-476b-a6ea-49af9e39ca24}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\external\libcurl\lib\amigaos.c">
@@ -473,6 +476,9 @@
     </ClCompile>
     <ClCompile Include="src\DataApiService.cpp">
       <Filter>GrpcService</Filter>
+    </ClCompile>
+    <ClCompile Include="src\DataSaver.cpp">
+      <Filter>DataSaver</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -916,6 +922,9 @@
     </ClInclude>
     <ClInclude Include="header\DataApiService.h">
       <Filter>GrpcService</Filter>
+    </ClInclude>
+    <ClInclude Include="header\DataSaver.h">
+      <Filter>DataSaver</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

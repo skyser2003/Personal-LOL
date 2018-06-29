@@ -10,6 +10,7 @@ struct DBInfo;
 
 class DataApiService;
 class DBConnection;
+class DataSaver;
 
 class Server
 {
@@ -28,10 +29,10 @@ private:
 	bool isRunning;
 
 	// DB
-	std::unique_ptr<DBConnection> conn;
+	std::shared_ptr<DBConnection> conn;
+	std::shared_ptr<DataSaver> saver;
 
 	// Grpc
 	std::unique_ptr<grpc::Server> grpcServer;
-
 	std::unique_ptr<DataApiService> dataApiService;
 };

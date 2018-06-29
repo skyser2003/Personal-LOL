@@ -3,10 +3,11 @@
 
 #include "DataApiService.h"
 #include "DBConnection.h"
+#include "DataSaver.h"
 
 using namespace std;
 
-Server::Server(int port, const DBInfo& dbInfo) : isRunning(true), conn(new DBConnection(dbInfo))
+Server::Server(int port, const DBInfo& dbInfo) : isRunning(true), conn(new DBConnection(dbInfo)), saver(new DataSaver(conn))
 {
 	// Db
 	if (conn->Connect(-1) == false)
