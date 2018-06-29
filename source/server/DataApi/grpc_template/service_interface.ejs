@@ -1,7 +1,9 @@
-﻿import * as protobuf from "protobufjs";
+﻿import * as grpc from "grpc";
 
-export class <%= serviceName %> {
-<% for (const method in methods) { %>
-    <%= method.name %>(request: <%= method.requestType %>, callback?: (error: Error, response: <%= method.responseType %>) => void);
+import * as <%= protoName %> from "./<%= protoName %>.generated";
+
+export interface <%= serviceName %>_Interface extends grpc.Client {
+<% for (const method of methods) { %>
+    <%= method.name %>(request: <%= `${protoName}.I${method.requestType}` %>, callback?: (error: Error, response: <%= `${protoName}.I${method.responseType}` %>) => void);
 <% } %>
 }

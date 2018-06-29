@@ -13,7 +13,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>2e14c6f1-d227-4b4b-b8a1-4c81ca4103c5</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>app.js</StartupFile>
+    <StartupFile>build_script\pre_build.ts</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -35,6 +35,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Content Include="build_script\tsconfig.json" />
+    <Content Include="grpc_template\service_class.ejs" />
     <Content Include="grpc_template\service_interface.ejs">
       <SubType>Code</SubType>
     </Content>
@@ -44,7 +45,9 @@
     <TypeScriptCompile Include="build_script\pre_build.ts">
       <SubType>Code</SubType>
     </TypeScriptCompile>
+    <TypeScriptCompile Include="generated\DtoGService_class.ts" />
     <TypeScriptCompile Include="generated\packet.generated.d.ts" />
+    <TypeScriptCompile Include="generated\TestService_class.ts" />
     <TypeScriptCompile Include="routes\api.ts">
       <SubType>Code</SubType>
     </TypeScriptCompile>

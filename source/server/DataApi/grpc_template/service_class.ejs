@@ -1,0 +1,23 @@
+﻿import * as <%= protoName %> from "./<%= protoName %>.generated";
+import { <%= serviceName %>_Interface } from "./<%= serviceName %>_interface";
+export { <%= serviceName %>_Interface } from "./<%= serviceName %>_interface";
+
+export class <%= serviceName %> {
+    constructor(private readonly serviceInterface: <%= serviceName %>_Interface) {
+    }
+
+<% for (const method of methods) { %>
+    <%= method.name %>(request: <%= `${protoName}.I${method.requestType}` %>) {
+        return new Promise<<%= `${protoName}.I${method.responseType}` %>>((resolve, reject) => {
+            this.serviceInterface.<%= method.name %>(request, (err, response) => {
+                if (err) {
+                    reject(err);
+                    return;
+                }
+
+                resolve(response);
+            });
+        });
+    }
+<% } %>
+}

@@ -71,7 +71,7 @@ int main()
 	// DB
 	DBConnection conn(dbInfo);
 
-	if (conn.Connect() == false)
+	if (conn.Connect(-1) == false)
 	{
 		cout << "DB connect error" << endl;
 	}
