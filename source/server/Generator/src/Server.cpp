@@ -24,7 +24,7 @@ Server::Server(int port, const DBInfo& dbInfo) : isRunning(true), conn(new DBCon
 	}
 
 	// Grpc
-	dataApiService.reset(new DataApiService());
+	dataApiService = std::make_unique<DataApiService>();
 
 	std::stringstream ss;
 
@@ -53,7 +53,7 @@ void Server::Run()
 			return tempQueue;
 		}();
 
-		if (localQueue.size() == 0)
+		if (localQueue.empty())
 		{
 			std::this_thread::sleep_for(std::chrono::milliseconds(1));
 			continue;
