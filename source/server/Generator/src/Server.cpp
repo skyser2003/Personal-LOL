@@ -24,7 +24,7 @@ Server::Server(int port, const DBInfo& dbInfo) : isRunning(true), conn(new DBCon
 	}
 
 	// Grpc
-	dataApiService = std::make_unique<DataApiService>();
+	dataApiService = std::make_unique<DataApiService>(saver);
 
 	std::stringstream ss;
 
