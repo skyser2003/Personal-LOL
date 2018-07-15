@@ -1,5 +1,7 @@
 #pragma once
 
+#include <boost/format.hpp>
+
 #include "DBResult.h"
 
 struct DBInfo
@@ -18,6 +20,14 @@ public:
 
 	bool Connect(int retryCount, int retrySleepMs = 5000);
 	DBResult Query(const std::string& query);
+
+	template <typename ...Args>
+	DBResult Query(const std::string& query, Args... args)
+	{
+		auto format = (boost::format(query) % ... % args);
+
+		return Query(format.str());
+	}
 
 private:
 	const DBInfo info;
