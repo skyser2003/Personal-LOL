@@ -623,8 +623,9 @@ protoc --plugin=protoc-gen-grpc=grpc\grpc_cpp_plugin.exe --proto_path=$(ProjectD
     <ClCompile Include="src\DataApiService.cpp" />
     <ClCompile Include="src\DataSaver.cpp" />
     <ClCompile Include="src\DBConnection.cpp" />
-    <ClCompile Include="src\DBResult.cpp" />
+    <ClCompile Include="src\DBReadResult.cpp" />
     <ClCompile Include="src\DBRow.cpp" />
+    <ClCompile Include="src\DBWriteResult.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\Server.cpp" />
     <ClCompile Include="src\ServerJob.cpp" />
@@ -773,8 +774,9 @@ protoc --plugin=protoc-gen-grpc=grpc\grpc_cpp_plugin.exe --proto_path=$(ProjectD
     <ClInclude Include="header\DataApiService.h" />
     <ClInclude Include="header\DataSaver.h" />
     <ClInclude Include="header\DBConnection.h" />
-    <ClInclude Include="header\DBResult.h" />
+    <ClInclude Include="header\DBReadResult.h" />
     <ClInclude Include="header\DBRow.h" />
+    <ClInclude Include="header\DBWriteResult.h" />
     <ClInclude Include="header\Server.h" />
     <ClInclude Include="header\ServerJob.h" />
     <ClInclude Include="header\WebClient.h" />

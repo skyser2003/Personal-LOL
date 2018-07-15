@@ -2,7 +2,8 @@
 
 #include <boost/format.hpp>
 
-#include "DBResult.h"
+#include "DBReadResult.h"
+#include "DBWriteResult.h"
 
 struct DBInfo
 {
@@ -19,14 +20,25 @@ public:
 	~DBConnection();
 
 	bool Connect(int retryCount, int retrySleepMs = 5000);
-	DBResult Query(const std::string& query);
+
+	DBReadResult ReadQuery(const std::string& query);
 
 	template <typename ...Args>
-	DBResult Query(const std::string& query, Args... args)
+	auto ReadQuery(const std::string& query, Args... args)
 	{
 		auto format = (boost::format(query) % ... % args);
 
-		return Query(format.str());
+		return ReadQuery(format.str());
+	}
+
+	DBWriteResult WriteQuery(const std::string& query);
+
+	template <typename ...Args>
+	auto WriteQuery(const std::string& query, Args... args)
+	{
+		auto format = (boost::format(query) % ... % args);
+
+		return WriteQuery(format.str());
 	}
 
 private:

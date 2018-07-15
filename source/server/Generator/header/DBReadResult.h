@@ -4,10 +4,10 @@
 
 #include "DBRow.h"
 
-class DBResult
+class DBReadResult
 {
 public:
-	DBResult(MYSQL_RES* res);
+	DBReadResult(MYSQL_RES* res);
 
 	int Count() const;
 	DBRow Next();

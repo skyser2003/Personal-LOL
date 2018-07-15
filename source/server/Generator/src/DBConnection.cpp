@@ -67,17 +67,33 @@ bool DBConnection::Connect(int retryCount, int retrySleepMs)
 	}
 }
 
-DBResult DBConnection::Query(const std::string& query)
+DBReadResult DBConnection::ReadQuery(const std::string& query)
 {
 	if (mysql_real_query(&conn, query.c_str(), query.size()) != 0)
 	{
 		// TODO: some error logging
-		return DBResult(nullptr);
+		return DBReadResult(nullptr);
 	}
 	else
 	{
 		auto* result = mysql_store_result(&conn);
 
-		return DBResult(result);
+		return DBReadResult(result);
+	}
+}
+
+DBWriteResult DBConnection::WriteQuery(const std::string& query)
+{
+	if (mysql_real_query(&conn, query.c_str(), query.size()) != 0)
+	{
+		// TODO: some error logging
+		return DBWriteResult(nullptr, 0);
+	}
+	else
+	{
+		auto* result = mysql_store_result(&conn);
+		auto affectedRowsCount = mysql_affected_rows(&conn);
+
+		return DBWriteResult(result, affectedRowsCount);
 	}
 }

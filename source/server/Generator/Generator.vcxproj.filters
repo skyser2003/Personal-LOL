@@ -456,9 +456,6 @@
     <ClCompile Include="src\DBConnection.cpp">
       <Filter>DB</Filter>
     </ClCompile>
-    <ClCompile Include="src\DBResult.cpp">
-      <Filter>DB</Filter>
-    </ClCompile>
     <ClCompile Include="src\DBRow.cpp">
       <Filter>DB</Filter>
     </ClCompile>
@@ -479,6 +476,12 @@
     </ClCompile>
     <ClCompile Include="src\DataSaver.cpp">
       <Filter>DataSaver</Filter>
+    </ClCompile>
+    <ClCompile Include="src\DBWriteResult.cpp">
+      <Filter>DB</Filter>
+    </ClCompile>
+    <ClCompile Include="src\DBReadResult.cpp">
+      <Filter>DB</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -902,9 +905,6 @@
     <ClInclude Include="header\DBConnection.h">
       <Filter>DB</Filter>
     </ClInclude>
-    <ClInclude Include="header\DBResult.h">
-      <Filter>DB</Filter>
-    </ClInclude>
     <ClInclude Include="header\DBRow.h">
       <Filter>DB</Filter>
     </ClInclude>
@@ -925,6 +925,12 @@
     </ClInclude>
     <ClInclude Include="header\DataSaver.h">
       <Filter>DataSaver</Filter>
+    </ClInclude>
+    <ClInclude Include="header\DBWriteResult.h">
+      <Filter>DB</Filter>
+    </ClInclude>
+    <ClInclude Include="header\DBReadResult.h">
+      <Filter>DB</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

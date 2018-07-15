@@ -1,7 +1,7 @@
 #include "stdafx.h"
-#include "DBResult.h"
+#include "DBReadResult.h"
 
-DBResult::DBResult(MYSQL_RES* res) : res(*res), count(res == nullptr ? 0 : mysql_num_rows(res))
+DBReadResult::DBReadResult(MYSQL_RES* res) : res(*res), count(res == nullptr ? 0 : mysql_num_rows(res))
 {
 	if (res == nullptr)
 	{
@@ -14,12 +14,12 @@ DBResult::DBResult(MYSQL_RES* res) : res(*res), count(res == nullptr ? 0 : mysql
 	}
 }
 
-int DBResult::Count() const
+int DBReadResult::Count() const
 {
 	return count;
 }
 
-DBRow DBResult::Next()
+DBRow DBReadResult::Next()
 {
 	auto row = mysql_fetch_row(&res);
 

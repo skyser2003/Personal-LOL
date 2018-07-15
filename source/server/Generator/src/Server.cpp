@@ -16,7 +16,7 @@ Server::Server(int port, const DBInfo& dbInfo) : isRunning(true), conn(new DBCon
 	}
 	else
 	{
-		auto result = conn->Query("SELECT count(*) FROM `user`");
+		auto result = conn->ReadQuery("SELECT count(*) FROM `user`");
 		auto row = result.Next();
 		auto count = row.Get<int>("count(*)");
 
