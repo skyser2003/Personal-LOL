@@ -7,7 +7,7 @@
 
 using namespace std;
 
-Server::Server(int port, const DBInfo& dbInfo) : isRunning(true), conn(new DBConnection(dbInfo)), saver(new DataSaver(conn))
+Server::Server(int port) : isRunning(true), conn(new DBConnection(GetDbInfo())), saver(new DataSaver(conn))
 {
 	// Db
 	if (conn->Connect(-1) == false)
@@ -24,7 +24,7 @@ Server::Server(int port, const DBInfo& dbInfo) : isRunning(true), conn(new DBCon
 	}
 
 	// Grpc
-	dataApiService = std::make_unique<DataApiService>(saver);
+	dataApiService = std::make_unique<DataApiService>(GetRiotApiKey(), saver);
 
 	std::stringstream ss;
 
@@ -78,4 +78,41 @@ void Server::AddJob(const ServerJob& job)
 {
 	std::lock_guard<std::mutex> lock(mutex);
 	jobQueue.push(job);
+}
+
+std::string Server::GetRiotApiKey() const
+{
+	ifstream input("../../../data/api_key.json");
+	if (input.is_open())
+	{
+		nlohmann::json j;
+		input >> j;
+
+		return j["key"].get<string>();
+	}
+	else
+	{
+		return "";
+	}
+}
+
+DBInfo Server::GetDbInfo() const
+{
+	ifstream input("../../../data/db.json");
+	if (input.is_open())
+	{
+		nlohmann::json j;
+		input >> j;
+
+		return DBInfo{
+			j["host"].get<string>(),
+			j["db"].get<string>(),
+			j["user"].get<string>(),
+			j["password"].get<string>()
+		};
+	}
+	else
+	{
+		return DBInfo();
+	}
 }

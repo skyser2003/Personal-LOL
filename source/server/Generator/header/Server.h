@@ -15,7 +15,7 @@ class DataSaver;
 class Server
 {
 public:
-	Server(int port, const DBInfo& dbInfo);
+	Server(int port);
 
 	void Run();
 	void Stop();
@@ -23,6 +23,9 @@ public:
 	void AddJob(const ServerJob& job);
 
 private:
+	std::string GetRiotApiKey() const;
+	DBInfo GetDbInfo() const;
+
 	std::mutex mutex;
 	std::queue<ServerJob> jobQueue;
 

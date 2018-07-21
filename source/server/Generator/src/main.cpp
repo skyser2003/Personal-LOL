@@ -34,28 +34,6 @@ int main()
 		}
 	}();
 
-	// DB info
-	const auto dbInfo = []()
-	{
-		ifstream input("../../../data/db.json");
-		if (input.is_open())
-		{
-			json j;
-			input >> j;
-
-			return DBInfo{
-				j["host"].get<string>(),
-				j["db"].get<string>(),
-				j["user"].get<string>(),
-				j["password"].get<string>()
-			};
-		}
-		else
-		{
-			return DBInfo();
-		}
-	}();
-
 	// API url
 	unique_ptr<ISubUrl> subUrl = make_unique<SubUrl<ApiType::SUMMONER_SUMMONERS_BY_NAME>>("%EC%97%90%ED%8E%A0%ED%83%91");
 	FullUrl url(apiKey, RegionalEndpoint::KR, subUrl);
@@ -69,7 +47,7 @@ int main()
 	cout << ret << endl;
 
 	// Server
-	Server server(9999, dbInfo);
+	Server server(9999);
 	server.Run();
 
 	system("pause");

@@ -2,10 +2,11 @@
 #include "DataApiService.h"
 
 #include "DataSaver.h"
+#include "FullUrl.h"
 
 using namespace std;
 
-DataApiService::DataApiService(std::shared_ptr<DataSaver> dataSaver) : dataSaver(dataSaver)
+DataApiService::DataApiService(const std::string& apiKey, std::shared_ptr<DataSaver> dataSaver) : apiKey(apiKey), dataSaver(dataSaver)
 {
 
 }
