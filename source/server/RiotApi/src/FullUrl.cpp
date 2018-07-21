@@ -10,12 +10,12 @@ namespace RiotApi
 		return "https://%s.api.riotgames.com/lol/%s?api_key=%s";
 	}
 
-	std::string FullUrl::GetUrl(const std::string& apiKey, RegionalEndpoint endpoint, std::unique_ptr<ISubUrl>& subUrl)
+	std::string FullUrl::GetUrl(const std::string& apiKey, RegionalEndpoint endpoint, const ISubUrl& subUrl)
 	{
-		return (boost::format(GetUrlFormat()) % GetSubDomain(endpoint)[0] % subUrl->GetUrl() % apiKey).str();
+		return (boost::format(GetUrlFormat()) % GetSubDomain(endpoint)[0] % subUrl.GetUrl() % apiKey).str();
 	}
 
-	FullUrl::FullUrl(const std::string& apiKey, RegionalEndpoint endpoint, std::unique_ptr<ISubUrl>& subUrl)
+	FullUrl::FullUrl(const std::string& apiKey, RegionalEndpoint endpoint, const ISubUrl& subUrl)
 	: url(GetUrl(apiKey, endpoint, subUrl))
 	{
 

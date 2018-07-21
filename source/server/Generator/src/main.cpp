@@ -35,7 +35,7 @@ int main()
 	}();
 
 	// API url
-	unique_ptr<ISubUrl> subUrl = make_unique<SubUrl<ApiType::SUMMONER_SUMMONERS_BY_NAME>>("%EC%97%90%ED%8E%A0%ED%83%91");
+	auto subUrl = SubUrl<ApiType::SUMMONER_SUMMONERS_BY_NAME>("%EC%97%90%ED%8E%A0%ED%83%91");
 	FullUrl url(apiKey, RegionalEndpoint::KR, subUrl);
 
 	cout << url.GetUrl() << endl;
