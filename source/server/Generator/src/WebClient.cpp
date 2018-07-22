@@ -13,7 +13,7 @@ WebClient::WebClient() : curl(curl_easy_init())
 
 WebClient::~WebClient() = default;
 
-std::string WebClient::Get(const std::string& url)
+std::string WebClient::Get(const std::string& url) const
 {
 	std::string ret;
 
@@ -30,4 +30,9 @@ std::string WebClient::Get(const std::string& url)
 	curl_easy_cleanup(curl);
 
 	return ret;
+}
+
+nlohmann::json WebClient::GetJson(const std::string& url) const
+{
+	return nlohmann::json(Get(url));
 }

@@ -20,9 +20,9 @@ DataApiService::DataApiService(const std::string& apiKey, std::shared_ptr<DataSa
 	const auto& name = request->name();
 
 	auto url = FullUrl(apiKey, RegionalEndpoint::KR, SubUrl<ApiType::SUMMONER_SUMMONERS_BY_NAME>(name));
-	auto body = webClient->Get(url.GetUrl());
+	auto body = webClient->GetJson(url.GetUrl());
 
-	cout << body << endl;
+	cout << body.get<string>() << endl;
 
 	cout << "URL encoded summoner name: " << name << endl;
 
