@@ -16,6 +16,7 @@ class Server
 {
 public:
 	Server(int port);
+	~Server();
 
 	void Run();
 	void Stop();

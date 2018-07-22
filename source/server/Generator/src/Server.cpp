@@ -37,6 +37,8 @@ Server::Server(int port) : isRunning(true), conn(new DBConnection(GetDbInfo())),
 	grpcServer = builder.BuildAndStart();
 }
 
+Server::~Server() = default;
+
 void Server::Run()
 {
 	grpcServer->Wait();

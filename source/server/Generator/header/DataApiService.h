@@ -5,6 +5,7 @@
 #include "packet.grpc.pb.h"
 
 class DataSaver;
+class WebClient;
 
 class DataApiService : public DtoGService::Service
 {
@@ -16,4 +17,6 @@ public:
 private:
 	const std::string apiKey;
 	std::shared_ptr<DataSaver> dataSaver;
+
+	std::unique_ptr<WebClient> webClient;
 };
