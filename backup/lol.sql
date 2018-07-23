@@ -1,6 +1,6 @@
 -- --------------------------------------------------------
--- Host:                         192.168.1.47
--- Server version:               10.2.15-MariaDB-10.2.15+maria~xenial-log - mariadb.org binary distribution
+-- Host:                         localhost
+-- Server version:               10.3.7-MariaDB-1:10.3.7+maria~jessie - mariadb.org binary distribution
 -- Server OS:                    debian-linux-gnu
 -- HeidiSQL Version:             9.5.0.5196
 -- --------------------------------------------------------
@@ -18,9 +18,12 @@ USE `lol`;
 
 -- Dumping structure for table lol.user
 CREATE TABLE IF NOT EXISTS `user` (
+  `region` char(50) NOT NULL,
   `account_id` bigint(20) NOT NULL,
   `summoner_id` bigint(20) NOT NULL,
-  `summoner_name` char(50) NOT NULL
+  `summoner_name` char(50) NOT NULL,
+  UNIQUE KEY `region_account_id` (`region`,`account_id`),
+  UNIQUE KEY `region_summoner_id` (`region`,`summoner_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- Data exporting was unselected.
