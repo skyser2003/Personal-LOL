@@ -75,10 +75,10 @@
     <ClInclude Include="header\ChampionSubUrl.h" />
     <ClInclude Include="header\FullUrl.h" />
     <ClInclude Include="header\RegionalEndpoint.h" />
+    <ClInclude Include="header\SpectatorSubUrl.h" />
     <ClInclude Include="header\SubUrl.h" />
     <ClInclude Include="header\SummonerSuburl.h" />
     <ClInclude Include="pch\stdafx.h" />
-    <ClInclude Include="src\SpectatorSubUrl.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch\stdafx.cpp">

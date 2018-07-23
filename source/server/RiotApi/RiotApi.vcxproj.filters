@@ -39,7 +39,7 @@
     <ClInclude Include="header\SummonerSuburl.h">
       <Filter>SubUrl</Filter>
     </ClInclude>
-    <ClInclude Include="src\SpectatorSubUrl.h">
+    <ClInclude Include="header\SpectatorSubUrl.h">
       <Filter>SubUrl</Filter>
     </ClInclude>
   </ItemGroup>
