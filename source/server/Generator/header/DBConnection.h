@@ -27,9 +27,7 @@ public:
 	template <typename ...Args>
 	auto ReadQuery(const std::string& query, Args... args)
 	{
-		auto format = (boost::format(query) % ... % Escape(args));
-
-		return ReadQuery(format.str());
+		return ReadQuery(ComposeQuery(query, args...));
 	}
 
 	DBWriteResult WriteQuery(const std::string& query);
@@ -37,21 +35,25 @@ public:
 	template <typename ...Args>
 	auto WriteQuery(const std::string& query, Args... args)
 	{
-		auto format = (boost::format(query) % ... % Escape(args));
+		return WriteQuery(ComposeQuery(query, args...));
+	}
 
-		return WriteQuery(format.str());
+	template <typename ...Args>
+	auto ComposeQuery(const std::string& query, Args... args) const
+	{
+		return (boost::format(query) % ... % Escape(args)).str();
 	}
 
 private:
 	template <typename ArgType>
-	std::string Escape(ArgType arg)
+	std::string Escape(ArgType arg) const
 	{
 		const auto strArg = std::to_string(arg);
 		return Escape(strArg);
 	}
 
 	template <>
-	std::string Escape(std::string arg)
+	std::string Escape(std::string arg) const
 	{
 		auto* dest = new char[arg.length() * 2 + 1];
 
