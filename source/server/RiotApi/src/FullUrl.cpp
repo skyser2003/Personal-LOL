@@ -12,7 +12,7 @@ namespace RiotApi
 
 	std::string FullUrl::GetUrl(const std::string& apiKey, RegionalEndpoint endpoint, const ISubUrl& subUrl)
 	{
-		return (boost::format(GetUrlFormat()) % GetSubDomain(endpoint)[0] % subUrl.GetUrl() % apiKey).str();
+		return (boost::format(GetUrlFormat()) % GetSubDomain(endpoint) % subUrl.GetUrl() % apiKey).str();
 	}
 
 	FullUrl::FullUrl(const std::string& apiKey, RegionalEndpoint endpoint, const ISubUrl& subUrl)
