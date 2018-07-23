@@ -32,3 +32,12 @@ DataApiService::DataApiService(const std::string& apiKey, std::shared_ptr<DataSa
 
 	return grpc::Status::OK;
 }
+
+::grpc::Status DataApiService::GetCurrentGame(::grpc::ServerContext* context, const ::SummonerName* request, ::BoolResult* response)
+{
+	const auto& name = request->name();
+
+	response->set_result(true);
+
+	return grpc::Status::OK;
+}

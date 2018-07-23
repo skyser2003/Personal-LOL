@@ -432,6 +432,20 @@ export class DtoGService extends $protobuf.rpc.Service {
      * @returns Promise
      */
     public registerUser(request: ISummonerName): Promise<BoolResult>;
+
+    /**
+     * Calls GetCurrentGame.
+     * @param request SummonerName message or plain object
+     * @param callback Node-style callback called with the error, if any, and BoolResult
+     */
+    public getCurrentGame(request: ISummonerName, callback: DtoGService.GetCurrentGameCallback): void;
+
+    /**
+     * Calls GetCurrentGame.
+     * @param request SummonerName message or plain object
+     * @returns Promise
+     */
+    public getCurrentGame(request: ISummonerName): Promise<BoolResult>;
 }
 
 export namespace DtoGService {
@@ -442,4 +456,11 @@ export namespace DtoGService {
      * @param [response] BoolResult
      */
     type RegisterUserCallback = (error: (Error|null), response?: BoolResult) => void;
+
+    /**
+     * Callback as used by {@link DtoGService#getCurrentGame}.
+     * @param error Error, if any
+     * @param [response] BoolResult
+     */
+    type GetCurrentGameCallback = (error: (Error|null), response?: BoolResult) => void;
 }

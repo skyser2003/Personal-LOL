@@ -31,4 +31,20 @@ router.post("/",
         res.send(ret);
     });
 
+router.get("/live/:summonerName",
+    async (req, res) => {
+        const ret = new ResultStruct(0);
+
+        const summonerName = req.params.summonerName;
+
+        try {
+            const result = await testClient.getCurrentGame({ name: encodeURI(summonerName) });
+            ret.result = result.result ? 1 : 0;
+        } catch (err) {
+            console.error(err);
+        }
+
+        res.send(ret);
+    });
+
 export default router;

@@ -27,4 +27,5 @@ service TestService
 service DtoGService
 {
 	rpc RegisterUser(SummonerName) returns (BoolResult);
+	rpc GetCurrentGame(SummonerName) returns (BoolResult);
 }
