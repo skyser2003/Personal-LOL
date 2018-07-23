@@ -28,7 +28,7 @@ DataApiService::DataApiService(const std::string& apiKey, std::shared_ptr<DataSa
 	auto accountId = body["accountId"].get<long>();
 	auto summonerId = body["id"].get<long>();
 
-	response->set_result(dataSaver->RegisterUser(summonerId, accountId, decodedName));
+	response->set_result(dataSaver->RegisterUser(GetSubDomain(RegionalEndpoint::KR), summonerId, accountId, decodedName));
 
 	return grpc::Status::OK;
 }
