@@ -27,5 +27,5 @@ namespace RiotApi
 		ASIA
 	};
 
-	std::vector<std::string> GetSubDomain(RegionalEndpoint proxy);
+	std::string GetSubDomain(RegionalEndpoint proxy);
 }

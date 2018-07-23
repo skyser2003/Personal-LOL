@@ -1,103 +1,100 @@
 #include "stdafx.h"
 #include "RegionalEndpoint.h"
 
-std::vector<std::string> RiotApi::GetSubDomain(RegionalEndpoint proxy)
+std::string RiotApi::GetSubDomain(RegionalEndpoint proxy)
 {
-	std::vector<std::string> ret;
-
 	switch (proxy)
 	{
 	case RegionalEndpoint::BR:
 		{
-			ret.push_back("br1");
+			return "br1";
 		}
 		break;
 
 	case RegionalEndpoint::EUNE:
 		{
-			ret.push_back("eun1");
+			return "eun1";
 		}
 		break;
 
 	case RegionalEndpoint::EUW:
 		{
-			ret.push_back("euw1");
+			return "euw1";
 		}
 		break;
 
 	case RegionalEndpoint::JP:
 		{
-			ret.push_back("jp1");
+			return "jp1";
 		}
 		break;
 
 	case RegionalEndpoint::KR:
 		{
-			ret.push_back("kr");
+			return "kr";
 		}
 		break;
 
 	case RegionalEndpoint::LAN:
 		{
-			ret.push_back("la1");
+			return "la1";
 		}
 		break;
 
 	case RegionalEndpoint::LAS:
 		{
-			ret.push_back("la1");
+			return "la1";
 		}
 		break;
 
 	case RegionalEndpoint::NA:
 		{
-			ret.push_back("na");
-			ret.push_back("na1");
+			return "na1";
 		}
 		break;
 
 	case RegionalEndpoint::OCE:
 		{
-			ret.push_back("oc1");
+			return "oc1";
 		}
 		break;
 
 	case RegionalEndpoint::TR:
 		{
-			ret.push_back("tr1");
+			return "tr1";
 		}
 		break;
 
 	case RegionalEndpoint::RU:
 		{
-			ret.push_back("ru");
+			return "ru";
 		}
 		break;
 
 	case RegionalEndpoint::PBE:
 		{
-			ret.push_back("pbe1");
+			return "pbe1";
 		}
 		break;
 
 	case RegionalEndpoint::AMERICAS:
 		{
-			ret.push_back("americas");
+			return "americas";
 		}
 		break;
 
 	case RegionalEndpoint::EUROPE:
 		{
-			ret.push_back("europe");
+			return "europe";
 		}
 		break;
 
 	case RegionalEndpoint::ASIA:
 		{
-			ret.push_back("asia");
+			return "asia";
 		}
 		break;
 	}
 
-	return ret;
+	return "";
 }
