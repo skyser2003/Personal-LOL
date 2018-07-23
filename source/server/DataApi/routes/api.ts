@@ -5,6 +5,8 @@ import * as grpc from "grpc";
 
 import { DtoGService, DtoGService_Interface } from "../generated/DtoGService_class";
 
+import { ResultStruct } from "../models/util/struct";
+
 const packetList = grpc.load(path.join(__dirname, "..", "..", "data", "proto", "packet.proto"));
 const d2gService = packetList["DtoGService"] as typeof grpc.Client;
 const client = new d2gService("localhost:9999", grpc.credentials.createInsecure());
@@ -15,16 +17,18 @@ const router = express.Router();
 
 router.post("/",
     async (req, res) => {
+        const ret = new ResultStruct(0);
+
         const summonerName = req.body.summoner_name;
 
         try {
-            const res = await testClient.registerUser({ name: encodeURI(summonerName) });
-            console.log(res);
+            const result = await testClient.registerUser({ name: encodeURI(summonerName) });
+            ret.result = result.result ? 1 : 0;
         } catch (err) {
             console.error(err);
         }
-        
-        res.render("index", { title: "Express" });
+
+        res.send(ret);
     });
 
 export default router;

@@ -50,6 +50,9 @@
     <TypeScriptCompile Include="generated\packet.generated.d.ts" />
     <TypeScriptCompile Include="generated\TestService_class.ts" />
     <TypeScriptCompile Include="generated\TestService_interface.ts" />
+    <TypeScriptCompile Include="models\util\struct.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
     <TypeScriptCompile Include="routes\api.ts">
       <SubType>Code</SubType>
     </TypeScriptCompile>
@@ -66,6 +69,7 @@
     <Folder Include="build_script\" />
     <Folder Include="generated\" />
     <Folder Include="models\" />
+    <Folder Include="models\util\" />
     <Folder Include="models\server\" />
     <Folder Include="grpc_template\" />
     <Folder Include="public\" />
