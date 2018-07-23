@@ -20,13 +20,20 @@ DataApiService::DataApiService(const std::string& apiKey, std::shared_ptr<DataSa
 	const auto& name = request->name();
 
 	auto url = FullUrl(apiKey, RegionalEndpoint::KR, SubUrl<ApiType::SUMMONER_SUMMONERS_BY_NAME>(name));
+	auto decodedName = webClient->DecodeURIComponent(name);
+	auto encodedName = webClient->EncodeURIComponent(decodedName);
+
 	auto body = webClient->GetJson(url.GetUrl());
 
-	cout << body.get<string>() << endl;
+	cout << "URL encoded summoner name: " << encodedName << endl;
+	cout << "URL decoded summoner name: " << decodedName << endl;
 
-	cout << "URL encoded summoner name: " << name << endl;
+	cout << body.dump() << endl;
 
-	response->set_result(dataSaver->RegisterUser(name));
+	auto accountId = body["accountId"].get<long>();
+	auto summonerId = body["id"].get<long>();
+
+	response->set_result(dataSaver->RegisterUser(summonerId, accountId, decodedName));
 
 	return grpc::Status::OK;
 }
