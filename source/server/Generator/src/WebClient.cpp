@@ -8,26 +8,27 @@ size_t writeFunction(void *ptr, size_t size, size_t nmemb, std::string* data) {
 
 WebClient::WebClient() : curl(curl_easy_init())
 {
-
+	curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, writeFunction);
 }
 
-WebClient::~WebClient() = default;
+WebClient::~WebClient()
+{
+	curl_easy_cleanup(curl);
+	curl = nullptr;
+}
 
 std::string WebClient::Get(const std::string& url) const
 {
 	std::string ret;
 
-	curl_easy_setopt(curl, CURLOPT_URL, url.c_str());
-	curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, writeFunction);
 	curl_easy_setopt(curl, CURLOPT_WRITEDATA, &ret);
+	curl_easy_setopt(curl, CURLOPT_URL, url.c_str());
 
 	auto res = curl_easy_perform(curl);
 	if (res != CURLE_OK)
 	{
 		printf("curl_easy_perform() failed: %s\n", curl_easy_strerror(res));
 	}
-
-	curl_easy_cleanup(curl);
 
 	return ret;
 }
