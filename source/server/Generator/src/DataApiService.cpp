@@ -6,6 +6,7 @@
 
 #include "FullUrl.h"
 #include "SummonerSuburl.h"
+#include "SpectatorSubUrl.h"
 
 using namespace std;
 using namespace RiotApi;
@@ -24,6 +25,8 @@ DataApiService::DataApiService(const std::string& apiKey, std::shared_ptr<DataSa
 	auto encodedName = webClient->EncodeURIComponent(decodedName);
 
 	auto body = webClient->GetJson(url.GetUrl());
+
+	cout << body.dump() << endl;
 
 	auto accountId = body["accountId"].get<long>();
 	auto summonerId = body["id"].get<long>();

@@ -42,6 +42,9 @@
     <ClInclude Include="header\SpectatorSubUrl.h">
       <Filter>SubUrl</Filter>
     </ClInclude>
+    <ClInclude Include="header\ApiResultStruct.h">
+      <Filter>Static</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch\stdafx.cpp">
@@ -67,6 +70,9 @@
     </ClCompile>
     <ClCompile Include="src\SpectatorSubUrl.cpp">
       <Filter>SubUrl</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ApiResultStruct.cpp">
+      <Filter>Static</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
