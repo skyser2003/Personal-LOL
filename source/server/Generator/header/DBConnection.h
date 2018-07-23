@@ -46,14 +46,14 @@ public:
 
 private:
 	template <typename ArgType>
-	std::string Escape(ArgType arg) const
+	auto Escape(ArgType arg) const
 	{
 		const auto strArg = std::to_string(arg);
 		return Escape(strArg);
 	}
 
 	template <>
-	std::string Escape(std::string arg) const
+	auto Escape(std::string arg) const
 	{
 		auto* dest = new char[arg.length() * 2 + 1];
 
