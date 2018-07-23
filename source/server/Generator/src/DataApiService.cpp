@@ -25,11 +25,6 @@ DataApiService::DataApiService(const std::string& apiKey, std::shared_ptr<DataSa
 
 	auto body = webClient->GetJson(url.GetUrl());
 
-	cout << "URL encoded summoner name: " << encodedName << endl;
-	cout << "URL decoded summoner name: " << decodedName << endl;
-
-	cout << body.dump() << endl;
-
 	auto accountId = body["accountId"].get<long>();
 	auto summonerId = body["id"].get<long>();
 
