@@ -39,6 +39,9 @@
     <ClInclude Include="header\SummonerSuburl.h">
       <Filter>SubUrl</Filter>
     </ClInclude>
+    <ClInclude Include="src\SpectatorSubUrl.h">
+      <Filter>SubUrl</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch\stdafx.cpp">
@@ -60,6 +63,9 @@
       <Filter>SubUrl</Filter>
     </ClCompile>
     <ClCompile Include="src\SummonerSuburl.cpp">
+      <Filter>SubUrl</Filter>
+    </ClCompile>
+    <ClCompile Include="src\SpectatorSubUrl.cpp">
       <Filter>SubUrl</Filter>
     </ClCompile>
   </ItemGroup>

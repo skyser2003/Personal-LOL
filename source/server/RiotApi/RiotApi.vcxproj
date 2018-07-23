@@ -78,6 +78,7 @@
     <ClInclude Include="header\SubUrl.h" />
     <ClInclude Include="header\SummonerSuburl.h" />
     <ClInclude Include="pch\stdafx.h" />
+    <ClInclude Include="src\SpectatorSubUrl.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch\stdafx.cpp">
@@ -88,6 +89,7 @@
     <ClCompile Include="src\ChampionSubUrl.cpp" />
     <ClCompile Include="src\FullUrl.cpp" />
     <ClCompile Include="src\RegionalEndpoint.cpp" />
+    <ClCompile Include="src\SpectatorSubUrl.cpp" />
     <ClCompile Include="src\SubUrl.cpp" />
     <ClCompile Include="src\SummonerSuburl.cpp" />
   </ItemGroup>
