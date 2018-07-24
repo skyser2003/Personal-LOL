@@ -15,7 +15,7 @@ const testClient = new DtoGService(client as DtoGService_Interface);
 
 const router = express.Router();
 
-router.post("/",
+router.post("/register",
     async (req, res) => {
         const ret = new ResultStruct(0);
 
