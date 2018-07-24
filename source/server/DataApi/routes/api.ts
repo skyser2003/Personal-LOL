@@ -22,7 +22,7 @@ router.post("/register",
         const summonerName = req.body.summoner_name;
 
         try {
-            const result = await testClient.registerUser({ name: encodeURI(summonerName) });
+            const result = await testClient.registerUser({ name: summonerName });
             ret.result = result.result ? 1 : 0;
         } catch (err) {
             console.error(err);
@@ -38,7 +38,7 @@ router.get("/live/:summonerName",
         const summonerName = req.params.summonerName;
 
         try {
-            const result = await testClient.getCurrentGame({ name: encodeURI(summonerName) });
+            const result = await testClient.getCurrentGame({ name: summonerName });
             ret.result = result.result ? 1 : 0;
         } catch (err) {
             console.error(err);
