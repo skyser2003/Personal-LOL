@@ -42,22 +42,17 @@ std::string WebClient::EncodeURIComponent(const std::string& uri) const
 {
 	const auto* encoded = curl_easy_escape(curl, uri.c_str(), uri.length());
 
-	const auto ret = [encoded]() -> std::string
+	if (encoded == nullptr)
 	{
-		if (encoded == nullptr)
-		{
-			return "";
-		}
-		else
-		{
-			std::string ret = encoded;
-			delete[] encoded;
+		return "";
+	}
+	else
+	{
+		std::string ret = encoded;
+		delete[] encoded;
 
-			return ret;
-		}
-	}();
-
-	return ret;
+		return ret;
+	}
 }
 
 std::string WebClient::DecodeURIComponent(const std::string& uri) const
@@ -65,20 +60,15 @@ std::string WebClient::DecodeURIComponent(const std::string& uri) const
 	int outLength;
 	const auto* decoded = curl_easy_unescape(curl, uri.c_str(), uri.length(), &outLength);
 
-	const auto ret = [decoded]() -> std::string
+	if (decoded == nullptr)
 	{
-		if (decoded == nullptr)
-		{
-			return "";
-		}
-		else
-		{
-			std::string ret = decoded;
-			delete[] decoded;
+		return "";
+	}
+	else
+	{
+		std::string ret = decoded;
+		delete[] decoded;
 
-			return ret;
-		}
-	}();
-
-	return ret;
+		return ret;
+	}
 }
