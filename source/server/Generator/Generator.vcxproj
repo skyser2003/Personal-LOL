@@ -59,7 +59,7 @@
       <AdditionalDependencies>wldap32.lib;crypt32.lib;ws2_32.lib;libmariadb.lib;gpr.lib;grpc.lib;grpc_cronet.lib;grpc_plugin_support.lib;grpc_unsecure.lib;grpc++.lib;grpc++_cronet.lib;grpc++_error_details.lib;grpc++_reflection.lib;grpc++_unsecure.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PreBuildEvent>
-      <Command>cd D:\Projects\vcpkg\installed\x64-windows\tools
+      <Command>cd $(ProjectDir)..\external\vcpkg\installed\x64-windows\tools
 protoc --plugin=protoc-gen-grpc=grpc\grpc_cpp_plugin.exe --proto_path=$(ProjectDir)..\data\proto --cpp_out=$(ProjectDir)generated --grpc_out=$(ProjectDir)generated packet.proto</Command>
     </PreBuildEvent>
   </ItemDefinitionGroup>
@@ -83,7 +83,7 @@ protoc --plugin=protoc-gen-grpc=grpc\grpc_cpp_plugin.exe --proto_path=$(ProjectD
       <AdditionalDependencies>wldap32.lib;crypt32.lib;ws2_32.lib;libmariadb.lib;gpr.lib;grpc.lib;grpc_cronet.lib;grpc_plugin_support.lib;grpc_unsecure.lib;grpc++.lib;grpc++_cronet.lib;grpc++_error_details.lib;grpc++_reflection.lib;grpc++_unsecure.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PreBuildEvent>
-      <Command>cd D:\Projects\vcpkg\installed\x64-windows\tools
+      <Command>cd $(ProjectDir)..\external\vcpkg\installed\x64-windows\tools
 protoc --plugin=protoc-gen-grpc=grpc\grpc_cpp_plugin.exe --proto_path=$(ProjectDir)..\data\proto --cpp_out=$(ProjectDir)generated --grpc_out=$(ProjectDir)generated packet.proto</Command>
     </PreBuildEvent>
   </ItemDefinitionGroup>
