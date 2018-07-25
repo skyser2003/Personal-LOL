@@ -9,7 +9,10 @@ import { ResultStruct } from "../models/util/struct";
 
 const packetList = grpc.load(path.join(__dirname, "..", "..", "data", "proto", "packet.proto"));
 const d2gService = packetList["DtoGService"] as typeof grpc.Client;
-const client = new d2gService("localhost:9999", grpc.credentials.createInsecure());
+const client = new d2gService("localhost:9999", grpc.credentials.createInsecure(),
+    {
+        "grpc.max_reconnect_backoff_ms": 1000
+    });
 
 const testClient = new DtoGService(client as DtoGService_Interface);
 
