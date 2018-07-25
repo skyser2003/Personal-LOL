@@ -33,6 +33,7 @@ DataApiService::DataApiService(const std::string& apiKey, std::shared_ptr<DataSa
 ::grpc::Status DataApiService::GetCurrentGame(::grpc::ServerContext* context, const ::SummonerName* request, ::BoolResult* response)
 {
 	const auto& name = request->name();
+	auto encodedName = webClient->EncodeURIComponent(name);
 
 	response->set_result(true);
 

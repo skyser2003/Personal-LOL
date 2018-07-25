@@ -40,4 +40,18 @@ namespace RiotApi
 		const long id;
 		const long accountId;
 	};
+
+	template <>
+	class ApiResult<ApiType::SPECTATOR_ACTIVE_GAMES_BY_SUMMONER> : public FailedApiResult
+	{
+	public:
+		ApiResult(const nlohmann::json& json);
+
+		const int profileIconId;
+		const std::string name;
+		const long summonerLevel;
+		const long revisionDate;
+		const long id;
+		const long accountId;
+	};
 }
