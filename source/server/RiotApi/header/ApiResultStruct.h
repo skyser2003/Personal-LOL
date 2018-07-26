@@ -48,6 +48,20 @@ namespace RiotApi
 		long summonerId;
 	};
 
+	struct MatchReferenceDto
+	{
+		MatchReferenceDto(const nlohmann::json& json);
+
+		const std::string lane;
+		const long gameId;
+		const int champion;
+		const std::string platformId;
+		const int season;
+		const int queue;
+		const std::string role;
+		const long timestamp;
+	};
+
 	// Failed response
 	class FailedApiResult
 	{
@@ -99,5 +113,17 @@ namespace RiotApi
 		std::vector<CurrentGameParticipant> participants;
 		long gameLength;
 		long gameQueueConfigId;
+	};
+
+	template <>
+	class ApiResult<ApiType::MATCH_MATCHLISTS_BY_ACCOUNT> : public FailedApiResult
+	{
+	public:
+		ApiResult(const nlohmann::json& json);
+
+		const std::vector<MatchReferenceDto> matches;
+		const int totalGames;
+		const int startIndex;
+		const int endIndex;
 	};
 }

@@ -45,6 +45,9 @@
     <ClInclude Include="header\ApiResultStruct.h">
       <Filter>Static</Filter>
     </ClInclude>
+    <ClInclude Include="header\MatchSubUrl.h">
+      <Filter>SubUrl</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch\stdafx.cpp">
@@ -73,6 +76,9 @@
     </ClCompile>
     <ClCompile Include="src\ApiResultStruct.cpp">
       <Filter>Static</Filter>
+    </ClCompile>
+    <ClCompile Include="src\MatchSubUrl.cpp">
+      <Filter>SubUrl</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
