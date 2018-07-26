@@ -15,7 +15,7 @@ namespace RiotApi
 
 	std::string BySummoner::GetUrl() const
 	{
-		return (boost::format("spectator/v3/active-games/by-summoner/%L") % summonerId).str();
+		return (boost::format("spectator/v3/active-games/by-summoner/%ld") % summonerId).str();
 	}
 
 	Featured::SubUrl() = default;

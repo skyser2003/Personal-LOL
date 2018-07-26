@@ -39,7 +39,7 @@ DataApiService::DataApiService(const std::string& apiKey, std::shared_ptr<DataSa
 
 	auto result = apiCaller->GetResultDebug<ApiType::SPECTATOR_ACTIVE_GAMES_BY_SUMMONER>(summonerId);
 
-	response->set_val(std::get<1>(result));
+	response->set_val(std::get<1>(result).dump());
 
 	return grpc::Status::OK;
 }
