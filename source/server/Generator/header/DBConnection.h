@@ -52,18 +52,7 @@ private:
 		return Escape(strArg);
 	}
 
-	template <>
-	auto Escape(std::string arg) const
-	{
-		auto* dest = new char[arg.length() * 2 + 1];
-
-		mysql_real_escape_string(&conn, dest, arg.c_str(), arg.length());
-
-		auto ret = std::string(dest);
-		delete[] dest;
-
-		return ret;
-	}
+	std::string Escape(std::string arg) const;
 
 	const DBInfo info;
 	MYSQL& conn;

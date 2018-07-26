@@ -97,3 +97,15 @@ DBWriteResult DBConnection::WriteQuery(const std::string& query)
 		return DBWriteResult(result, affectedRowsCount);
 	}
 }
+
+std::string DBConnection::Escape(std::string arg) const
+{
+	auto* dest = new char[arg.length() * 2 + 1];
+
+	mysql_real_escape_string(&conn, dest, arg.c_str(), arg.length());
+
+	auto ret = std::string(dest);
+	delete[] dest;
+
+	return ret;
+}
