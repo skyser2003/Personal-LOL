@@ -7,6 +7,7 @@
 
 #include "SubUrl.h"
 #include "ApiResultStruct.h"
+#include "RegionalEndpoint.h"
 
 class WebClient;
 
