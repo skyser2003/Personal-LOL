@@ -4,9 +4,23 @@
 #define BIND_ATTR_RAW(name) name(json[#name].get<decltype(name)>())
 #define BIND_ATTR(name) name(HasFailed() ? decltype(name){} : json[#name].get<decltype(name)>())
 #define BIND_ATTR_CHILD(parent, name) name(HasFailed() ? decltype(name){} : json##parent.get<decltype(name)>())
+#define BIND_ATTR_VECTOR(name) name(HasFailed() ? decltype(name)({}) : InitializeVector<decltype(name)::value_type>(json[#name]))
 
 namespace RiotApi
 {
+	template <typename T>
+	std::vector<T> InitializeVector(const nlohmann::json& json)
+	{
+		decltype(InitializeVector<T>(json)) vec;
+
+		for (const auto& elem : json)
+		{
+			vec.push_back(T(elem));
+		}
+
+		return vec;
+	}
+
 	MatchReferenceDto::MatchReferenceDto(const nlohmann::json& json) :
 		BIND_ATTR_RAW(lane),
 		BIND_ATTR_RAW(gameId),
@@ -62,7 +76,7 @@ namespace RiotApi
 
 	ApiResult<ApiType::MATCH_MATCHLISTS_BY_ACCOUNT>::ApiResult(const nlohmann::json& json) :
 		FailedApiResult(json),
-		matches({}),
+		BIND_ATTR_VECTOR(matches),
 		BIND_ATTR(totalGames),
 		BIND_ATTR(startIndex),
 		BIND_ATTR(endIndex)

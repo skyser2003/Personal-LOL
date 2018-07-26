@@ -8,6 +8,7 @@
 #include "FullUrl.h"
 #include "SummonerSuburl.h"
 #include "SpectatorSubUrl.h"
+#include "MatchSubUrl.h"
 
 using namespace std;
 using namespace RiotApi;
