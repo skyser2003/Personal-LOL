@@ -34,7 +34,9 @@ DataApiService::DataApiService(const std::string& apiKey, std::shared_ptr<DataSa
 ::grpc::Status DataApiService::GetCurrentGame(::grpc::ServerContext* context, const ::SummonerName* request, ::BoolResult* response)
 {
 	const auto& name = request->name();
-	auto encodedName = webClient->EncodeURIComponent(name);
+	auto summonerId = apiCaller->GetResult<ApiType::SUMMONER_SUMMONERS_BY_NAME>(name).id;
+
+	auto result = apiCaller->GetResult<ApiType::SPECTATOR_ACTIVE_GAMES_BY_SUMMONER>(summonerId);
 
 	response->set_result(true);
 

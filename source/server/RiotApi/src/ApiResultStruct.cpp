@@ -39,4 +39,10 @@ namespace RiotApi
 	{
 
 	}
+
+	ApiResult<ApiType::SPECTATOR_ACTIVE_GAMES_BY_SUMMONER>::ApiResult(const nlohmann::json& json) :
+		FailedApiResult(json)
+	{
+
+	}
 }
