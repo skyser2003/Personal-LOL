@@ -52,7 +52,7 @@
     <Filter Include="DataSaver">
       <UniqueIdentifier>{d78cb9df-8d95-476b-a6ea-49af9e39ca24}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ApiHelper">
+    <Filter Include="ApiCaller">
       <UniqueIdentifier>{518b2871-6ab6-4a81-82db-0a1431423d17}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
@@ -486,8 +486,8 @@
     <ClCompile Include="src\DBReadResult.cpp">
       <Filter>DB</Filter>
     </ClCompile>
-    <ClCompile Include="src\ApiHelper.cpp">
-      <Filter>ApiHelper</Filter>
+    <ClCompile Include="src\ApiCaller.cpp">
+      <Filter>ApiCaller</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -938,8 +938,8 @@
     <ClInclude Include="header\DBReadResult.h">
       <Filter>DB</Filter>
     </ClInclude>
-    <ClInclude Include="header\ApiHelper.h">
-      <Filter>ApiHelper</Filter>
+    <ClInclude Include="header\ApiCaller.h">
+      <Filter>ApiCaller</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

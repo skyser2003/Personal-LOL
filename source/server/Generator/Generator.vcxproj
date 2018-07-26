@@ -620,7 +620,7 @@ protoc --plugin=protoc-gen-grpc=grpc\grpc_cpp_plugin.exe --proto_path=$(ProjectD
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="src\ApiHelper.cpp" />
+    <ClCompile Include="src\ApiCaller.cpp" />
     <ClCompile Include="src\DataApiService.cpp" />
     <ClCompile Include="src\DataSaver.cpp" />
     <ClCompile Include="src\DBConnection.cpp" />
@@ -772,7 +772,7 @@ protoc --plugin=protoc-gen-grpc=grpc\grpc_cpp_plugin.exe --proto_path=$(ProjectD
     <ClInclude Include="..\external\nlohmann\json.hpp" />
     <ClInclude Include="generated\packet.grpc.pb.h" />
     <ClInclude Include="generated\packet.pb.h" />
-    <ClInclude Include="header\ApiHelper.h" />
+    <ClInclude Include="header\ApiCaller.h" />
     <ClInclude Include="header\DataApiService.h" />
     <ClInclude Include="header\DataSaver.h" />
     <ClInclude Include="header\DBConnection.h" />

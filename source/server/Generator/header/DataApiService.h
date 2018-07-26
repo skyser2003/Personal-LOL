@@ -6,6 +6,7 @@
 
 class DataSaver;
 class WebClient;
+class ApiCaller;
 
 class DataApiService : public DtoGService::Service
 {
@@ -20,4 +21,5 @@ private:
 	std::shared_ptr<DataSaver> dataSaver;
 
 	std::unique_ptr<WebClient> webClient;
+	std::unique_ptr<ApiCaller> apiCaller;
 };
