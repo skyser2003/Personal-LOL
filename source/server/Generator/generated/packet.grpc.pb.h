@@ -23,113 +23,6 @@ class ServerCompletionQueue;
 class ServerContext;
 }  // namespace grpc
 
-class TestService final {
- public:
-  static constexpr char const* service_full_name() {
-    return "TestService";
-  }
-  class StubInterface {
-   public:
-    virtual ~StubInterface() {}
-    virtual ::grpc::Status TestSend(::grpc::ClientContext* context, const ::TestMessage& request, ::Void* response) = 0;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::Void>> AsyncTestSend(::grpc::ClientContext* context, const ::TestMessage& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::Void>>(AsyncTestSendRaw(context, request, cq));
-    }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::Void>> PrepareAsyncTestSend(::grpc::ClientContext* context, const ::TestMessage& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::Void>>(PrepareAsyncTestSendRaw(context, request, cq));
-    }
-  private:
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::Void>* AsyncTestSendRaw(::grpc::ClientContext* context, const ::TestMessage& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::Void>* PrepareAsyncTestSendRaw(::grpc::ClientContext* context, const ::TestMessage& request, ::grpc::CompletionQueue* cq) = 0;
-  };
-  class Stub final : public StubInterface {
-   public:
-    Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel);
-    ::grpc::Status TestSend(::grpc::ClientContext* context, const ::TestMessage& request, ::Void* response) override;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::Void>> AsyncTestSend(::grpc::ClientContext* context, const ::TestMessage& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::Void>>(AsyncTestSendRaw(context, request, cq));
-    }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::Void>> PrepareAsyncTestSend(::grpc::ClientContext* context, const ::TestMessage& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::Void>>(PrepareAsyncTestSendRaw(context, request, cq));
-    }
-
-   private:
-    std::shared_ptr< ::grpc::ChannelInterface> channel_;
-    ::grpc::ClientAsyncResponseReader< ::Void>* AsyncTestSendRaw(::grpc::ClientContext* context, const ::TestMessage& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::Void>* PrepareAsyncTestSendRaw(::grpc::ClientContext* context, const ::TestMessage& request, ::grpc::CompletionQueue* cq) override;
-    const ::grpc::internal::RpcMethod rpcmethod_TestSend_;
-  };
-  static std::unique_ptr<Stub> NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options = ::grpc::StubOptions());
-
-  class Service : public ::grpc::Service {
-   public:
-    Service();
-    virtual ~Service();
-    virtual ::grpc::Status TestSend(::grpc::ServerContext* context, const ::TestMessage* request, ::Void* response);
-  };
-  template <class BaseClass>
-  class WithAsyncMethod_TestSend : public BaseClass {
-   private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
-   public:
-    WithAsyncMethod_TestSend() {
-      ::grpc::Service::MarkMethodAsync(0);
-    }
-    ~WithAsyncMethod_TestSend() override {
-      BaseClassMustBeDerivedFromService(this);
-    }
-    // disable synchronous version of this method
-    ::grpc::Status TestSend(::grpc::ServerContext* context, const ::TestMessage* request, ::Void* response) final override {
-      abort();
-      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-    }
-    void RequestTestSend(::grpc::ServerContext* context, ::TestMessage* request, ::grpc::ServerAsyncResponseWriter< ::Void>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(0, context, request, response, new_call_cq, notification_cq, tag);
-    }
-  };
-  typedef WithAsyncMethod_TestSend<Service > AsyncService;
-  template <class BaseClass>
-  class WithGenericMethod_TestSend : public BaseClass {
-   private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
-   public:
-    WithGenericMethod_TestSend() {
-      ::grpc::Service::MarkMethodGeneric(0);
-    }
-    ~WithGenericMethod_TestSend() override {
-      BaseClassMustBeDerivedFromService(this);
-    }
-    // disable synchronous version of this method
-    ::grpc::Status TestSend(::grpc::ServerContext* context, const ::TestMessage* request, ::Void* response) final override {
-      abort();
-      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-    }
-  };
-  template <class BaseClass>
-  class WithStreamedUnaryMethod_TestSend : public BaseClass {
-   private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
-   public:
-    WithStreamedUnaryMethod_TestSend() {
-      ::grpc::Service::MarkMethodStreamed(0,
-        new ::grpc::internal::StreamedUnaryHandler< ::TestMessage, ::Void>(std::bind(&WithStreamedUnaryMethod_TestSend<BaseClass>::StreamedTestSend, this, std::placeholders::_1, std::placeholders::_2)));
-    }
-    ~WithStreamedUnaryMethod_TestSend() override {
-      BaseClassMustBeDerivedFromService(this);
-    }
-    // disable regular version of this method
-    ::grpc::Status TestSend(::grpc::ServerContext* context, const ::TestMessage* request, ::Void* response) final override {
-      abort();
-      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-    }
-    // replace default version of method with streamed unary
-    virtual ::grpc::Status StreamedTestSend(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::TestMessage,::Void>* server_unary_streamer) = 0;
-  };
-  typedef WithStreamedUnaryMethod_TestSend<Service > StreamedUnaryService;
-  typedef Service SplitStreamedService;
-  typedef WithStreamedUnaryMethod_TestSend<Service > StreamedService;
-};
-
 class DtoGService final {
  public:
   static constexpr char const* service_full_name() {
@@ -145,18 +38,18 @@ class DtoGService final {
     std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::BoolResult>> PrepareAsyncRegisterUser(::grpc::ClientContext* context, const ::SummonerName& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::BoolResult>>(PrepareAsyncRegisterUserRaw(context, request, cq));
     }
-    virtual ::grpc::Status GetCurrentGame(::grpc::ClientContext* context, const ::SummonerName& request, ::BoolResult* response) = 0;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::BoolResult>> AsyncGetCurrentGame(::grpc::ClientContext* context, const ::SummonerName& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::BoolResult>>(AsyncGetCurrentGameRaw(context, request, cq));
+    virtual ::grpc::Status GetCurrentGame(::grpc::ClientContext* context, const ::SummonerName& request, ::CurrentGame* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::CurrentGame>> AsyncGetCurrentGame(::grpc::ClientContext* context, const ::SummonerName& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::CurrentGame>>(AsyncGetCurrentGameRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::BoolResult>> PrepareAsyncGetCurrentGame(::grpc::ClientContext* context, const ::SummonerName& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::BoolResult>>(PrepareAsyncGetCurrentGameRaw(context, request, cq));
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::CurrentGame>> PrepareAsyncGetCurrentGame(::grpc::ClientContext* context, const ::SummonerName& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::CurrentGame>>(PrepareAsyncGetCurrentGameRaw(context, request, cq));
     }
   private:
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::BoolResult>* AsyncRegisterUserRaw(::grpc::ClientContext* context, const ::SummonerName& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::BoolResult>* PrepareAsyncRegisterUserRaw(::grpc::ClientContext* context, const ::SummonerName& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::BoolResult>* AsyncGetCurrentGameRaw(::grpc::ClientContext* context, const ::SummonerName& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::BoolResult>* PrepareAsyncGetCurrentGameRaw(::grpc::ClientContext* context, const ::SummonerName& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::CurrentGame>* AsyncGetCurrentGameRaw(::grpc::ClientContext* context, const ::SummonerName& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::CurrentGame>* PrepareAsyncGetCurrentGameRaw(::grpc::ClientContext* context, const ::SummonerName& request, ::grpc::CompletionQueue* cq) = 0;
   };
   class Stub final : public StubInterface {
    public:
@@ -168,20 +61,20 @@ class DtoGService final {
     std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::BoolResult>> PrepareAsyncRegisterUser(::grpc::ClientContext* context, const ::SummonerName& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::BoolResult>>(PrepareAsyncRegisterUserRaw(context, request, cq));
     }
-    ::grpc::Status GetCurrentGame(::grpc::ClientContext* context, const ::SummonerName& request, ::BoolResult* response) override;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::BoolResult>> AsyncGetCurrentGame(::grpc::ClientContext* context, const ::SummonerName& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::BoolResult>>(AsyncGetCurrentGameRaw(context, request, cq));
+    ::grpc::Status GetCurrentGame(::grpc::ClientContext* context, const ::SummonerName& request, ::CurrentGame* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::CurrentGame>> AsyncGetCurrentGame(::grpc::ClientContext* context, const ::SummonerName& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::CurrentGame>>(AsyncGetCurrentGameRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::BoolResult>> PrepareAsyncGetCurrentGame(::grpc::ClientContext* context, const ::SummonerName& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::BoolResult>>(PrepareAsyncGetCurrentGameRaw(context, request, cq));
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::CurrentGame>> PrepareAsyncGetCurrentGame(::grpc::ClientContext* context, const ::SummonerName& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::CurrentGame>>(PrepareAsyncGetCurrentGameRaw(context, request, cq));
     }
 
    private:
     std::shared_ptr< ::grpc::ChannelInterface> channel_;
     ::grpc::ClientAsyncResponseReader< ::BoolResult>* AsyncRegisterUserRaw(::grpc::ClientContext* context, const ::SummonerName& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::BoolResult>* PrepareAsyncRegisterUserRaw(::grpc::ClientContext* context, const ::SummonerName& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::BoolResult>* AsyncGetCurrentGameRaw(::grpc::ClientContext* context, const ::SummonerName& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::BoolResult>* PrepareAsyncGetCurrentGameRaw(::grpc::ClientContext* context, const ::SummonerName& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::CurrentGame>* AsyncGetCurrentGameRaw(::grpc::ClientContext* context, const ::SummonerName& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::CurrentGame>* PrepareAsyncGetCurrentGameRaw(::grpc::ClientContext* context, const ::SummonerName& request, ::grpc::CompletionQueue* cq) override;
     const ::grpc::internal::RpcMethod rpcmethod_RegisterUser_;
     const ::grpc::internal::RpcMethod rpcmethod_GetCurrentGame_;
   };
@@ -192,7 +85,7 @@ class DtoGService final {
     Service();
     virtual ~Service();
     virtual ::grpc::Status RegisterUser(::grpc::ServerContext* context, const ::SummonerName* request, ::BoolResult* response);
-    virtual ::grpc::Status GetCurrentGame(::grpc::ServerContext* context, const ::SummonerName* request, ::BoolResult* response);
+    virtual ::grpc::Status GetCurrentGame(::grpc::ServerContext* context, const ::SummonerName* request, ::CurrentGame* response);
   };
   template <class BaseClass>
   class WithAsyncMethod_RegisterUser : public BaseClass {
@@ -226,11 +119,11 @@ class DtoGService final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status GetCurrentGame(::grpc::ServerContext* context, const ::SummonerName* request, ::BoolResult* response) final override {
+    ::grpc::Status GetCurrentGame(::grpc::ServerContext* context, const ::SummonerName* request, ::CurrentGame* response) final override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    void RequestGetCurrentGame(::grpc::ServerContext* context, ::SummonerName* request, ::grpc::ServerAsyncResponseWriter< ::BoolResult>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+    void RequestGetCurrentGame(::grpc::ServerContext* context, ::SummonerName* request, ::grpc::ServerAsyncResponseWriter< ::CurrentGame>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
       ::grpc::Service::RequestAsyncUnary(1, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
@@ -264,7 +157,7 @@ class DtoGService final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status GetCurrentGame(::grpc::ServerContext* context, const ::SummonerName* request, ::BoolResult* response) final override {
+    ::grpc::Status GetCurrentGame(::grpc::ServerContext* context, const ::SummonerName* request, ::CurrentGame* response) final override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -296,18 +189,18 @@ class DtoGService final {
    public:
     WithStreamedUnaryMethod_GetCurrentGame() {
       ::grpc::Service::MarkMethodStreamed(1,
-        new ::grpc::internal::StreamedUnaryHandler< ::SummonerName, ::BoolResult>(std::bind(&WithStreamedUnaryMethod_GetCurrentGame<BaseClass>::StreamedGetCurrentGame, this, std::placeholders::_1, std::placeholders::_2)));
+        new ::grpc::internal::StreamedUnaryHandler< ::SummonerName, ::CurrentGame>(std::bind(&WithStreamedUnaryMethod_GetCurrentGame<BaseClass>::StreamedGetCurrentGame, this, std::placeholders::_1, std::placeholders::_2)));
     }
     ~WithStreamedUnaryMethod_GetCurrentGame() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable regular version of this method
-    ::grpc::Status GetCurrentGame(::grpc::ServerContext* context, const ::SummonerName* request, ::BoolResult* response) final override {
+    ::grpc::Status GetCurrentGame(::grpc::ServerContext* context, const ::SummonerName* request, ::CurrentGame* response) final override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     // replace default version of method with streamed unary
-    virtual ::grpc::Status StreamedGetCurrentGame(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::SummonerName,::BoolResult>* server_unary_streamer) = 0;
+    virtual ::grpc::Status StreamedGetCurrentGame(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::SummonerName,::CurrentGame>* server_unary_streamer) = 0;
   };
   typedef WithStreamedUnaryMethod_RegisterUser<WithStreamedUnaryMethod_GetCurrentGame<Service > > StreamedUnaryService;
   typedef Service SplitStreamedService;

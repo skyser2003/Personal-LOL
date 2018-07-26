@@ -42,12 +42,11 @@ router.get("/live/:summonerName",
 
         try {
             const result = await testClient.getCurrentGame({ name: summonerName });
-            ret.result = result.result ? 1 : 0;
+            res.send(result.val);
         } catch (err) {
             console.error(err);
+            res.send(ret);
         }
-
-        res.send(ret);
     });
 
 export default router;

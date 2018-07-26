@@ -14,18 +14,13 @@ message SummonerName
 	string name = 1;
 }
 
-message TestMessage
+message CurrentGame
 {
-    int32 x = 1;
-}
-
-service TestService
-{
-	rpc TestSend(TestMessage) returns(Void) {}
+	string val = 1;
 }
 
 service DtoGService
 {
 	rpc RegisterUser(SummonerName) returns (BoolResult);
-	rpc GetCurrentGame(SummonerName) returns (BoolResult);
+	rpc GetCurrentGame(SummonerName) returns (CurrentGame);
 }

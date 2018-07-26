@@ -21,7 +21,7 @@ export class DtoGService {
     }
 
     getCurrentGame(request: packet.ISummonerName) {
-        return new Promise<packet.IBoolResult>((resolve, reject) => {
+        return new Promise<packet.ICurrentGame>((resolve, reject) => {
             this.serviceInterface.getCurrentGame(request, (err, response) => {
                 if (err) {
                     reject(err);

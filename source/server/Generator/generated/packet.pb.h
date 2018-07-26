@@ -48,24 +48,24 @@ void InitDefaultsBoolResultImpl();
 void InitDefaultsBoolResult();
 void InitDefaultsSummonerNameImpl();
 void InitDefaultsSummonerName();
-void InitDefaultsTestMessageImpl();
-void InitDefaultsTestMessage();
+void InitDefaultsCurrentGameImpl();
+void InitDefaultsCurrentGame();
 inline void InitDefaults() {
   InitDefaultsVoid();
   InitDefaultsBoolResult();
   InitDefaultsSummonerName();
-  InitDefaultsTestMessage();
+  InitDefaultsCurrentGame();
 }
 }  // namespace protobuf_packet_2eproto
 class BoolResult;
 class BoolResultDefaultTypeInternal;
 extern BoolResultDefaultTypeInternal _BoolResult_default_instance_;
+class CurrentGame;
+class CurrentGameDefaultTypeInternal;
+extern CurrentGameDefaultTypeInternal _CurrentGame_default_instance_;
 class SummonerName;
 class SummonerNameDefaultTypeInternal;
 extern SummonerNameDefaultTypeInternal _SummonerName_default_instance_;
-class TestMessage;
-class TestMessageDefaultTypeInternal;
-extern TestMessageDefaultTypeInternal _TestMessage_default_instance_;
 class Void;
 class VoidDefaultTypeInternal;
 extern VoidDefaultTypeInternal _Void_default_instance_;
@@ -370,24 +370,24 @@ class SummonerName : public ::google::protobuf::Message /* @@protoc_insertion_po
 };
 // -------------------------------------------------------------------
 
-class TestMessage : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:TestMessage) */ {
+class CurrentGame : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:CurrentGame) */ {
  public:
-  TestMessage();
-  virtual ~TestMessage();
+  CurrentGame();
+  virtual ~CurrentGame();
 
-  TestMessage(const TestMessage& from);
+  CurrentGame(const CurrentGame& from);
 
-  inline TestMessage& operator=(const TestMessage& from) {
+  inline CurrentGame& operator=(const CurrentGame& from) {
     CopyFrom(from);
     return *this;
   }
   #if LANG_CXX11
-  TestMessage(TestMessage&& from) noexcept
-    : TestMessage() {
+  CurrentGame(CurrentGame&& from) noexcept
+    : CurrentGame() {
     *this = ::std::move(from);
   }
 
-  inline TestMessage& operator=(TestMessage&& from) noexcept {
+  inline CurrentGame& operator=(CurrentGame&& from) noexcept {
     if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
       if (this != &from) InternalSwap(&from);
     } else {
@@ -397,30 +397,30 @@ class TestMessage : public ::google::protobuf::Message /* @@protoc_insertion_poi
   }
   #endif
   static const ::google::protobuf::Descriptor* descriptor();
-  static const TestMessage& default_instance();
+  static const CurrentGame& default_instance();
 
   static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
-  static inline const TestMessage* internal_default_instance() {
-    return reinterpret_cast<const TestMessage*>(
-               &_TestMessage_default_instance_);
+  static inline const CurrentGame* internal_default_instance() {
+    return reinterpret_cast<const CurrentGame*>(
+               &_CurrentGame_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
     3;
 
-  void Swap(TestMessage* other);
-  friend void swap(TestMessage& a, TestMessage& b) {
+  void Swap(CurrentGame* other);
+  friend void swap(CurrentGame& a, CurrentGame& b) {
     a.Swap(&b);
   }
 
   // implements Message ----------------------------------------------
 
-  inline TestMessage* New() const PROTOBUF_FINAL { return New(NULL); }
+  inline CurrentGame* New() const PROTOBUF_FINAL { return New(NULL); }
 
-  TestMessage* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
+  CurrentGame* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
   void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
   void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
-  void CopyFrom(const TestMessage& from);
-  void MergeFrom(const TestMessage& from);
+  void CopyFrom(const CurrentGame& from);
+  void MergeFrom(const CurrentGame& from);
   void Clear() PROTOBUF_FINAL;
   bool IsInitialized() const PROTOBUF_FINAL;
 
@@ -436,7 +436,7 @@ class TestMessage : public ::google::protobuf::Message /* @@protoc_insertion_poi
   void SharedCtor();
   void SharedDtor();
   void SetCachedSize(int size) const PROTOBUF_FINAL;
-  void InternalSwap(TestMessage* other);
+  void InternalSwap(CurrentGame* other);
   private:
   inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
     return NULL;
@@ -452,20 +452,28 @@ class TestMessage : public ::google::protobuf::Message /* @@protoc_insertion_poi
 
   // accessors -------------------------------------------------------
 
-  // int32 x = 1;
-  void clear_x();
-  static const int kXFieldNumber = 1;
-  ::google::protobuf::int32 x() const;
-  void set_x(::google::protobuf::int32 value);
+  // string val = 1;
+  void clear_val();
+  static const int kValFieldNumber = 1;
+  const ::std::string& val() const;
+  void set_val(const ::std::string& value);
+  #if LANG_CXX11
+  void set_val(::std::string&& value);
+  #endif
+  void set_val(const char* value);
+  void set_val(const char* value, size_t size);
+  ::std::string* mutable_val();
+  ::std::string* release_val();
+  void set_allocated_val(::std::string* val);
 
-  // @@protoc_insertion_point(class_scope:TestMessage)
+  // @@protoc_insertion_point(class_scope:CurrentGame)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  ::google::protobuf::int32 x_;
+  ::google::protobuf::internal::ArenaStringPtr val_;
   mutable int _cached_size_;
   friend struct ::protobuf_packet_2eproto::TableStruct;
-  friend void ::protobuf_packet_2eproto::InitDefaultsTestMessageImpl();
+  friend void ::protobuf_packet_2eproto::InitDefaultsCurrentGameImpl();
 };
 // ===================================================================
 
@@ -555,20 +563,59 @@ inline void SummonerName::set_allocated_name(::std::string* name) {
 
 // -------------------------------------------------------------------
 
-// TestMessage
+// CurrentGame
 
-// int32 x = 1;
-inline void TestMessage::clear_x() {
-  x_ = 0;
+// string val = 1;
+inline void CurrentGame::clear_val() {
+  val_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline ::google::protobuf::int32 TestMessage::x() const {
-  // @@protoc_insertion_point(field_get:TestMessage.x)
-  return x_;
+inline const ::std::string& CurrentGame::val() const {
+  // @@protoc_insertion_point(field_get:CurrentGame.val)
+  return val_.GetNoArena();
 }
-inline void TestMessage::set_x(::google::protobuf::int32 value) {
+inline void CurrentGame::set_val(const ::std::string& value) {
   
-  x_ = value;
-  // @@protoc_insertion_point(field_set:TestMessage.x)
+  val_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:CurrentGame.val)
+}
+#if LANG_CXX11
+inline void CurrentGame::set_val(::std::string&& value) {
+  
+  val_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:CurrentGame.val)
+}
+#endif
+inline void CurrentGame::set_val(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  
+  val_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:CurrentGame.val)
+}
+inline void CurrentGame::set_val(const char* value, size_t size) {
+  
+  val_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:CurrentGame.val)
+}
+inline ::std::string* CurrentGame::mutable_val() {
+  
+  // @@protoc_insertion_point(field_mutable:CurrentGame.val)
+  return val_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* CurrentGame::release_val() {
+  // @@protoc_insertion_point(field_release:CurrentGame.val)
+  
+  return val_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void CurrentGame::set_allocated_val(::std::string* val) {
+  if (val != NULL) {
+    
+  } else {
+    
+  }
+  val_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), val);
+  // @@protoc_insertion_point(field_set_allocated:CurrentGame.val)
 }
 
 #ifdef __GNUC__

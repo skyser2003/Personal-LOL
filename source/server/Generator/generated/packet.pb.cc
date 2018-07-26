@@ -34,11 +34,11 @@ class SummonerNameDefaultTypeInternal {
   ::google::protobuf::internal::ExplicitlyConstructed<SummonerName>
       _instance;
 } _SummonerName_default_instance_;
-class TestMessageDefaultTypeInternal {
+class CurrentGameDefaultTypeInternal {
  public:
-  ::google::protobuf::internal::ExplicitlyConstructed<TestMessage>
+  ::google::protobuf::internal::ExplicitlyConstructed<CurrentGame>
       _instance;
-} _TestMessage_default_instance_;
+} _CurrentGame_default_instance_;
 namespace protobuf_packet_2eproto {
 void InitDefaultsVoidImpl() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
@@ -103,7 +103,7 @@ void InitDefaultsSummonerName() {
   ::google::protobuf::GoogleOnceInit(&once, &InitDefaultsSummonerNameImpl);
 }
 
-void InitDefaultsTestMessageImpl() {
+void InitDefaultsCurrentGameImpl() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
 #ifdef GOOGLE_PROTOBUF_ENFORCE_UNIQUENESS
@@ -112,16 +112,16 @@ void InitDefaultsTestMessageImpl() {
   ::google::protobuf::internal::InitProtobufDefaults();
 #endif  // GOOGLE_PROTOBUF_ENFORCE_UNIQUENESS
   {
-    void* ptr = &::_TestMessage_default_instance_;
-    new (ptr) ::TestMessage();
+    void* ptr = &::_CurrentGame_default_instance_;
+    new (ptr) ::CurrentGame();
     ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::TestMessage::InitAsDefaultInstance();
+  ::CurrentGame::InitAsDefaultInstance();
 }
 
-void InitDefaultsTestMessage() {
+void InitDefaultsCurrentGame() {
   static GOOGLE_PROTOBUF_DECLARE_ONCE(once);
-  ::google::protobuf::GoogleOnceInit(&once, &InitDefaultsTestMessageImpl);
+  ::google::protobuf::GoogleOnceInit(&once, &InitDefaultsCurrentGameImpl);
 }
 
 ::google::protobuf::Metadata file_level_metadata[4];
@@ -145,24 +145,24 @@ const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUT
   ~0u,  // no _weak_field_map_
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::SummonerName, name_),
   ~0u,  // no _has_bits_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::TestMessage, _internal_metadata_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::CurrentGame, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::TestMessage, x_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::CurrentGame, val_),
 };
 static const ::google::protobuf::internal::MigrationSchema schemas[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, sizeof(::Void)},
   { 5, -1, sizeof(::BoolResult)},
   { 11, -1, sizeof(::SummonerName)},
-  { 17, -1, sizeof(::TestMessage)},
+  { 17, -1, sizeof(::CurrentGame)},
 };
 
 static ::google::protobuf::Message const * const file_default_instances[] = {
   reinterpret_cast<const ::google::protobuf::Message*>(&::_Void_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::_BoolResult_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::_SummonerName_default_instance_),
-  reinterpret_cast<const ::google::protobuf::Message*>(&::_TestMessage_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&::_CurrentGame_default_instance_),
 };
 
 void protobuf_AssignDescriptors() {
@@ -189,14 +189,13 @@ void AddDescriptorsImpl() {
   static const char descriptor[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
       "\n\014packet.proto\"\006\n\004Void\"\034\n\nBoolResult\022\016\n\006"
       "result\030\001 \001(\010\"\034\n\014SummonerName\022\014\n\004name\030\001 \001"
-      "(\t\"\030\n\013TestMessage\022\t\n\001x\030\001 \001(\00520\n\013TestServ"
-      "ice\022!\n\010TestSend\022\014.TestMessage\032\005.Void\"\0002g"
-      "\n\013DtoGService\022*\n\014RegisterUser\022\r.Summoner"
-      "Name\032\013.BoolResult\022,\n\016GetCurrentGame\022\r.Su"
-      "mmonerName\032\013.BoolResultb\006proto3"
+      "(\t\"\032\n\013CurrentGame\022\013\n\003val\030\001 \001(\t2h\n\013DtoGSe"
+      "rvice\022*\n\014RegisterUser\022\r.SummonerName\032\013.B"
+      "oolResult\022-\n\016GetCurrentGame\022\r.SummonerNa"
+      "me\032\014.CurrentGameb\006proto3"
   };
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-      descriptor, 271);
+      descriptor, 224);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "packet.proto", &protobuf_RegisterTypes);
 }
@@ -901,93 +900,99 @@ void SummonerName::InternalSwap(SummonerName* other) {
 
 // ===================================================================
 
-void TestMessage::InitAsDefaultInstance() {
+void CurrentGame::InitAsDefaultInstance() {
 }
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
-const int TestMessage::kXFieldNumber;
+const int CurrentGame::kValFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
-TestMessage::TestMessage()
+CurrentGame::CurrentGame()
   : ::google::protobuf::Message(), _internal_metadata_(NULL) {
   if (GOOGLE_PREDICT_TRUE(this != internal_default_instance())) {
-    ::protobuf_packet_2eproto::InitDefaultsTestMessage();
+    ::protobuf_packet_2eproto::InitDefaultsCurrentGame();
   }
   SharedCtor();
-  // @@protoc_insertion_point(constructor:TestMessage)
+  // @@protoc_insertion_point(constructor:CurrentGame)
 }
-TestMessage::TestMessage(const TestMessage& from)
+CurrentGame::CurrentGame(const CurrentGame& from)
   : ::google::protobuf::Message(),
       _internal_metadata_(NULL),
       _cached_size_(0) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
-  x_ = from.x_;
-  // @@protoc_insertion_point(copy_constructor:TestMessage)
+  val_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.val().size() > 0) {
+    val_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.val_);
+  }
+  // @@protoc_insertion_point(copy_constructor:CurrentGame)
 }
 
-void TestMessage::SharedCtor() {
-  x_ = 0;
+void CurrentGame::SharedCtor() {
+  val_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   _cached_size_ = 0;
 }
 
-TestMessage::~TestMessage() {
-  // @@protoc_insertion_point(destructor:TestMessage)
+CurrentGame::~CurrentGame() {
+  // @@protoc_insertion_point(destructor:CurrentGame)
   SharedDtor();
 }
 
-void TestMessage::SharedDtor() {
+void CurrentGame::SharedDtor() {
+  val_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 
-void TestMessage::SetCachedSize(int size) const {
+void CurrentGame::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* TestMessage::descriptor() {
+const ::google::protobuf::Descriptor* CurrentGame::descriptor() {
   ::protobuf_packet_2eproto::protobuf_AssignDescriptorsOnce();
   return ::protobuf_packet_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
 }
 
-const TestMessage& TestMessage::default_instance() {
-  ::protobuf_packet_2eproto::InitDefaultsTestMessage();
+const CurrentGame& CurrentGame::default_instance() {
+  ::protobuf_packet_2eproto::InitDefaultsCurrentGame();
   return *internal_default_instance();
 }
 
-TestMessage* TestMessage::New(::google::protobuf::Arena* arena) const {
-  TestMessage* n = new TestMessage;
+CurrentGame* CurrentGame::New(::google::protobuf::Arena* arena) const {
+  CurrentGame* n = new CurrentGame;
   if (arena != NULL) {
     arena->Own(n);
   }
   return n;
 }
 
-void TestMessage::Clear() {
-// @@protoc_insertion_point(message_clear_start:TestMessage)
+void CurrentGame::Clear() {
+// @@protoc_insertion_point(message_clear_start:CurrentGame)
   ::google::protobuf::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  x_ = 0;
+  val_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   _internal_metadata_.Clear();
 }
 
-bool TestMessage::MergePartialFromCodedStream(
+bool CurrentGame::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:TestMessage)
+  // @@protoc_insertion_point(parse_start:CurrentGame)
   for (;;) {
     ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // int32 x = 1;
+      // string val = 1;
       case 1: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(8u /* 8 & 0xFF */)) {
-
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &x_)));
+            static_cast< ::google::protobuf::uint8>(10u /* 10 & 0xFF */)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_val()));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            this->val().data(), static_cast<int>(this->val().length()),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "CurrentGame.val"));
         } else {
           goto handle_unusual;
         }
@@ -1006,54 +1011,65 @@ bool TestMessage::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:TestMessage)
+  // @@protoc_insertion_point(parse_success:CurrentGame)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:TestMessage)
+  // @@protoc_insertion_point(parse_failure:CurrentGame)
   return false;
 #undef DO_
 }
 
-void TestMessage::SerializeWithCachedSizes(
+void CurrentGame::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:TestMessage)
+  // @@protoc_insertion_point(serialize_start:CurrentGame)
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // int32 x = 1;
-  if (this->x() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->x(), output);
+  // string val = 1;
+  if (this->val().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->val().data(), static_cast<int>(this->val().length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "CurrentGame.val");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      1, this->val(), output);
   }
 
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), output);
   }
-  // @@protoc_insertion_point(serialize_end:TestMessage)
+  // @@protoc_insertion_point(serialize_end:CurrentGame)
 }
 
-::google::protobuf::uint8* TestMessage::InternalSerializeWithCachedSizesToArray(
+::google::protobuf::uint8* CurrentGame::InternalSerializeWithCachedSizesToArray(
     bool deterministic, ::google::protobuf::uint8* target) const {
   (void)deterministic; // Unused
-  // @@protoc_insertion_point(serialize_to_array_start:TestMessage)
+  // @@protoc_insertion_point(serialize_to_array_start:CurrentGame)
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // int32 x = 1;
-  if (this->x() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->x(), target);
+  // string val = 1;
+  if (this->val().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->val().data(), static_cast<int>(this->val().length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "CurrentGame.val");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        1, this->val(), target);
   }
 
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), target);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:TestMessage)
+  // @@protoc_insertion_point(serialize_to_array_end:CurrentGame)
   return target;
 }
 
-size_t TestMessage::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:TestMessage)
+size_t CurrentGame::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:CurrentGame)
   size_t total_size = 0;
 
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
@@ -1061,11 +1077,11 @@ size_t TestMessage::ByteSizeLong() const {
       ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
         (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()));
   }
-  // int32 x = 1;
-  if (this->x() != 0) {
+  // string val = 1;
+  if (this->val().size() > 0) {
     total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::Int32Size(
-        this->x());
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->val());
   }
 
   int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
@@ -1075,63 +1091,64 @@ size_t TestMessage::ByteSizeLong() const {
   return total_size;
 }
 
-void TestMessage::MergeFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:TestMessage)
+void CurrentGame::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:CurrentGame)
   GOOGLE_DCHECK_NE(&from, this);
-  const TestMessage* source =
-      ::google::protobuf::internal::DynamicCastToGenerated<const TestMessage>(
+  const CurrentGame* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const CurrentGame>(
           &from);
   if (source == NULL) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:TestMessage)
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:CurrentGame)
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
   } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:TestMessage)
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:CurrentGame)
     MergeFrom(*source);
   }
 }
 
-void TestMessage::MergeFrom(const TestMessage& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:TestMessage)
+void CurrentGame::MergeFrom(const CurrentGame& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:CurrentGame)
   GOOGLE_DCHECK_NE(&from, this);
   _internal_metadata_.MergeFrom(from._internal_metadata_);
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (from.x() != 0) {
-    set_x(from.x());
+  if (from.val().size() > 0) {
+
+    val_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.val_);
   }
 }
 
-void TestMessage::CopyFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:TestMessage)
+void CurrentGame::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:CurrentGame)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void TestMessage::CopyFrom(const TestMessage& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:TestMessage)
+void CurrentGame::CopyFrom(const CurrentGame& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:CurrentGame)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool TestMessage::IsInitialized() const {
+bool CurrentGame::IsInitialized() const {
   return true;
 }
 
-void TestMessage::Swap(TestMessage* other) {
+void CurrentGame::Swap(CurrentGame* other) {
   if (other == this) return;
   InternalSwap(other);
 }
-void TestMessage::InternalSwap(TestMessage* other) {
+void CurrentGame::InternalSwap(CurrentGame* other) {
   using std::swap;
-  swap(x_, other->x_);
+  val_.Swap(&other->val_);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   swap(_cached_size_, other->_cached_size_);
 }
 
-::google::protobuf::Metadata TestMessage::GetMetadata() const {
+::google::protobuf::Metadata CurrentGame::GetMetadata() const {
   protobuf_packet_2eproto::protobuf_AssignDescriptorsOnce();
   return ::protobuf_packet_2eproto::file_level_metadata[kIndexInFileMessages];
 }

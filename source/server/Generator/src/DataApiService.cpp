@@ -32,14 +32,14 @@ DataApiService::DataApiService(const std::string& apiKey, std::shared_ptr<DataSa
 	return grpc::Status::OK;
 }
 
-::grpc::Status DataApiService::GetCurrentGame(::grpc::ServerContext* context, const ::SummonerName* request, ::BoolResult* response)
+::grpc::Status DataApiService::GetCurrentGame(::grpc::ServerContext* context, const ::SummonerName* request, ::CurrentGame* response)
 {
 	const auto& name = request->name();
 	auto summonerId = apiCaller->GetResult<ApiType::SUMMONER_SUMMONERS_BY_NAME>(name).id;
 
-	auto result = apiCaller->GetResult<ApiType::SPECTATOR_ACTIVE_GAMES_BY_SUMMONER>(summonerId);
+	auto result = apiCaller->GetResultDebug<ApiType::SPECTATOR_ACTIVE_GAMES_BY_SUMMONER>(summonerId);
 
-	response->set_result(true);
+	response->set_val(std::get<1>(result));
 
 	return grpc::Status::OK;
 }

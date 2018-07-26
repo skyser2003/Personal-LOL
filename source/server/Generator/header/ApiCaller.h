@@ -1,6 +1,7 @@
 #pragma once
 
 #include <memory>
+#include <tuple>
 
 #include "WebClient.h"
 
@@ -20,6 +21,17 @@ public:
 		auto url = RiotApi::FullUrl(apiKey, RegionalEndpoint::KR, RiotApi::SubUrl<type>(Forward(args)...));
 
 		return webClient->GetStruct(url);
+	}
+
+	template <RiotApi::ApiType type, typename... Args>
+	std::tuple<RiotApi::ApiResult<type>, nlohmann::json> GetResultDebug(Args&&... args) const
+	{
+		auto url = RiotApi::FullUrl(apiKey, RegionalEndpoint::KR, RiotApi::SubUrl<type>(Forward(args)...));
+
+		auto json = webClient->GetJson(url.GetUrl());
+		auto result = webClient->GetStruct<type>(json);
+
+		return { result, json };
 	}
 
 	std::string Forward(const std::string& arg) const;

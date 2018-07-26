@@ -14,51 +14,6 @@
 #include <grpcpp/impl/codegen/service_type.h>
 #include <grpcpp/impl/codegen/sync_stream.h>
 
-static const char* TestService_method_names[] = {
-  "/TestService/TestSend",
-};
-
-std::unique_ptr< TestService::Stub> TestService::NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options) {
-  (void)options;
-  std::unique_ptr< TestService::Stub> stub(new TestService::Stub(channel));
-  return stub;
-}
-
-TestService::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel)
-  : channel_(channel), rpcmethod_TestSend_(TestService_method_names[0], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
-  {}
-
-::grpc::Status TestService::Stub::TestSend(::grpc::ClientContext* context, const ::TestMessage& request, ::Void* response) {
-  return ::grpc::internal::BlockingUnaryCall(channel_.get(), rpcmethod_TestSend_, context, request, response);
-}
-
-::grpc::ClientAsyncResponseReader< ::Void>* TestService::Stub::AsyncTestSendRaw(::grpc::ClientContext* context, const ::TestMessage& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::Void>::Create(channel_.get(), cq, rpcmethod_TestSend_, context, request, true);
-}
-
-::grpc::ClientAsyncResponseReader< ::Void>* TestService::Stub::PrepareAsyncTestSendRaw(::grpc::ClientContext* context, const ::TestMessage& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::Void>::Create(channel_.get(), cq, rpcmethod_TestSend_, context, request, false);
-}
-
-TestService::Service::Service() {
-  AddMethod(new ::grpc::internal::RpcServiceMethod(
-      TestService_method_names[0],
-      ::grpc::internal::RpcMethod::NORMAL_RPC,
-      new ::grpc::internal::RpcMethodHandler< TestService::Service, ::TestMessage, ::Void>(
-          std::mem_fn(&TestService::Service::TestSend), this)));
-}
-
-TestService::Service::~Service() {
-}
-
-::grpc::Status TestService::Service::TestSend(::grpc::ServerContext* context, const ::TestMessage* request, ::Void* response) {
-  (void) context;
-  (void) request;
-  (void) response;
-  return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-}
-
-
 static const char* DtoGService_method_names[] = {
   "/DtoGService/RegisterUser",
   "/DtoGService/GetCurrentGame",
@@ -87,16 +42,16 @@ DtoGService::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channe
   return ::grpc::internal::ClientAsyncResponseReaderFactory< ::BoolResult>::Create(channel_.get(), cq, rpcmethod_RegisterUser_, context, request, false);
 }
 
-::grpc::Status DtoGService::Stub::GetCurrentGame(::grpc::ClientContext* context, const ::SummonerName& request, ::BoolResult* response) {
+::grpc::Status DtoGService::Stub::GetCurrentGame(::grpc::ClientContext* context, const ::SummonerName& request, ::CurrentGame* response) {
   return ::grpc::internal::BlockingUnaryCall(channel_.get(), rpcmethod_GetCurrentGame_, context, request, response);
 }
 
-::grpc::ClientAsyncResponseReader< ::BoolResult>* DtoGService::Stub::AsyncGetCurrentGameRaw(::grpc::ClientContext* context, const ::SummonerName& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::BoolResult>::Create(channel_.get(), cq, rpcmethod_GetCurrentGame_, context, request, true);
+::grpc::ClientAsyncResponseReader< ::CurrentGame>* DtoGService::Stub::AsyncGetCurrentGameRaw(::grpc::ClientContext* context, const ::SummonerName& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::CurrentGame>::Create(channel_.get(), cq, rpcmethod_GetCurrentGame_, context, request, true);
 }
 
-::grpc::ClientAsyncResponseReader< ::BoolResult>* DtoGService::Stub::PrepareAsyncGetCurrentGameRaw(::grpc::ClientContext* context, const ::SummonerName& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::BoolResult>::Create(channel_.get(), cq, rpcmethod_GetCurrentGame_, context, request, false);
+::grpc::ClientAsyncResponseReader< ::CurrentGame>* DtoGService::Stub::PrepareAsyncGetCurrentGameRaw(::grpc::ClientContext* context, const ::SummonerName& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::CurrentGame>::Create(channel_.get(), cq, rpcmethod_GetCurrentGame_, context, request, false);
 }
 
 DtoGService::Service::Service() {
@@ -108,7 +63,7 @@ DtoGService::Service::Service() {
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       DtoGService_method_names[1],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
-      new ::grpc::internal::RpcMethodHandler< DtoGService::Service, ::SummonerName, ::BoolResult>(
+      new ::grpc::internal::RpcMethodHandler< DtoGService::Service, ::SummonerName, ::CurrentGame>(
           std::mem_fn(&DtoGService::Service::GetCurrentGame), this)));
 }
 
@@ -122,7 +77,7 @@ DtoGService::Service::~Service() {
   return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
 }
 
-::grpc::Status DtoGService::Service::GetCurrentGame(::grpc::ServerContext* context, const ::SummonerName* request, ::BoolResult* response) {
+::grpc::Status DtoGService::Service::GetCurrentGame(::grpc::ServerContext* context, const ::SummonerName* request, ::CurrentGame* response) {
   (void) context;
   (void) request;
   (void) response;
