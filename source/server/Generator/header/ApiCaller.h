@@ -19,7 +19,7 @@ public:
 	template <RiotApi::ApiType type, typename... Args>
 	RiotApi::ApiResult<type> GetResult(Args&&... args) const
 	{
-		auto url = RiotApi::FullUrl(apiKey, RegionalEndpoint::KR, RiotApi::SubUrl<type>(Forward(args)...));
+		auto url = RiotApi::FullUrl(apiKey, RiotApi::RegionalEndpoint::KR, RiotApi::SubUrl<type>(Forward(args)...));
 
 		return webClient->GetStruct(url);
 	}
@@ -27,7 +27,7 @@ public:
 	template <RiotApi::ApiType type, typename... Args>
 	std::tuple<RiotApi::ApiResult<type>, nlohmann::json> GetResultDebug(Args&&... args) const
 	{
-		auto url = RiotApi::FullUrl(apiKey, RegionalEndpoint::KR, RiotApi::SubUrl<type>(Forward(args)...));
+		auto url = RiotApi::FullUrl(apiKey, RiotApi::RegionalEndpoint::KR, RiotApi::SubUrl<type>(Forward(args)...));
 
 		auto json = webClient->GetJson(url.GetUrl());
 		auto result = webClient->GetStruct<type>(json);
