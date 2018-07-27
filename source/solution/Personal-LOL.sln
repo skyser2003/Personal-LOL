@@ -3,17 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27130.2010
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "RiotApi", "..\RiotApi\RiotApi.vcxproj", "{59999766-96C1-4709-A307-B2777D863926}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Server", "Server", "{0A140DE9-C8DE-48FD-9F8C-B8B40AC18524}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Generator", "..\Generator\Generator.vcxproj", "{7936F7EF-2582-449D-B629-EF2A88178F6D}"
-EndProject
-Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "DataApi", "..\DataApi\DataApi.njsproj", "{2E14C6F1-D227-4B4B-B8A1-4C81CA4103C5}"
-EndProject
-Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "WebClient", "..\WebClient\WebClient.njsproj", "{85D8ED23-C5EE-4612-951E-4456A8151B94}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Client", "Client", "{396DFA9C-7ECA-418D-A128-7F5C696E6033}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "RiotApi", "..\server\RiotApi\RiotApi.vcxproj", "{59999766-96C1-4709-A307-B2777D863926}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Generator", "..\server\Generator\Generator.vcxproj", "{7936F7EF-2582-449D-B629-EF2A88178F6D}"
+EndProject
+Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "DataApi", "..\server\DataApi\DataApi.njsproj", "{2E14C6F1-D227-4B4B-B8A1-4C81CA4103C5}"
+EndProject
+Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "WebClient", "..\client\WebClient\WebClient.njsproj", "{85D8ED23-C5EE-4612-951E-4456A8151B94}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
