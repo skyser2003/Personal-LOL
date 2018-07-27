@@ -23,7 +23,12 @@ SET(EXTERNAL_DIR ${SERVER_DIR}/external)
 SET(BOOST_DIR ${EXTERNAL_DIR}/boost)
 SET(CURL_DIR ${EXTERNAL_DIR}/libcurl)
 SET(JSON_DIR ${EXTERNAL_DIR}/nlohmann)
-SET(VCPKG_DIR ${EXTERNAL_DIR}/vcpkg/installed)
+
+IF(MSVC)
+	SET(VCPKG_DIR ${EXTERNAL_DIR}/vcpkg/installed/x64-windows)
+ELSE(MSVC)
+	SET(VCPKG_DIR ${EXTERNAL_DIR}/vcpkg/installed/x64-linux)
+ENDIF(MSVC)
 
 IF(MSVC)
 	SET(MARIADB_DIR "C:\\Program Files\\MariaDB\\MariaDB Connector C 64-bit")
