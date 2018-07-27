@@ -1,5 +1,6 @@
 CMAKE_MINIMUM_REQUIRED(VERSION 3.10)
 
+FIND_PACKAGE(Protobuf CONFIG REQUIRED PATHS ${VCPKG_DIR}/share)
 FIND_PACKAGE(c-ares CONFIG REQUIRED PATHS ${VCPKG_DIR}/share)
 FIND_PACKAGE(gRPC CONFIG REQUIRED PATHS ${VCPKG_DIR}/share)
 
@@ -83,5 +84,10 @@ IF(MSVC)
         crypt32.lib
         ws2_32.lib
         ${MARIADB_DIR}/lib/libmariadb.lib
-    )
+)
+ELSE(MSVC)
+    TARGET_LINK_LIBRARIES(${PROJECT_NAME}
+    c-ares
+    gRPC::grpc++
+)
 ENDIF(MSVC)
