@@ -4,7 +4,7 @@
   "description": "WebClient",
   "main": "app.js",
   "author": {
-    "name": "skyser2003"
+    "name": "shjan"
   },
   "devDependencies": {
     "@types/node": "^6.0.87"
