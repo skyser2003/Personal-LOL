@@ -11,7 +11,8 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>db5800bb-72e3-4709-bbdc-8931cecf3bae</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>app.ts</StartupFile>
+    <StartupFile>
+    </StartupFile>
     <StartWebBrowser>False</StartWebBrowser>
     <SearchPath>
     </SearchPath>
@@ -32,10 +33,49 @@
     <DebugSymbols>true</DebugSymbols>
   </PropertyGroup>
   <ItemGroup>
-    <TypeScriptCompile Include="app.ts" />
+    <Content Include=".editorconfig" />
+    <Content Include=".gitignore" />
+    <Content Include="angular.json" />
+    <Content Include="e2e\tsconfig.e2e.json" />
+    <Content Include="package-lock.json" />
     <Content Include="package.json" />
     <Content Include="README.md" />
+    <Content Include="src\app\app.component.css" />
+    <Content Include="src\app\app.component.html" />
+    <Content Include="src\assets\.gitkeep" />
+    <Content Include="src\browserslist" />
+    <Content Include="src\favicon.ico" />
+    <Content Include="src\index.html" />
+    <Content Include="src\styles.css" />
+    <Content Include="src\tsconfig.app.json" />
+    <Content Include="src\tsconfig.spec.json" />
+    <Content Include="src\tslint.json" />
     <Content Include="tsconfig.json" />
+    <Content Include="tslint.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="e2e\" />
+    <Folder Include="e2e\src\" />
+    <Folder Include="src\" />
+    <Folder Include="src\app\" />
+    <Folder Include="src\assets\" />
+    <Folder Include="src\environments\" />
+  </ItemGroup>
+  <ItemGroup>
+    <TypeScriptCompile Include="e2e\src\app.e2e-spec.ts" />
+    <TypeScriptCompile Include="e2e\src\app.po.ts" />
+    <TypeScriptCompile Include="src\app\app.component.spec.ts" />
+    <TypeScriptCompile Include="src\app\app.component.ts" />
+    <TypeScriptCompile Include="src\app\app.module.ts" />
+    <TypeScriptCompile Include="src\environments\environment.prod.ts" />
+    <TypeScriptCompile Include="src\environments\environment.ts" />
+    <TypeScriptCompile Include="src\main.ts" />
+    <TypeScriptCompile Include="src\polyfills.ts" />
+    <TypeScriptCompile Include="src\test.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="e2e\protractor.conf.js" />
+    <Compile Include="src\karma.conf.js" />
   </ItemGroup>
   <!-- Do not delete the following Import Project.  While this appears to do nothing it is a marker for setting TypeScript properties before our import that depends on them. -->
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="False" />
