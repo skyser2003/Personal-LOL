@@ -40,8 +40,8 @@
     <Content Include="package-lock.json" />
     <Content Include="package.json" />
     <Content Include="README.md" />
-    <Content Include="src\app\css\app.component.css" />
-    <Content Include="src\app\template\app.component.html" />
+    <Content Include="src\app\component\css\app.component.css" />
+    <Content Include="src\app\component\template\app.component.html" />
     <Content Include="src\assets\.gitkeep" />
     <Content Include="src\browserslist" />
     <Content Include="src\favicon.ico" />
@@ -58,19 +58,19 @@
     <Folder Include="e2e\src\" />
     <Folder Include="src\" />
     <Folder Include="src\app\" />
-    <Folder Include="src\app\css\" />
+    <Folder Include="src\app\component\css\" />
     <Folder Include="src\app\component\" />
-    <Folder Include="src\app\test\" />
-    <Folder Include="src\app\src\" />
-    <Folder Include="src\app\template\" />
+    <Folder Include="src\app\component\test\" />
+    <Folder Include="src\app\component\src\" />
+    <Folder Include="src\app\component\template\" />
     <Folder Include="src\assets\" />
     <Folder Include="src\environments\" />
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="e2e\src\app.e2e-spec.ts" />
     <TypeScriptCompile Include="e2e\src\app.po.ts" />
-    <TypeScriptCompile Include="src\app\test\app.component.spec.ts" />
-    <TypeScriptCompile Include="src\app\src\app.component.ts" />
+    <TypeScriptCompile Include="src\app\component\test\app.component.spec.ts" />
+    <TypeScriptCompile Include="src\app\component\src\app.component.ts" />
     <TypeScriptCompile Include="src\app\app.module.ts" />
     <TypeScriptCompile Include="src\environments\environment.prod.ts" />
     <TypeScriptCompile Include="src\environments\environment.ts" />
