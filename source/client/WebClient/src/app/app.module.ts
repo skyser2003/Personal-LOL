@@ -3,7 +3,7 @@ import { NgModule } from "@angular/core";
 
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap"
 
-import { AppComponent } from "./src/app.component";
+import { AppComponent } from "./component/src/app.component";
 
 @NgModule({
   declarations: [
