@@ -5,11 +5,13 @@ import { NgbModule } from "@ng-bootstrap/ng-bootstrap"
 
 import { AppComponent } from "./component/src/app.component";
 import { HeaderComponent } from "./component/src/header.component";
+import { LeftMenuComponent } from "./component/src/left-menu.component";
 
 @NgModule({
   declarations: [
       AppComponent,
-      HeaderComponent
+      HeaderComponent,
+      LeftMenuComponent
   ],
   imports: [
       BrowserModule,
