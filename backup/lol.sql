@@ -1,6 +1,6 @@
 -- --------------------------------------------------------
--- Host:                         localhost
--- Server version:               10.3.7-MariaDB-1:10.3.7+maria~jessie - mariadb.org binary distribution
+-- Host:                         skyser.kr
+-- Server version:               10.2.16-MariaDB-10.2.16+maria~xenial-log - mariadb.org binary distribution
 -- Server OS:                    debian-linux-gnu
 -- HeidiSQL Version:             9.5.0.5196
 -- --------------------------------------------------------
@@ -22,6 +22,8 @@ CREATE TABLE IF NOT EXISTS `user` (
   `account_id` bigint(20) NOT NULL,
   `summoner_id` bigint(20) NOT NULL,
   `summoner_name` char(50) NOT NULL,
+  `register_date` datetime NOT NULL,
+  `update_date` datetime NOT NULL,
   UNIQUE KEY `region_account_id` (`region`,`account_id`),
   UNIQUE KEY `region_summoner_id` (`region`,`summoner_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
