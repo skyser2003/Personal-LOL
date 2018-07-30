@@ -87,6 +87,9 @@
     <TypeScriptCompile Include="src\app\component\test\app.component.spec.ts" />
     <TypeScriptCompile Include="src\app\component\src\app.component.ts" />
     <TypeScriptCompile Include="src\app\app.module.ts" />
+    <TypeScriptCompile Include="src\app\service\data_api.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
     <TypeScriptCompile Include="src\environments\environment.prod.ts" />
     <TypeScriptCompile Include="src\environments\environment.ts" />
     <TypeScriptCompile Include="src\main.ts" />
