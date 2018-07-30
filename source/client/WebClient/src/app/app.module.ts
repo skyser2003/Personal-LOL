@@ -9,11 +9,16 @@ import { AppComponent } from "./component/src/app.component";
 import { HeaderComponent } from "./component/src/header.component";
 import { IndexComponent } from "./component/src/index.component";
 import { LeftMenuComponent } from "./component/src/left-menu.component";
+import { SummonerComponent } from "./component/src/summoner.component";
 
 const routes = [
     {
         path: "",
         component: IndexComponent
+    },
+    {
+        path: "summoner/:name",
+        component: SummonerComponent
     }
 ] as Routes;
 
@@ -22,7 +27,8 @@ const routes = [
         AppComponent,
         HeaderComponent,
         IndexComponent,
-        LeftMenuComponent
+        LeftMenuComponent,
+        SummonerComponent
     ],
     imports: [
         BrowserModule,

@@ -1,4 +1,5 @@
 import { Component } from "@angular/core";
+import { Router } from "@angular/router";
 
 @Component({
     selector: "app-index",
@@ -6,7 +7,11 @@ import { Component } from "@angular/core";
     styleUrls: ["../css/index.component.css"]
 })
 export class IndexComponent {
+    constructor(private readonly router: Router) {
+
+    }
+
     onSearchSummoner(summonerName: string) {
-        console.log(summonerName);
+        this.router.navigate(["/summoner", summonerName]);
     }
 }
