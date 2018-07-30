@@ -6,11 +6,15 @@ import * as express from "express";
 import * as cookieParser from "cookie-parser";
 import * as bodyParser from "body-parser";
 
+export interface IOptions {
+    allowCrossOrigin: boolean;
+}
+
 export class Server {
     private readonly app: express.Express;
     private server: http.Server;
 
-    constructor(port: number, routes: Map<string, express.Router>) {
+    constructor(port: number, routes: Map<string, express.Router>, options?: IOptions) {
         const app = this.app = express();
 
         // view engine setup
@@ -21,6 +25,14 @@ export class Server {
         app.use(cookieParser());
         app.use(bodyParser.json());
         app.use(bodyParser.urlencoded());
+
+        if (options.allowCrossOrigin) {
+            app.use((req, res, next) => {
+                res.header("Access-Control-Allow-Origin", "*");
+                res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+                next();
+            });
+        }
 
         routes.forEach((route, rootPath) => {
             app.use(rootPath, route);
