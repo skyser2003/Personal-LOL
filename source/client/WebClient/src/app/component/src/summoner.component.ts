@@ -16,5 +16,5 @@ export class SummonerComponent {
 
     ngOnInit() {
         this.jsonVal = this.route.snapshot.params["name"] as string;
-1    }
+    }
 }
