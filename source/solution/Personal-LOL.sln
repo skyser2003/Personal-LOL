@@ -15,6 +15,8 @@ Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "DataApi", "..\server\DataAp
 EndProject
 Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "WebClient", "..\client\WebClient\WebClient.njsproj", "{DB5800BB-72E3-4709-BBDC-8931CECF3BAE}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "FTL", "..\server\FTL\FTL\FTL.vcxproj", "{2B32A0F9-FB8A-4B05-B7FC-8F605497259A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,12 @@ Global
 		{DB5800BB-72E3-4709-BBDC-8931CECF3BAE}.Release|Any CPU.Build.0 = Release|Any CPU
 		{DB5800BB-72E3-4709-BBDC-8931CECF3BAE}.Release|x64.ActiveCfg = Release|Any CPU
 		{DB5800BB-72E3-4709-BBDC-8931CECF3BAE}.Release|x64.Build.0 = Release|Any CPU
+		{2B32A0F9-FB8A-4B05-B7FC-8F605497259A}.Debug|Any CPU.ActiveCfg = Debug|x64
+		{2B32A0F9-FB8A-4B05-B7FC-8F605497259A}.Debug|x64.ActiveCfg = Debug|x64
+		{2B32A0F9-FB8A-4B05-B7FC-8F605497259A}.Debug|x64.Build.0 = Debug|x64
+		{2B32A0F9-FB8A-4B05-B7FC-8F605497259A}.Release|Any CPU.ActiveCfg = Release|x64
+		{2B32A0F9-FB8A-4B05-B7FC-8F605497259A}.Release|x64.ActiveCfg = Release|x64
+		{2B32A0F9-FB8A-4B05-B7FC-8F605497259A}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -60,6 +68,7 @@ Global
 		{7936F7EF-2582-449D-B629-EF2A88178F6D} = {0A140DE9-C8DE-48FD-9F8C-B8B40AC18524}
 		{2E14C6F1-D227-4B4B-B8A1-4C81CA4103C5} = {0A140DE9-C8DE-48FD-9F8C-B8B40AC18524}
 		{DB5800BB-72E3-4709-BBDC-8931CECF3BAE} = {396DFA9C-7ECA-418D-A128-7F5C696E6033}
+		{2B32A0F9-FB8A-4B05-B7FC-8F605497259A} = {0A140DE9-C8DE-48FD-9F8C-B8B40AC18524}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {5D11FBB3-5D3C-43AD-9206-F986D2996CE0}
