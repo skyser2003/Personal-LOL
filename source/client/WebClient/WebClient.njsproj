@@ -71,6 +71,7 @@
     <Folder Include="src\app\component\test\" />
     <Folder Include="src\app\component\src\" />
     <Folder Include="src\app\component\template\" />
+    <Folder Include="src\app\service\" />
     <Folder Include="src\assets\" />
     <Folder Include="src\environments\" />
   </ItemGroup>
