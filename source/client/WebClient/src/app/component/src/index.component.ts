@@ -6,4 +6,7 @@ import { Component } from "@angular/core";
     styleUrls: ["../css/index.component.css"]
 })
 export class IndexComponent {
+    onSearchSummoner(summonerName: string) {
+        console.log(summonerName);
+    }
 }
