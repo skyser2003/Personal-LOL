@@ -40,9 +40,11 @@
     <Content Include="package-lock.json" />
     <Content Include="package.json" />
     <Content Include="README.md" />
+    <Content Include="src\app\component\css\index.component.css" />
     <Content Include="src\app\component\css\left-menu.component.css" />
     <Content Include="src\app\component\css\header.component.css" />
     <Content Include="src\app\component\css\app.component.css" />
+    <Content Include="src\app\component\template\index.component.html" />
     <Content Include="src\app\component\template\left-menu.component.html" />
     <Content Include="src\app\component\template\header.component.html" />
     <Content Include="src\app\component\template\app.component.html" />
@@ -73,6 +75,7 @@
   <ItemGroup>
     <TypeScriptCompile Include="e2e\src\app.e2e-spec.ts" />
     <TypeScriptCompile Include="e2e\src\app.po.ts" />
+    <TypeScriptCompile Include="src\app\component\src\index.component.ts" />
     <TypeScriptCompile Include="src\app\component\src\left-menu.component.ts" />
     <TypeScriptCompile Include="src\app\component\src\header.component.ts">
       <SubType>Code</SubType>
