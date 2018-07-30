@@ -1,6 +1,8 @@
 #include "stdafx.h"
 #include "ApiResultStruct.h"
 
+#include "Functional.h"
+
 #define BIND_ATTR_RAW(name) name(json[#name].get<decltype(name)>())
 #define BIND_ATTR(name) name(HasFailed() ? decltype(name){} : json[#name].get<decltype(name)>())
 #define BIND_ATTR_CHILD(parent, name) name(HasFailed() ? decltype(name){} : json##parent.get<decltype(name)>())
@@ -11,14 +13,7 @@ namespace RiotApi
 	template <typename T>
 	std::vector<T> InitializeVector(const nlohmann::json& json)
 	{
-		decltype(InitializeVector<T>(json)) vec;
-
-		for (const auto& elem : json)
-		{
-			vec.push_back(T(elem));
-		}
-
-		return vec;
+		return FTL::TransformToVector(json, [](const auto& elem) -> T { return T(elem); });
 	}
 
 	MatchReferenceDto::MatchReferenceDto(const nlohmann::json& json) :
