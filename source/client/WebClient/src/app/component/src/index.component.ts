@@ -12,7 +12,14 @@ export class IndexComponent {
     }
 
     onSearchSummoner(summonerName: string) {
-        const req = new Request("http://localhost:3000/api/register", { method: "POST", body: JSON.stringify({ summoner_name: summonerName }) });
+        const req = new Request("http://localhost:3000/api/register",
+            {
+                method: "POST",
+                body: JSON.stringify({ summoner_name: summonerName }),
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            });
         fetch(req)
             .then(res => res.json())
             .then(jsonVal => {
