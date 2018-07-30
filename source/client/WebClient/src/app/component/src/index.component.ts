@@ -12,6 +12,14 @@ export class IndexComponent {
     }
 
     onSearchSummoner(summonerName: string) {
-        this.router.navigate(["/summoner", summonerName]);
+        const req = new Request("http://localhost:3000/register", { method: "POST", body: JSON.stringify({ summoner_name: summonerName }) });
+        fetch(req)
+            .then(res => res.json())
+            .then(jsonVal => {
+                this.router.navigate(["/summoner", summonerName]);
+            })
+            .catch(reason => {
+                console.error(reason);
+            });
     }
 }
