@@ -6,6 +6,7 @@ import { RouterModule, Routes } from "@angular/router";
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap"
 
 import { AppComponent } from "./component/src/app.component";
+import { ErrorComponent } from "./component/src/error.component";
 import { HeaderComponent } from "./component/src/header.component";
 import { IndexComponent } from "./component/src/index.component";
 import { LeftMenuComponent } from "./component/src/left-menu.component";
@@ -19,12 +20,21 @@ const routes = [
     {
         path: "summoner/:name",
         component: SummonerComponent
+    },
+    {
+        path: "error",
+        component: ErrorComponent,
+    },
+    {
+        path: "**",
+        redirectTo: "error"
     }
 ] as Routes;
 
 @NgModule({
     declarations: [
         AppComponent,
+        ErrorComponent,
         HeaderComponent,
         IndexComponent,
         LeftMenuComponent,

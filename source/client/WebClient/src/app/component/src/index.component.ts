@@ -1,6 +1,8 @@
 import { Component } from "@angular/core";
 import { Router } from "@angular/router";
 
+import { ResultStruct } from "../../util/struct";
+
 @Component({
     selector: "app-index",
     templateUrl: "../template/index.component.html",
@@ -22,8 +24,12 @@ export class IndexComponent {
             });
         fetch(req)
             .then(res => res.json())
-            .then(jsonVal => {
-                this.router.navigate(["/summoner", summonerName]);
+            .then((jsonVal: ResultStruct) => {
+                if (jsonVal.result === 1) {
+                    this.router.navigate(["/summoner", summonerName]);
+                } else {
+                    this.router.navigate(["/error"]);
+                }
             })
             .catch(reason => {
                 console.error(reason);
