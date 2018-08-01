@@ -1,10 +1,21 @@
-import { Injectable } from "@angular/core";
+import { Injectable, FactoryProvider } from "@angular/core";
 
 @Injectable({
     providedIn: "root",
 })
 export class DataApiService {
-    constructor() {
+    constructor(private readonly url: string) {
 
     }
 }
+
+export function dataApiServiceFactory(url: string) {
+
+}
+
+// TODO
+export const dataApiServiceProvider: FactoryProvider = {
+    provide: DataApiService,
+    useFactory: dataApiServiceFactory,
+    deps: []
+};
