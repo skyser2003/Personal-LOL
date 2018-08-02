@@ -16,6 +16,12 @@
 CREATE DATABASE IF NOT EXISTS `lol` /*!40100 DEFAULT CHARACTER SET utf8mb4 */;
 USE `lol`;
 
+-- Dumping structure for table lol.match
+CREATE TABLE IF NOT EXISTS `match` (
+  `matchId` bigint(20) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- Data exporting was unselected.
 -- Dumping structure for table lol.user
 CREATE TABLE IF NOT EXISTS `user` (
   `region` char(50) NOT NULL,
