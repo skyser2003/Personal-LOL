@@ -27,7 +27,7 @@ DataApiService::DataApiService(const std::string& apiKey, std::shared_ptr<DataSa
 	const auto& name = request->name();
 	auto body = apiCaller->GetResult<ApiType::SUMMONER_SUMMONERS_BY_NAME>(name);
 
-	response->set_result(body.HasFailed() ? false : dataSaver->RegisterUser(GetSubDomain(RegionalEndpoint::KR), body.id, body.accountId, name));
+	response->set_result(body.HasFailed() ? false : dataSaver->RegisterUser(GetSubDomain(RegionalEndpoint::KR), body.accountId, body.id, name));
 
 	return grpc::Status::OK;
 }
@@ -47,7 +47,7 @@ DataApiService::DataApiService(const std::string& apiKey, std::shared_ptr<DataSa
 ::grpc::Status DataApiService::GetSummonerInfo(::grpc::ServerContext* context, const ::SummonerName* request, ::SummonerInfo* response)
 {
 	const auto& name = request->name();
-	auto accountId = apiCaller->GetResult<ApiType::SUMMONER_SUMMONERS_BY_NAME>(name).id;
+	auto accountId = apiCaller->GetResult<ApiType::SUMMONER_SUMMONERS_BY_NAME>(name).accountId;
 
 	auto result = apiCaller->GetResultDebug<ApiType::MATCH_MATCHLISTS_BY_ACCOUNT>(accountId);
 
