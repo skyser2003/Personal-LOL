@@ -1,6 +1,8 @@
 import { Component } from "@angular/core";
 import { Router } from "@angular/router";
 
+import { DataApiService } from "../../service/data-api.service";
+
 import { ResultStruct } from "../../util/struct";
 
 @Component({
@@ -9,21 +11,12 @@ import { ResultStruct } from "../../util/struct";
     styleUrls: ["../css/index.component.css"]
 })
 export class IndexComponent {
-    constructor(private readonly router: Router) {
+    constructor(private readonly router: Router, private readonly dataApiService: DataApiService) {
 
     }
 
     onSearchSummoner(summonerName: string) {
-        const req = new Request("http://localhost:3000/api/register",
-            {
-                method: "POST",
-                body: JSON.stringify({ summoner_name: summonerName }),
-                headers: {
-                    "Content-Type": "application/json"
-                }
-            });
-        fetch(req)
-            .then(res => res.json())
+        this.dataApiService.register(summonerName)
             .then((jsonVal: ResultStruct) => {
                 if (jsonVal.result === 1) {
                     this.router.navigate(["/summoner", summonerName]);

@@ -1,21 +1,41 @@
 import { Injectable, FactoryProvider } from "@angular/core";
 
+import { UrlListService } from "./url-list.service";
+
 @Injectable({
-    providedIn: "root",
+    providedIn: "root"
 })
 export class DataApiService {
-    constructor(private readonly url: string) {
+    constructor(private readonly urlListService: UrlListService) {
 
+    }
+
+    register(summonerName: string) {
+        const url = this.getRandomUrl();
+        const req = new Request(`${url}/api/register`,
+            {
+                method: "POST",
+                body: JSON.stringify({ summoner_name: summonerName }),
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            });
+
+        return fetch(req).then(res => res.json());
+    }
+
+    private getRandomUrl() {
+        const randIndex = Math.floor(Math.random() * this.urlListService.urls.length);
+        return this.urlListService.urls[randIndex];
     }
 }
 
-export function dataApiServiceFactory(url: string) {
-
+function dataApiServiceFactory(urlListService: UrlListService) {
+    return new DataApiService(urlListService);
 }
 
-// TODO
 export const dataApiServiceProvider: FactoryProvider = {
     provide: DataApiService,
     useFactory: dataApiServiceFactory,
-    deps: []
+    deps: [UrlListService]
 };

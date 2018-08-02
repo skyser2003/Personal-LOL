@@ -5,6 +5,9 @@ import { RouterModule, Routes } from "@angular/router";
 
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap"
 
+import { UrlListService } from "./service/url-list.service";
+import { DataApiService, dataApiServiceProvider } from "./service/data-api.service";
+
 import { AppComponent } from "./component/src/app.component";
 import { ErrorComponent } from "./component/src/error.component";
 import { HeaderComponent } from "./component/src/header.component";
@@ -46,7 +49,11 @@ const routes = [
         NgbModule.forRoot(),
         RouterModule.forRoot(routes)
     ],
-    providers: [],
+    providers:
+    [
+        { provide: UrlListService, useValue: new UrlListService(["http://localhost:3000"]) },
+        dataApiServiceProvider
+    ],
     bootstrap: [AppComponent]
 })
 export class AppModule {

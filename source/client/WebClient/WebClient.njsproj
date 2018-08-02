@@ -94,6 +94,9 @@
     <TypeScriptCompile Include="src\app\service\data-api.service.ts">
       <SubType>Code</SubType>
     </TypeScriptCompile>
+    <TypeScriptCompile Include="src\app\service\url-list.service.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
     <TypeScriptCompile Include="src\app\util\struct.ts">
       <SubType>Code</SubType>
     </TypeScriptCompile>
