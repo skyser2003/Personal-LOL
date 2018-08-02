@@ -1,5 +1,5 @@
 namespace RiotApi {
-    enum ApiType {
+    export enum ApiType {
         // Champion mastery
         CHAMPION_MASTERY_MASTERIES_BY_SUMMONER,
         CHAMPION_MASTERY_MASTERIES_BY_SUMMONER_AND_CHAMPION,
