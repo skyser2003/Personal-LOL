@@ -1,6 +1,7 @@
 import { Component } from "@angular/core";
 import { Router, ActivatedRoute } from "@angular/router";
-import { switchMap } from "rxjs/operators";
+
+import { DataApiService } from "../../service/data-api.service";
 
 @Component({
     selector: "app-summoner",
@@ -11,10 +12,14 @@ export class SummonerComponent {
     jsonVal: string;
     summonerName: string;
 
-    constructor(private readonly router: Router, private readonly route: ActivatedRoute) {
+    constructor(private readonly router: Router, private readonly route: ActivatedRoute, private readonly dataApiService: DataApiService) {
     }
 
-    ngOnInit() {
-        this.jsonVal = this.route.snapshot.params["name"] as string;
+    async ngOnInit() {
+        const summonerName = this.route.snapshot.params["name"] as string;
+
+        const info = await this.dataApiService.getSummonerInfo(summonerName);
+
+        this.jsonVal = JSON.stringify(info);
     }
 }
