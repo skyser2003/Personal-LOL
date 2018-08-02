@@ -13,6 +13,9 @@
     <Filter Include="SubUrl">
       <UniqueIdentifier>{3e4d30a9-78ca-4ac0-96bc-23e9b59b3098}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ApiResult">
+      <UniqueIdentifier>{6f82fa0e-e632-470b-93b3-1177fe071443}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch\stdafx.h">
@@ -42,11 +45,11 @@
     <ClInclude Include="header\SpectatorSubUrl.h">
       <Filter>SubUrl</Filter>
     </ClInclude>
-    <ClInclude Include="header\ApiResultStruct.h">
-      <Filter>Static</Filter>
-    </ClInclude>
     <ClInclude Include="header\MatchSubUrl.h">
       <Filter>SubUrl</Filter>
+    </ClInclude>
+    <ClInclude Include="header\ApiResultStruct.h">
+      <Filter>ApiResult</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -74,11 +77,27 @@
     <ClCompile Include="src\SpectatorSubUrl.cpp">
       <Filter>SubUrl</Filter>
     </ClCompile>
-    <ClCompile Include="src\ApiResultStruct.cpp">
-      <Filter>Static</Filter>
-    </ClCompile>
     <ClCompile Include="src\MatchSubUrl.cpp">
       <Filter>SubUrl</Filter>
     </ClCompile>
+    <ClCompile Include="src\ApiResultStruct.cpp">
+      <Filter>ApiResult</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="..\data\api\api_result.ts">
+      <Filter>ApiResult</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="script\generate_api_result.ts">
+      <Filter>ApiResult</Filter>
+    </None>
+    <None Include="script\ApiResultStruct.cpp.ejs">
+      <Filter>ApiResult</Filter>
+    </None>
+    <None Include="script\ApiResultStruct.h.ejs">
+      <Filter>ApiResult</Filter>
+    </None>
   </ItemGroup>
 </Project>

@@ -99,6 +99,16 @@
     <ClCompile Include="src\SubUrl.cpp" />
     <ClCompile Include="src\SummonerSuburl.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="..\data\api\api_result.ts">
+      <FileType>Document</FileType>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="script\ApiResultStruct.cpp.ejs" />
+    <None Include="script\ApiResultStruct.h.ejs" />
+    <None Include="script\generate_api_result.ts" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
