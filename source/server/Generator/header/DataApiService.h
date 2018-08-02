@@ -15,6 +15,7 @@ public:
 
 	virtual ::grpc::Status RegisterUser(::grpc::ServerContext* context, const ::SummonerName* request, ::BoolResult* response) override;
 	virtual ::grpc::Status GetCurrentGame(::grpc::ServerContext* context, const ::SummonerName* request, ::CurrentGame* response) override;
+	virtual ::grpc::Status GetSummonerInfo(::grpc::ServerContext* context, const ::SummonerName* request, ::SummonerInfo* response) override;
 
 private:
 	const std::string apiKey;

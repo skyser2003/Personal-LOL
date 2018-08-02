@@ -43,3 +43,15 @@ DataApiService::DataApiService(const std::string& apiKey, std::shared_ptr<DataSa
 
 	return grpc::Status::OK;
 }
+
+::grpc::Status DataApiService::GetSummonerInfo(::grpc::ServerContext* context, const ::SummonerName* request, ::SummonerInfo* response)
+{
+	const auto& name = request->name();
+	auto accountId = apiCaller->GetResult<ApiType::SUMMONER_SUMMONERS_BY_NAME>(name).id;
+
+	auto result = apiCaller->GetResultDebug<ApiType::MATCH_MATCHLISTS_BY_ACCOUNT>(accountId);
+
+	response->set_val(std::get<1>(result).dump());
+
+	return grpc::Status::OK;
+}

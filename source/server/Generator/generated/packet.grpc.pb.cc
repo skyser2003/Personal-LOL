@@ -17,6 +17,7 @@
 static const char* DtoGService_method_names[] = {
   "/DtoGService/RegisterUser",
   "/DtoGService/GetCurrentGame",
+  "/DtoGService/GetSummonerInfo",
 };
 
 std::unique_ptr< DtoGService::Stub> DtoGService::NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options) {
@@ -28,6 +29,7 @@ std::unique_ptr< DtoGService::Stub> DtoGService::NewStub(const std::shared_ptr< 
 DtoGService::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel)
   : channel_(channel), rpcmethod_RegisterUser_(DtoGService_method_names[0], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   , rpcmethod_GetCurrentGame_(DtoGService_method_names[1], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_GetSummonerInfo_(DtoGService_method_names[2], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   {}
 
 ::grpc::Status DtoGService::Stub::RegisterUser(::grpc::ClientContext* context, const ::SummonerName& request, ::BoolResult* response) {
@@ -54,6 +56,18 @@ DtoGService::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channe
   return ::grpc::internal::ClientAsyncResponseReaderFactory< ::CurrentGame>::Create(channel_.get(), cq, rpcmethod_GetCurrentGame_, context, request, false);
 }
 
+::grpc::Status DtoGService::Stub::GetSummonerInfo(::grpc::ClientContext* context, const ::SummonerName& request, ::SummonerInfo* response) {
+  return ::grpc::internal::BlockingUnaryCall(channel_.get(), rpcmethod_GetSummonerInfo_, context, request, response);
+}
+
+::grpc::ClientAsyncResponseReader< ::SummonerInfo>* DtoGService::Stub::AsyncGetSummonerInfoRaw(::grpc::ClientContext* context, const ::SummonerName& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::SummonerInfo>::Create(channel_.get(), cq, rpcmethod_GetSummonerInfo_, context, request, true);
+}
+
+::grpc::ClientAsyncResponseReader< ::SummonerInfo>* DtoGService::Stub::PrepareAsyncGetSummonerInfoRaw(::grpc::ClientContext* context, const ::SummonerName& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::SummonerInfo>::Create(channel_.get(), cq, rpcmethod_GetSummonerInfo_, context, request, false);
+}
+
 DtoGService::Service::Service() {
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       DtoGService_method_names[0],
@@ -65,6 +79,11 @@ DtoGService::Service::Service() {
       ::grpc::internal::RpcMethod::NORMAL_RPC,
       new ::grpc::internal::RpcMethodHandler< DtoGService::Service, ::SummonerName, ::CurrentGame>(
           std::mem_fn(&DtoGService::Service::GetCurrentGame), this)));
+  AddMethod(new ::grpc::internal::RpcServiceMethod(
+      DtoGService_method_names[2],
+      ::grpc::internal::RpcMethod::NORMAL_RPC,
+      new ::grpc::internal::RpcMethodHandler< DtoGService::Service, ::SummonerName, ::SummonerInfo>(
+          std::mem_fn(&DtoGService::Service::GetSummonerInfo), this)));
 }
 
 DtoGService::Service::~Service() {
@@ -78,6 +97,13 @@ DtoGService::Service::~Service() {
 }
 
 ::grpc::Status DtoGService::Service::GetCurrentGame(::grpc::ServerContext* context, const ::SummonerName* request, ::CurrentGame* response) {
+  (void) context;
+  (void) request;
+  (void) response;
+  return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+}
+
+::grpc::Status DtoGService::Service::GetSummonerInfo(::grpc::ServerContext* context, const ::SummonerName* request, ::SummonerInfo* response) {
   (void) context;
   (void) request;
   (void) response;

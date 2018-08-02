@@ -19,8 +19,14 @@ message CurrentGame
 	string val = 1;
 }
 
+message SummonerInfo
+{
+	string val = 1;
+}
+
 service DtoGService
 {
 	rpc RegisterUser(SummonerName) returns (BoolResult);
 	rpc GetCurrentGame(SummonerName) returns (CurrentGame);
+	rpc GetSummonerInfo(SummonerName) returns (SummonerInfo);
 }
