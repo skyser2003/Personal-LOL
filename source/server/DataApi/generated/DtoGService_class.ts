@@ -33,4 +33,17 @@ export class DtoGService {
         });
     }
 
+    getSummonerInfo(request: packet.ISummonerName) {
+        return new Promise<packet.ISummonerInfo>((resolve, reject) => {
+            this.serviceInterface.getSummonerInfo(request, (err, response) => {
+                if (err) {
+                    reject(err);
+                    return;
+                }
+
+                resolve(response);
+            });
+        });
+    }
+
 }

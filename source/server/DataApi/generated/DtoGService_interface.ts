@@ -8,4 +8,6 @@ export interface DtoGService_Interface extends grpc.Client {
 
     getCurrentGame(request: packet.ISummonerName, callback?: (error: Error, response: packet.ICurrentGame) => void);
 
+    getSummonerInfo(request: packet.ISummonerName, callback?: (error: Error, response: packet.ISummonerInfo) => void);
+
 }

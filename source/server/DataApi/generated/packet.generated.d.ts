@@ -354,6 +354,96 @@ export class CurrentGame implements ICurrentGame {
     public toJSON(): { [k: string]: any };
 }
 
+/** Properties of a SummonerInfo. */
+export interface ISummonerInfo {
+
+    /** SummonerInfo val */
+    val?: (string|null);
+}
+
+/** Represents a SummonerInfo. */
+export class SummonerInfo implements ISummonerInfo {
+
+    /**
+     * Constructs a new SummonerInfo.
+     * @param [properties] Properties to set
+     */
+    constructor(properties?: ISummonerInfo);
+
+    /** SummonerInfo val. */
+    public val: string;
+
+    /**
+     * Creates a new SummonerInfo instance using the specified properties.
+     * @param [properties] Properties to set
+     * @returns SummonerInfo instance
+     */
+    public static create(properties?: ISummonerInfo): SummonerInfo;
+
+    /**
+     * Encodes the specified SummonerInfo message. Does not implicitly {@link SummonerInfo.verify|verify} messages.
+     * @param message SummonerInfo message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encode(message: ISummonerInfo, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Encodes the specified SummonerInfo message, length delimited. Does not implicitly {@link SummonerInfo.verify|verify} messages.
+     * @param message SummonerInfo message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encodeDelimited(message: ISummonerInfo, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Decodes a SummonerInfo message from the specified reader or buffer.
+     * @param reader Reader or buffer to decode from
+     * @param [length] Message length if known beforehand
+     * @returns SummonerInfo
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): SummonerInfo;
+
+    /**
+     * Decodes a SummonerInfo message from the specified reader or buffer, length delimited.
+     * @param reader Reader or buffer to decode from
+     * @returns SummonerInfo
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): SummonerInfo;
+
+    /**
+     * Verifies a SummonerInfo message.
+     * @param message Plain object to verify
+     * @returns `null` if valid, otherwise the reason why it is not
+     */
+    public static verify(message: { [k: string]: any }): (string|null);
+
+    /**
+     * Creates a SummonerInfo message from a plain object. Also converts values to their respective internal types.
+     * @param object Plain object
+     * @returns SummonerInfo
+     */
+    public static fromObject(object: { [k: string]: any }): SummonerInfo;
+
+    /**
+     * Creates a plain object from a SummonerInfo message. Also converts values to other types if specified.
+     * @param message SummonerInfo
+     * @param [options] Conversion options
+     * @returns Plain object
+     */
+    public static toObject(message: SummonerInfo, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+    /**
+     * Converts this SummonerInfo to JSON.
+     * @returns JSON object
+     */
+    public toJSON(): { [k: string]: any };
+}
+
 /** Represents a DtoGService */
 export class DtoGService extends $protobuf.rpc.Service {
 
@@ -401,6 +491,20 @@ export class DtoGService extends $protobuf.rpc.Service {
      * @returns Promise
      */
     public getCurrentGame(request: ISummonerName): Promise<CurrentGame>;
+
+    /**
+     * Calls GetSummonerInfo.
+     * @param request SummonerName message or plain object
+     * @param callback Node-style callback called with the error, if any, and SummonerInfo
+     */
+    public getSummonerInfo(request: ISummonerName, callback: DtoGService.GetSummonerInfoCallback): void;
+
+    /**
+     * Calls GetSummonerInfo.
+     * @param request SummonerName message or plain object
+     * @returns Promise
+     */
+    public getSummonerInfo(request: ISummonerName): Promise<SummonerInfo>;
 }
 
 export namespace DtoGService {
@@ -418,4 +522,11 @@ export namespace DtoGService {
      * @param [response] CurrentGame
      */
     type GetCurrentGameCallback = (error: (Error|null), response?: CurrentGame) => void;
+
+    /**
+     * Callback as used by {@link DtoGService#getSummonerInfo}.
+     * @param error Error, if any
+     * @param [response] SummonerInfo
+     */
+    type GetSummonerInfoCallback = (error: (Error|null), response?: SummonerInfo) => void;
 }
