@@ -105,9 +105,13 @@
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\data\api\api_type.ts" />
     <None Include="script\ApiResultStruct.cpp.ejs" />
     <None Include="script\ApiResultStruct.h.ejs" />
+    <None Include="script\ApiType.h.ejs" />
     <None Include="script\generate_api_result.ts" />
+    <None Include="script\generate_api_type.ts" />
+    <None Include="script\package.json" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
