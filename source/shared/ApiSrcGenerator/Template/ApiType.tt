@@ -1,0 +1,17 @@
+﻿<#@ template debug="false" hostspecific="true" language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ assembly name="$(TargetPath)" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="ApiSrcGenerator" #>
+<#@ output extension=".h" #>
+#pragma once
+
+namespace RiotApi
+{
+	enum class ApiType
+	{
+		<#= RiotApi.ApiType.CHAMPION_MASTERY_MASTERIES_BY_SUMMONER #>
+	}
+}

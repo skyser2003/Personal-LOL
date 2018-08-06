@@ -16,18 +16,6 @@
     <Filter Include="ApiResult">
       <UniqueIdentifier>{6f82fa0e-e632-470b-93b3-1177fe071443}</UniqueIdentifier>
     </Filter>
-    <Filter Include="BuildScript">
-      <UniqueIdentifier>{2679c19d-7f46-4b65-bca8-4ea9662b1373}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="BuildScript\ejs">
-      <UniqueIdentifier>{1ccdcac8-eb0e-4204-883d-2783c5551376}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="BuildScript\src">
-      <UniqueIdentifier>{029e715e-6057-440e-ac65-afae15e4494d}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="BuildScript\script">
-      <UniqueIdentifier>{220e2788-395c-4e6e-8275-fbf1874585f9}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch\stdafx.h">
@@ -95,33 +83,5 @@
     <ClCompile Include="src\ApiResultStruct.cpp">
       <Filter>ApiResult</Filter>
     </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="script\ApiResultStruct.cpp.ejs">
-      <Filter>BuildScript\ejs</Filter>
-    </None>
-    <None Include="script\ApiResultStruct.h.ejs">
-      <Filter>BuildScript\ejs</Filter>
-    </None>
-    <None Include="script\ApiType.h.ejs">
-      <Filter>BuildScript\ejs</Filter>
-    </None>
-    <None Include="..\data\api\api_type.ts">
-      <Filter>BuildScript\src</Filter>
-    </None>
-    <None Include="script\generate_api_result.ts">
-      <Filter>BuildScript\script</Filter>
-    </None>
-    <None Include="script\generate_api_type.ts">
-      <Filter>BuildScript\script</Filter>
-    </None>
-    <None Include="script\package.json">
-      <Filter>BuildScript\script</Filter>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <CustomBuild Include="..\data\api\api_result.ts">
-      <Filter>BuildScript\src</Filter>
-    </CustomBuild>
   </ItemGroup>
 </Project>
