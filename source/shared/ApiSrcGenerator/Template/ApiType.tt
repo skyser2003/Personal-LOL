@@ -12,7 +12,7 @@ namespace RiotApi
 {
 	enum class ApiType
 	{
-<# var values = Enum.GetNames(typeof(RiotApi.ApiType)); #>
+<# var values = Enum.GetNames(typeof(RiotApiType.ApiType)); #>
 <# foreach (var enumName in values) { #>
 		<#= enumName #>,
 <# } #>

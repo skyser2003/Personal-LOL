@@ -1,6 +1,6 @@
 ﻿namespace ApiSrcGenerator
 {
-    public partial class RiotApi
+    public class RiotApiStruct
     {
         struct Test
         {
