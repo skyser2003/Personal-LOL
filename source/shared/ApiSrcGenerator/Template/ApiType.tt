@@ -14,7 +14,7 @@ namespace RiotApi
 	{
 <# var values = Enum.GetNames(typeof(RiotApi.ApiType)); #>
 <# foreach (var enumName in values) { #>
-		<#= enumName #>
+		<#= enumName #>,
 <# } #>
-	}
+	};
 }
