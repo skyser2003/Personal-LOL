@@ -80,7 +80,7 @@
     <ClCompile Include="src\MatchSubUrl.cpp">
       <Filter>SubUrl</Filter>
     </ClCompile>
-    <ClCompile Include="src\ApiResultStruct.cpp">
+    <ClCompile Include="generated\ApiResultStruct.cpp">
       <Filter>ApiResult</Filter>
     </ClCompile>
   </ItemGroup>

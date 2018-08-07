@@ -78,4 +78,9 @@
     <PreBuildEvent>
     </PreBuildEvent>
   </PropertyGroup>
+  <PropertyGroup>
+    <PostBuildEvent>echo F | xcopy /Y $(ProjectDir)Template\ApiResultHeader.h $(SolutionDir)..\server\RiotApi\generated\ApiResultStruct.h
+echo F | xcopy /Y $(ProjectDir)Template\ApiResultSource.cpp $(SolutionDir)..\server\RiotApi\generated\ApiResultStruct.cpp
+xcopy /Y $(ProjectDir)Template\ApiType.h $(SolutionDir)..\server\RiotApi\generated</PostBuildEvent>
+  </PropertyGroup>
 </Project>
