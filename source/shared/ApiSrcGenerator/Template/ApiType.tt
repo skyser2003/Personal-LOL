@@ -12,6 +12,9 @@ namespace RiotApi
 {
 	enum class ApiType
 	{
-		<#= RiotApi.ApiType.CHAMPION_MASTERY_MASTERIES_BY_SUMMONER #>
+<# var values = Enum.GetNames(typeof(RiotApi.ApiType)); #>
+<# foreach (var enumName in values) { #>
+		<#= enumName #>
+<# } #>
 	}
 }
