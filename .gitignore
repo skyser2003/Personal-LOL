@@ -59,3 +59,5 @@ source/server/external/boost/
 /source/client/Main/built/
 /data/
 /source/server/build/
+/source/shared/ApiSrcGenerator/**/*.h
+/source/shared/ApiSrcGenerator/**/*.cpp
