@@ -42,6 +42,24 @@
     <Compile Include="Data\ApiType.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Template\ApiResultSource.cpp">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ApiResultSource.tt</DependentUpon>
+    </Content>
+    <Content Include="Template\ApiResultSource.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ApiResultSource.cpp</LastGenOutput>
+    </Content>
+    <Content Include="Template\ApiResultHeader.h">
+      <DependentUpon>ApiResultHeader.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Content>
+    <Content Include="Template\ApiResultHeader.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ApiResultHeader.h</LastGenOutput>
+    </Content>
     <Content Include="Template\ApiType.h">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

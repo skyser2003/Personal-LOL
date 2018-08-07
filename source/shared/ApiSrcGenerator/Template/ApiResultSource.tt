@@ -1,0 +1,89 @@
+﻿<#@ template debug="false" hostspecific="true" language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ assembly name="$(TargetPath)" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="ApiSrcGenerator" #>
+<#@ output extension=".cpp" #>
+#include "stdafx.h"
+#include "ApiResultStruct.h"
+
+#include "Functional.h"
+
+#define BIND_ATTR_RAW(name) name(json[#name].get<decltype(name)>())
+#define BIND_ATTR(name) name(HasFailed() ? decltype(name){} : json[#name].get<decltype(name)>())
+#define BIND_ATTR_CHILD(parent, name) name(HasFailed() ? decltype(name){} : json##parent.get<decltype(name)>())
+#define BIND_ATTR_VECTOR(name) name(HasFailed() ? decltype(name)({}) : InitializeVector<decltype(name)::value_type>(json[#name]))
+
+namespace RiotApi
+{
+	template <typename T>
+	std::vector<T> InitializeVector(const nlohmann::json& json)
+	{
+		return FTL::TransformToVector(json, [](const auto& elem) -> T { return T(elem); });
+	}
+
+	MatchReferenceDto::MatchReferenceDto(const nlohmann::json& json) :
+		BIND_ATTR_RAW(lane),
+		BIND_ATTR_RAW(gameId),
+		BIND_ATTR_RAW(champion),
+		BIND_ATTR_RAW(platformId),
+		BIND_ATTR_RAW(season),
+		BIND_ATTR_RAW(queue),
+		BIND_ATTR_RAW(role),
+		BIND_ATTR_RAW(timestamp)
+	{
+
+	}
+
+	FailedApiResult::FailedApiResult(const nlohmann::json& json) :
+		FailedApiResult(json.find("status") != json.end() &&
+			json["status"].find("message") != json["status"].end() &&
+			json["status"].find("status_code") != json["status"].end(),
+			json)
+	{
+	}
+
+	FailedApiResult::FailedApiResult(bool hasFailed, const nlohmann::json& json) :
+		message(hasFailed ? json["status"]["message"].get<decltype(message)>() : ""),
+		status_code(hasFailed ? json["status"]["status_code"].get<decltype(status_code)>() : -1)
+	{
+
+	}
+
+	FailedApiResult::~FailedApiResult() = default;
+
+	bool FailedApiResult::HasFailed() const
+	{
+		return status_code != -1;
+	}
+
+	ApiResult<ApiType::SUMMONER_SUMMONERS_BY_NAME>::ApiResult(const nlohmann::json& json) :
+		FailedApiResult(json),
+		BIND_ATTR(profileIconId),
+		BIND_ATTR(name),
+		BIND_ATTR(summonerLevel),
+		BIND_ATTR(revisionDate),
+		BIND_ATTR(id),
+		BIND_ATTR(accountId)
+	{
+
+	}
+
+	ApiResult<ApiType::SPECTATOR_ACTIVE_GAMES_BY_SUMMONER>::ApiResult(const nlohmann::json& json) :
+		FailedApiResult(json)
+	{
+
+	}
+
+	ApiResult<ApiType::MATCH_MATCHLISTS_BY_ACCOUNT>::ApiResult(const nlohmann::json& json) :
+		FailedApiResult(json),
+		BIND_ATTR_VECTOR(matches),
+		BIND_ATTR(totalGames),
+		BIND_ATTR(startIndex),
+		BIND_ATTR(endIndex)
+	{
+
+	}
+}
