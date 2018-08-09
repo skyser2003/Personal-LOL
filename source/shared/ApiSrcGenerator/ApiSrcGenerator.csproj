@@ -38,8 +38,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Data\ApiResult.cs" />
+    <Compile Include="Data\ResultStruct.cs" />
     <Compile Include="Data\ApiType.cs" />
+    <Compile Include="Data\InternalStruct.cs" />
+    <Compile Include="Data\TemplateData.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Template\ApiResultHeader.h">
