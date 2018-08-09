@@ -18,7 +18,9 @@ USE `lol`;
 
 -- Dumping structure for table lol.match
 CREATE TABLE IF NOT EXISTS `match` (
-  `matchId` bigint(20) DEFAULT NULL
+  `matchId` bigint(20) NOT NULL,
+  `version` char(50) NOT NULL,
+  UNIQUE KEY `matchId` (`matchId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- Data exporting was unselected.
