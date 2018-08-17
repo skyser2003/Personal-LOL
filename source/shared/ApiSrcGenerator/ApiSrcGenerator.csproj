@@ -38,22 +38,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Data\ResultStruct.cs" />
-    <Compile Include="Data\ApiType.cs" />
-    <Compile Include="Data\InternalStruct.cs" />
-    <Compile Include="Data\TemplateData.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Template\ApiResultHeader.h">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ApiResultHeader.tt</DependentUpon>
-    </Content>
-    <Content Include="Template\ApiResultSource.cpp">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ApiResultSource.tt</DependentUpon>
-    </Content>
     <Content Include="Template\ApiResultSource.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>ApiResultSource.cpp</LastGenOutput>
@@ -61,11 +45,6 @@
     <Content Include="Template\ApiResultHeader.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>ApiResultHeader.h</LastGenOutput>
-    </Content>
-    <Content Include="Template\ApiType.h">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ApiType.tt</DependentUpon>
     </Content>
     <Content Include="Template\ApiType.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -76,6 +55,18 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- Optionally make the import portable across VS versions -->
+  <PropertyGroup>
+    <!-- Get the Visual Studio version - defaults to 10: -->
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">15.0</VisualStudioVersion>
+    <!-- Keep the next element all on one line: -->
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <!-- This is the important line: -->
+  <Import Project="$(VSToolsPath)\TextTemplating\Microsoft.TextTemplating.targets" />
+  <PropertyGroup>
+    <TransformOnBuild>true</TransformOnBuild>
+  </PropertyGroup>
   <PropertyGroup>
     <PreBuildEvent>
     </PreBuildEvent>
@@ -85,4 +76,20 @@
 echo F | xcopy /Y $(ProjectDir)Template\ApiResultSource.cpp $(SolutionDir)..\server\RiotApi\generated\ApiResultStruct.cpp
 xcopy /Y $(ProjectDir)Template\ApiType.h $(SolutionDir)..\server\RiotApi\generated</PostBuildEvent>
   </PropertyGroup>
+  <ItemGroup>
+    <!-- Release, debug, etc. -->
+    <T4ParameterValues Include="ProjectDir">
+      <Value>$(ProjectDir)</Value>
+      <Visible>false</Visible>
+    </T4ParameterValues>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ApiSrcData\ApiSrcData.csproj">
+      <Project>{9f610b3e-436b-49d8-b549-276c6f39f70b}</Project>
+      <Name>ApiSrcData</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Dummy.cs" />
+  </ItemGroup>
 </Project>

@@ -1,11 +1,11 @@
 ﻿<#@ template debug="false" hostspecific="true" language="C#" #>
 <#@ assembly name="System.Core" #>
-<#@ assembly name="$(TargetPath)" #>
+<#@ assembly name="$(ProjectDir)..\ApiSrcData\bin\Debug\ApiSrcData.dll" #>
 <#@ import namespace="System.Linq" #>
 <#@ import namespace="System.Text" #>
 <#@ import namespace="System.Reflection" #>
 <#@ import namespace="System.Collections.Generic" #>
-<#@ import namespace="ApiSrcGenerator" #>
+<#@ import namespace="ApiSrcData" #>
 <#@ output extension=".h" #>
 #pragma once
 
@@ -29,14 +29,14 @@ var internals = new List<Type>();
 var results = new List<Type>();
 
 foreach (var enumName in enumNames) { 
-	var typeName = "ApiSrcGenerator.ResultStruct." + enumName;
+	var typeName = "ApiSrcData.ResultStruct." + enumName;
 	var resultType = Type.GetType(typeName);
 	if(resultType != null) {
 		results.Add(resultType);
 	}
 }
 
-results.Add(typeof(ApiSrcGenerator.ResultStruct.SUMMONER_SUMMONERS_BY_NAME).GetType());
+results.Add(typeof(ApiSrcData.ResultStruct.SUMMONER_SUMMONERS_BY_NAME).GetType());
 
 #>
 

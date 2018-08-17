@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 
-using ApiSrcGenerator.InternalStruct;
+using ApiSrcData.InternalStruct;
 
-namespace ApiSrcGenerator.ResultStruct
+namespace ApiSrcData.ResultStruct
 {
     // JSON result structs
     public class SUMMONER_SUMMONERS_BY_NAME

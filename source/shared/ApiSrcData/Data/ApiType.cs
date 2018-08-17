@@ -1,4 +1,4 @@
-﻿namespace ApiSrcGenerator
+﻿namespace ApiSrcData
 {
     public class RiotApiType
     {
