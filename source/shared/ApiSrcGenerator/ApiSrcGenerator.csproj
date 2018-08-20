@@ -38,6 +38,16 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Template\ApiResultHeader.h">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ApiResultHeader.tt</DependentUpon>
+    </Content>
+    <Content Include="Template\ApiResultSource.cpp">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ApiResultSource.tt</DependentUpon>
+    </Content>
     <Content Include="Template\ApiResultSource.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>ApiResultSource.cpp</LastGenOutput>
@@ -45,6 +55,11 @@
     <Content Include="Template\ApiResultHeader.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>ApiResultHeader.h</LastGenOutput>
+    </Content>
+    <Content Include="Template\ApiType.h">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ApiType.tt</DependentUpon>
     </Content>
     <Content Include="Template\ApiType.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -82,6 +97,21 @@ xcopy /Y $(ProjectDir)Template\ApiType.h $(SolutionDir)..\server\RiotApi\generat
       <Value>$(ProjectDir)</Value>
       <Visible>false</Visible>
     </T4ParameterValues>
+
+    <None Include="Template\ApiResultHeader.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <Visible>false</Visible>
+    </None>
+
+    <None Include="Template\ApiResultSource.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <Visible>false</Visible>
+    </None>
+
+    <None Include="Template\ApiType.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <Visible>false</Visible>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ApiSrcData\ApiSrcData.csproj">
