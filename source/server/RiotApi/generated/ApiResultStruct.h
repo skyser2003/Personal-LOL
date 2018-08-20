@@ -6,7 +6,6 @@
 
 #include "ApiType.h"
 
-
 namespace RiotApi
 {
 	// Sub data structs

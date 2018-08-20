@@ -7,6 +7,12 @@
 <#@ import namespace="System.Collections.Generic" #>
 <#@ import namespace="ApiSrcData" #>
 <#@ output extension=".h" #>
+<#
+
+var internals = Helper.GetInternalStructs();
+var results = Helper.GetResultStructs();
+
+#>
 #pragma once
 
 #include <string>
@@ -14,31 +20,6 @@
 #include "json.hpp"
 
 #include "ApiType.h"
-
-<#
-Type[] GetTypesInNamespace(Assembly assembly, string nameSpace)
-{
-    return 
-      assembly.GetTypes()
-              .Where(t => String.Equals(t.Namespace, nameSpace, StringComparison.Ordinal))
-              .ToArray();
-}
-
-var enumNames = Enum.GetNames(typeof(RiotApiType.ApiType));
-var internals = new List<Type>();
-var results = new List<Type>();
-
-foreach (var enumName in enumNames) { 
-	var typeName = "ApiSrcData.ResultStruct." + enumName;
-	var resultType = Type.GetType(typeName);
-	if(resultType != null) {
-		results.Add(resultType);
-	}
-}
-
-results.Add(typeof(ApiSrcData.ResultStruct.SUMMONER_SUMMONERS_BY_NAME).GetType());
-
-#>
 
 namespace RiotApi
 {

@@ -97,17 +97,14 @@ xcopy /Y $(ProjectDir)Template\ApiType.h $(SolutionDir)..\server\RiotApi\generat
       <Value>$(ProjectDir)</Value>
       <Visible>false</Visible>
     </T4ParameterValues>
-
     <None Include="Template\ApiResultHeader.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <Visible>false</Visible>
     </None>
-
     <None Include="Template\ApiResultSource.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <Visible>false</Visible>
     </None>
-
     <None Include="Template\ApiType.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <Visible>false</Visible>
@@ -118,8 +115,5 @@ xcopy /Y $(ProjectDir)Template\ApiType.h $(SolutionDir)..\server\RiotApi\generat
       <Project>{9f610b3e-436b-49d8-b549-276c6f39f70b}</Project>
       <Name>ApiSrcData</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Dummy.cs" />
   </ItemGroup>
 </Project>

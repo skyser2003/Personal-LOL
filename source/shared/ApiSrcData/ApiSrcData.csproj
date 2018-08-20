@@ -46,6 +46,7 @@
     <Compile Include="Data\ResultStruct.cs" />
     <Compile Include="Data\TemplateData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Util\Helper.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
