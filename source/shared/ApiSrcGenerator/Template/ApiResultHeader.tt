@@ -24,59 +24,29 @@ var results = Helper.GetResultStructs();
 namespace RiotApi
 {
 	// Sub data structs
-	struct BannedChampions
+<#
+foreach (var pair in internals)
+{
+	var type = pair.Key;
+	var members = pair.Value;
+#>
+	struct <#= type.Name #>
 	{
-		int pickTurn;
-		long championId;
-		long teamId;
+		<#= type.Name #>(const nlohmann::json& json);
+
+<#
+foreach(var member in members)
+{
+#>
+		const <#= Helper.GetCppTypeName(member.FieldType) #> <#= member.Name #>;
+<#
+}
+#>
 	};
 
-	struct Observer
-	{
-		std::string encryptionKey;
-	};
-
-	struct GameCustomizationObject
-	{
-		std::string category;
-		std::string content;
-	};
-
-	struct Perks
-	{
-		long perkStyle;
-		std::vector<long> perkIds;
-		long perkSubStyle;
-	};
-
-	struct CurrentGameParticipant
-	{
-		long profileIconId;
-		long championId;
-		std::string summonerName;
-		std::vector<GameCustomizationObject> gameCustomizationObject;
-		bool bot;
-		Perks perks;
-		long spell2ld;
-		long teamId;
-		long spell1d;
-		long summonerId;
-	};
-
-	struct MatchReferenceDto
-	{
-		MatchReferenceDto(const nlohmann::json& json);
-
-		const std::string lane;
-		const long gameId;
-		const int champion;
-		const std::string platformId;
-		const int season;
-		const int queue;
-		const std::string role;
-		const long timestamp;
-	};
-
+<#
+}
+#>
 	// Failed response
 	class FailedApiResult
 	{
