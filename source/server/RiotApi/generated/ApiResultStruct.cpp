@@ -97,6 +97,29 @@ namespace RiotApi
 		return status_code != -1;
 	}
 
+	ApiResult<ApiType::MATCH_MATCHLISTS_BY_ACCOUNT>::ApiResult(const nlohmann::json& json) :
+		FailedApiResult(json),
+		BIND_ATTR_VECTOR(matches),
+		BIND_ATTR(totalGames),
+		BIND_ATTR(startIndex),
+		BIND_ATTR(endIndex)
+	{}
+
+	ApiResult<ApiType::SPECTATOR_ACTIVE_GAMES_BY_SUMMONER>::ApiResult(const nlohmann::json& json) :
+		FailedApiResult(json),
+		BIND_ATTR(gameId),
+		BIND_ATTR(gameStartTime),
+		BIND_ATTR(platformId),
+		BIND_ATTR(gameMode),
+		BIND_ATTR(mapId),
+		BIND_ATTR(gameType),
+		BIND_ATTR_VECTOR(bannedChampions),
+		BIND_ATTR_INTERNAL(observer),
+		BIND_ATTR_VECTOR(participants),
+		BIND_ATTR(gameLength),
+		BIND_ATTR(gameQueueConfigId)
+	{}
+
 	ApiResult<ApiType::SUMMONER_SUMMONERS_BY_NAME>::ApiResult(const nlohmann::json& json) :
 		FailedApiResult(json),
 		BIND_ATTR(profileIconId),
@@ -105,24 +128,6 @@ namespace RiotApi
 		BIND_ATTR(revisionDate),
 		BIND_ATTR(id),
 		BIND_ATTR(accountId)
-	{
+	{}
 
-	}
-
-	ApiResult<ApiType::SPECTATOR_ACTIVE_GAMES_BY_SUMMONER>::ApiResult(const nlohmann::json& json) :
-		FailedApiResult(json),
-		BIND_ATTR_INTERNAL(observer)
-	{
-
-	}
-
-	ApiResult<ApiType::MATCH_MATCHLISTS_BY_ACCOUNT>::ApiResult(const nlohmann::json& json) :
-		FailedApiResult(json),
-		BIND_ATTR_VECTOR(matches),
-		BIND_ATTR(totalGames),
-		BIND_ATTR(startIndex),
-		BIND_ATTR(endIndex)
-	{
-
-	}
 }

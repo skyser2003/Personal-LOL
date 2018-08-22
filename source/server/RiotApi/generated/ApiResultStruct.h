@@ -99,6 +99,35 @@ namespace RiotApi
 	class ApiResult;
 
 	template <>
+	class ApiResult<ApiType::MATCH_MATCHLISTS_BY_ACCOUNT> : public FailedApiResult
+	{
+	public:
+		ApiResult(const nlohmann::json& json);
+
+		const std::vector<MatchReferenceDto> matches;
+		const int totalGames;
+		const int startIndex;
+		const int endIndex;
+	};
+	template <>
+	class ApiResult<ApiType::SPECTATOR_ACTIVE_GAMES_BY_SUMMONER> : public FailedApiResult
+	{
+	public:
+		ApiResult(const nlohmann::json& json);
+
+		const long gameId;
+		const long gameStartTime;
+		const std::string platformId;
+		const std::string gameMode;
+		const long mapId;
+		const std::string gameType;
+		const std::vector<BannedChampions> bannedChampions;
+		const Observer observer;
+		const std::vector<CurrentGameParticipant> participants;
+		const long gameLength;
+		const long gameQueueConfigId;
+	};
+	template <>
 	class ApiResult<ApiType::SUMMONER_SUMMONERS_BY_NAME> : public FailedApiResult
 	{
 	public:
@@ -110,36 +139,5 @@ namespace RiotApi
 		const long revisionDate;
 		const long id;
 		const long accountId;
-	};
-
-	template <>
-	class ApiResult<ApiType::SPECTATOR_ACTIVE_GAMES_BY_SUMMONER> : public FailedApiResult
-	{
-	public:
-		ApiResult(const nlohmann::json& json);
-
-		long gameId;
-		long gameStartTime;
-		std::string platformId;
-		std::string gameMode;
-		long mapId;
-		std::string gameType;
-		std::vector<BannedChampions> bannedChampions;
-		Observer observer;
-		std::vector<CurrentGameParticipant> participants;
-		long gameLength;
-		long gameQueueConfigId;
-	};
-
-	template <>
-	class ApiResult<ApiType::MATCH_MATCHLISTS_BY_ACCOUNT> : public FailedApiResult
-	{
-	public:
-		ApiResult(const nlohmann::json& json);
-
-		const std::vector<MatchReferenceDto> matches;
-		const int totalGames;
-		const int startIndex;
-		const int endIndex;
 	};
 }

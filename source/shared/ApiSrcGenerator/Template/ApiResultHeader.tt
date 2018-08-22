@@ -68,48 +68,28 @@ foreach(var member in members)
 	template <ApiType type>
 	class ApiResult;
 
+<#
+foreach(var pair in results)
+{
+	var type = pair.Key;
+	var members = pair.Value;
+#>
 	template <>
-	class ApiResult<ApiType::SUMMONER_SUMMONERS_BY_NAME> : public FailedApiResult
+	class ApiResult<ApiType::<#= type.Name #>> : public FailedApiResult
 	{
 	public:
 		ApiResult(const nlohmann::json& json);
 
-		const int profileIconId;
-		const std::string name;
-		const long summonerLevel;
-		const long revisionDate;
-		const long id;
-		const long accountId;
-	};
-
-	template <>
-	class ApiResult<ApiType::SPECTATOR_ACTIVE_GAMES_BY_SUMMONER> : public FailedApiResult
+<#
+	foreach(var member in members)
 	{
-	public:
-		ApiResult(const nlohmann::json& json);
-
-		long gameId;
-		long gameStartTime;
-		std::string platformId;
-		std::string gameMode;
-		long mapId;
-		std::string gameType;
-		std::vector<BannedChampions> bannedChampions;
-		Observer observer;
-		std::vector<CurrentGameParticipant> participants;
-		long gameLength;
-		long gameQueueConfigId;
+#>
+		const <#= Helper.GetCppTypeName(member.FieldType) #> <#= member.Name #>;
+<#
+	}
+#>
 	};
-
-	template <>
-	class ApiResult<ApiType::MATCH_MATCHLISTS_BY_ACCOUNT> : public FailedApiResult
-	{
-	public:
-		ApiResult(const nlohmann::json& json);
-
-		const std::vector<MatchReferenceDto> matches;
-		const int totalGames;
-		const int startIndex;
-		const int endIndex;
-	};
+<#
+}
+#>
 }

@@ -103,32 +103,47 @@ foreach (var pair in internals)
 		return status_code != -1;
 	}
 
-	ApiResult<ApiType::SUMMONER_SUMMONERS_BY_NAME>::ApiResult(const nlohmann::json& json) :
+<#
+foreach (var pair in results)
+{
+	var type = pair.Key;
+	var members = pair.Value;
+
+	Func<System.Reflection.FieldInfo, string> printComma = member => member == members.Last() ? "" : ",";
+#>
+	ApiResult<ApiType::<#= type.Name #>>::ApiResult(const nlohmann::json& json) :
 		FailedApiResult(json),
-		BIND_ATTR(profileIconId),
-		BIND_ATTR(name),
-		BIND_ATTR(summonerLevel),
-		BIND_ATTR(revisionDate),
-		BIND_ATTR(id),
-		BIND_ATTR(accountId)
+<#
+	foreach(var member in members)
 	{
+		var memberType = member.FieldType;
 
+		var isList = Helper.IsGeneric(memberType) && Helper.IsList(memberType);
+		var isInternal = Helper.IsInternalStruct(memberType);
+
+		if(isList)
+		{
+#>
+		BIND_ATTR_VECTOR(<#= member.Name #>)<#= printComma(member) #>
+<#
+		}
+		else if(isInternal)
+		{
+#>
+		BIND_ATTR_INTERNAL(<#= member.Name #>)<#= printComma(member) #>
+<#
+		}
+		else
+		{
+#>
+		BIND_ATTR(<#= member.Name #>)<#= printComma(member) #>
+<#
+		}
 	}
+#>
+	{}
 
-	ApiResult<ApiType::SPECTATOR_ACTIVE_GAMES_BY_SUMMONER>::ApiResult(const nlohmann::json& json) :
-		FailedApiResult(json),
-		BIND_ATTR_INTERNAL(observer)
-	{
-
-	}
-
-	ApiResult<ApiType::MATCH_MATCHLISTS_BY_ACCOUNT>::ApiResult(const nlohmann::json& json) :
-		FailedApiResult(json),
-		BIND_ATTR_VECTOR(matches),
-		BIND_ATTR(totalGames),
-		BIND_ATTR(startIndex),
-		BIND_ATTR(endIndex)
-	{
-
-	}
+<#
+}
+#>
 }
