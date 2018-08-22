@@ -81,6 +81,7 @@
   <Import Project="$(VSToolsPath)\TextTemplating\Microsoft.TextTemplating.targets" />
   <PropertyGroup>
     <TransformOnBuild>true</TransformOnBuild>
+    <TransformOutOfDateOnly>false</TransformOutOfDateOnly>  
   </PropertyGroup>
   <PropertyGroup>
     <PreBuildEvent>
