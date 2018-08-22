@@ -3,10 +3,12 @@
 
 #include "Functional.h"
 
-#define BIND_ATTR_RAW(name) name(json[#name].get<decltype(name)>())
 #define BIND_ATTR(name) name(HasFailed() ? decltype(name){} : json[#name].get<decltype(name)>())
-#define BIND_ATTR_CHILD(parent, name) name(HasFailed() ? decltype(name){} : json##parent.get<decltype(name)>())
+#define BIND_ATTR_RAW(name) name(json[#name].get<decltype(name)>())
+#define BIND_ATTR_INTERNAL(name) name(HasFailed() ? decltype(name)({}) : InitializeInternal<decltype(name)>(json["name"], #name))
+#define BIND_ATTR_INTERNAL_RAW(name) name(InitializeInternal<decltype(name)>(json["name"], #name))
 #define BIND_ATTR_VECTOR(name) name(HasFailed() ? decltype(name)({}) : InitializeVector<decltype(name)::value_type>(json[#name]))
+#define BIND_ATTR_VECTOR_RAW(name) name(InitializeVector<decltype(name)::value_type>(json[#name]))
 
 namespace RiotApi
 {
@@ -16,6 +18,52 @@ namespace RiotApi
 		return FTL::TransformToVector(json, [](const auto& elem) -> T { return T(elem); });
 	}
 
+	template <typename T>
+	T InitializeInternal(const nlohmann::json& json, const std::string& name)
+	{
+		return T(json[name]);
+	}
+
+	BannedChampions::BannedChampions() = default;
+	BannedChampions::BannedChampions(const nlohmann::json& json) :
+		BIND_ATTR_RAW(pickTurn),
+		BIND_ATTR_RAW(championId),
+		BIND_ATTR_RAW(teamId)
+	{}
+
+	Observer::Observer() = default;
+	Observer::Observer(const nlohmann::json& json) :
+		BIND_ATTR_RAW(encryptionKey)
+	{}
+
+	GameCustomizationObject::GameCustomizationObject() = default;
+	GameCustomizationObject::GameCustomizationObject(const nlohmann::json& json) :
+		BIND_ATTR_RAW(category),
+		BIND_ATTR_RAW(content)
+	{}
+
+	Perks::Perks() = default;
+	Perks::Perks(const nlohmann::json& json) :
+		BIND_ATTR_RAW(perkStyle),
+		BIND_ATTR_VECTOR_RAW(perkIds),
+		BIND_ATTR_RAW(perkSubStyle)
+	{}
+
+	CurrentGameParticipant::CurrentGameParticipant() = default;
+	CurrentGameParticipant::CurrentGameParticipant(const nlohmann::json& json) :
+		BIND_ATTR_RAW(profileIconId),
+		BIND_ATTR_RAW(championId),
+		BIND_ATTR_RAW(summonerName),
+		BIND_ATTR_VECTOR_RAW(gameCustomizationObject),
+		BIND_ATTR_RAW(bot),
+		BIND_ATTR_INTERNAL_RAW(perks),
+		BIND_ATTR_RAW(spell2ld),
+		BIND_ATTR_RAW(teamId),
+		BIND_ATTR_RAW(spell1d),
+		BIND_ATTR_RAW(summonerId)
+	{}
+
+	MatchReferenceDto::MatchReferenceDto() = default;
 	MatchReferenceDto::MatchReferenceDto(const nlohmann::json& json) :
 		BIND_ATTR_RAW(lane),
 		BIND_ATTR_RAW(gameId),
@@ -25,9 +73,7 @@ namespace RiotApi
 		BIND_ATTR_RAW(queue),
 		BIND_ATTR_RAW(role),
 		BIND_ATTR_RAW(timestamp)
-	{
-
-	}
+	{}
 
 	FailedApiResult::FailedApiResult(const nlohmann::json& json) :
 		FailedApiResult(json.find("status") != json.end() &&
@@ -64,7 +110,8 @@ namespace RiotApi
 	}
 
 	ApiResult<ApiType::SPECTATOR_ACTIVE_GAMES_BY_SUMMONER>::ApiResult(const nlohmann::json& json) :
-		FailedApiResult(json)
+		FailedApiResult(json),
+		BIND_ATTR_INTERNAL(observer)
 	{
 
 	}

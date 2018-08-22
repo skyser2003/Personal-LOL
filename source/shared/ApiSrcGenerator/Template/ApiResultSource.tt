@@ -6,15 +6,23 @@
 <#@ import namespace="System.Collections.Generic" #>
 <#@ import namespace="ApiSrcData" #>
 <#@ output extension=".cpp" #>
+<#
+
+var internals = Helper.GetInternalStructs();
+var results = Helper.GetResultStructs();
+
+#>
 #include "stdafx.h"
 #include "ApiResultStruct.h"
 
 #include "Functional.h"
 
-#define BIND_ATTR_RAW(name) name(json[#name].get<decltype(name)>())
 #define BIND_ATTR(name) name(HasFailed() ? decltype(name){} : json[#name].get<decltype(name)>())
-#define BIND_ATTR_CHILD(parent, name) name(HasFailed() ? decltype(name){} : json##parent.get<decltype(name)>())
+#define BIND_ATTR_RAW(name) name(json[#name].get<decltype(name)>())
+#define BIND_ATTR_INTERNAL(name) name(HasFailed() ? decltype(name)({}) : InitializeInternal<decltype(name)>(json["name"], #name))
+#define BIND_ATTR_INTERNAL_RAW(name) name(InitializeInternal<decltype(name)>(json["name"], #name))
 #define BIND_ATTR_VECTOR(name) name(HasFailed() ? decltype(name)({}) : InitializeVector<decltype(name)::value_type>(json[#name]))
+#define BIND_ATTR_VECTOR_RAW(name) name(InitializeVector<decltype(name)::value_type>(json[#name]))
 
 namespace RiotApi
 {
@@ -24,19 +32,55 @@ namespace RiotApi
 		return FTL::TransformToVector(json, [](const auto& elem) -> T { return T(elem); });
 	}
 
-	MatchReferenceDto::MatchReferenceDto(const nlohmann::json& json) :
-		BIND_ATTR_RAW(lane),
-		BIND_ATTR_RAW(gameId),
-		BIND_ATTR_RAW(champion),
-		BIND_ATTR_RAW(platformId),
-		BIND_ATTR_RAW(season),
-		BIND_ATTR_RAW(queue),
-		BIND_ATTR_RAW(role),
-		BIND_ATTR_RAW(timestamp)
+	template <typename T>
+	T InitializeInternal(const nlohmann::json& json, const std::string& name)
 	{
-
+		return T(json[name]);
 	}
 
+<#
+foreach (var pair in internals)
+{
+	var type = pair.Key;
+	var members = pair.Value;
+
+	Func<System.Reflection.FieldInfo, string> printComma = member => member == members.Last() ? "" : ",";
+#>
+	<#= $"{type.Name}::{type.Name}" #>() = default;
+	<#= $"{type.Name}::{type.Name}" #>(const nlohmann::json& json) :
+<#
+	foreach(var member in members)
+	{
+		var memberType = member.FieldType;
+
+		var isList = Helper.IsGeneric(memberType) && Helper.IsList(memberType);
+		var isInternal = Helper.IsInternalStruct(memberType);
+
+		if(isList)
+		{
+#>
+		BIND_ATTR_VECTOR_RAW(<#= member.Name #>)<#= printComma(member) #>
+<#
+		}
+		else if(isInternal)
+		{
+#>
+		BIND_ATTR_INTERNAL_RAW(<#= member.Name #>)<#= printComma(member) #>
+<#
+		}
+		else
+		{
+#>
+		BIND_ATTR_RAW(<#= member.Name #>)<#= printComma(member) #>
+<#
+		}
+	}
+#>
+	{}
+
+<#
+}
+#>
 	FailedApiResult::FailedApiResult(const nlohmann::json& json) :
 		FailedApiResult(json.find("status") != json.end() &&
 			json["status"].find("message") != json["status"].end() &&
@@ -72,7 +116,8 @@ namespace RiotApi
 	}
 
 	ApiResult<ApiType::SPECTATOR_ACTIVE_GAMES_BY_SUMMONER>::ApiResult(const nlohmann::json& json) :
-		FailedApiResult(json)
+		FailedApiResult(json),
+		BIND_ATTR_INTERNAL(observer)
 	{
 
 	}

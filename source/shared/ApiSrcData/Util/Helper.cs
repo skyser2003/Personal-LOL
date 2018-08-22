@@ -39,9 +39,25 @@ namespace ApiSrcData
 
         public static string GetCppTypeName(Type type)
         {
-            return type.GenericTypeArguments.Length != 0
+            return IsGeneric(type)
                 ? GetGenericCppTypeName(type)
                 : GetRawCppTypeName(type);
+        }
+
+        public static bool IsGeneric(Type type)
+        {
+            return type.GenericTypeArguments.Length != 0;
+        }
+
+        public static bool IsList(Type type)
+        {
+            return type.GetGenericTypeDefinition() == typeof(List<>);
+        }
+
+        public static bool IsInternalStruct(Type type)
+        {
+            var internals = GetInternalStructs();
+            return internals.ContainsKey(type);
         }
 
         static string GetRawCppTypeName(Type type)
@@ -60,7 +76,7 @@ namespace ApiSrcData
 
         static string GetGenericCppTypeName(Type type)
         {
-            if (type.GetGenericTypeDefinition() == typeof(List<>))
+            if (IsList(type))
             {
                 var valueType = type.GenericTypeArguments[0];
                 return $"std::vector<{GetRawCppTypeName(valueType)}>";

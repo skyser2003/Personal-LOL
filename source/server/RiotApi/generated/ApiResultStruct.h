@@ -11,65 +11,71 @@ namespace RiotApi
 	// Sub data structs
 	struct BannedChampions
 	{
+		BannedChampions();
 		BannedChampions(const nlohmann::json& json);
 
-		const int pickTurn;
-		const long championId;
-		const long teamId;
+		int pickTurn;
+		long championId;
+		long teamId;
 	};
 
 	struct Observer
 	{
+		Observer();
 		Observer(const nlohmann::json& json);
 
-		const std::string encryptionKey;
+		std::string encryptionKey;
 	};
 
 	struct GameCustomizationObject
 	{
+		GameCustomizationObject();
 		GameCustomizationObject(const nlohmann::json& json);
 
-		const std::string category;
-		const std::string content;
+		std::string category;
+		std::string content;
 	};
 
 	struct Perks
 	{
+		Perks();
 		Perks(const nlohmann::json& json);
 
-		const long perkStyle;
-		const std::vector<long> perkIds;
-		const long perkSubStyle;
+		long perkStyle;
+		std::vector<long> perkIds;
+		long perkSubStyle;
 	};
 
 	struct CurrentGameParticipant
 	{
+		CurrentGameParticipant();
 		CurrentGameParticipant(const nlohmann::json& json);
 
-		const long profileIconId;
-		const long championId;
-		const std::string summonerName;
-		const std::vector<GameCustomizationObject> gameCustomizationObject;
-		const bool bot;
-		const Perks perks;
-		const long spell2ld;
-		const long teamId;
-		const long spell1d;
-		const long summonerId;
+		long profileIconId;
+		long championId;
+		std::string summonerName;
+		std::vector<GameCustomizationObject> gameCustomizationObject;
+		bool bot;
+		Perks perks;
+		long spell2ld;
+		long teamId;
+		long spell1d;
+		long summonerId;
 	};
 
 	struct MatchReferenceDto
 	{
+		MatchReferenceDto();
 		MatchReferenceDto(const nlohmann::json& json);
 
-		const std::string lane;
-		const long gameId;
-		const int champion;
-		const std::string platformId;
-		const int season;
-		const int queue;
-		const std::string role;
-		const long timestamp;
+		std::string lane;
+		long gameId;
+		int champion;
+		std::string platformId;
+		int season;
+		int queue;
+		std::string role;
+		long timestamp;
 	};
 
 	// Failed response
