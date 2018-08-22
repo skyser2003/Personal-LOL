@@ -50,6 +50,7 @@ DataApiService::DataApiService(const std::string& apiKey, std::shared_ptr<DataSa
 	auto accountId = apiCaller->GetResult<ApiType::SUMMONER_SUMMONERS_BY_NAME>(name).accountId;
 
 	auto result = apiCaller->GetResultDebug<ApiType::MATCH_MATCHLISTS_BY_ACCOUNT>(accountId);
+	auto& jsonResult = std::get<0>(result);
 
 	response->set_val(std::get<1>(result).dump());
 
