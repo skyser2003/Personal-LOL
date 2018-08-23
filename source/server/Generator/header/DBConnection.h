@@ -48,7 +48,7 @@ public:
 	}
 
 	template <typename ...Args>
-	auto ComposeQuery(const std::string& query, const std::vector<std::tuple<Args...>> args) const
+	auto ComposeQuery(const std::string& query, const std::vector<std::tuple<Args...>>& args) const
 	{
 		return "";
 	}
