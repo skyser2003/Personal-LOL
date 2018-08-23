@@ -1,5 +1,8 @@
 #pragma once
 
+#include <vector>
+#include <tuple>
+
 #include <boost/format.hpp>
 #include "mysql.h"
 
@@ -42,6 +45,12 @@ public:
 	auto ComposeQuery(const std::string& query, Args... args) const
 	{
 		return (boost::format(query) % ... % Escape(args)).str();
+	}
+
+	template <typename ...Args>
+	auto ComposeQuery(const std::string& query, const std::vector<std::tuple<Args...>> args) const
+	{
+		return "";
 	}
 
 private:
