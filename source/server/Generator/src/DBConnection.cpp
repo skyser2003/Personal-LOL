@@ -10,6 +10,11 @@ DBConnection::~DBConnection()
 	mysql_close(&conn);
 }
 
+std::string DBConnection::ConcatQueryArgs(const std::string& arg1, const std::string& arg2)
+{
+	return arg1 + ", " + arg2;
+}
+
 bool DBConnection::Connect(int retryCount, int retrySleepMs)
 {
 	const auto tryConnect = [this]()
@@ -89,6 +94,12 @@ DBWriteResult DBConnection::WriteQuery(const std::string& query)
 	}
 }
 
+
+std::string DBConnection::Escape(const char* arg) const
+{
+	return Escape(std::string(arg));
+}
+
 std::string DBConnection::Escape(const std::string& arg) const
 {
 	auto dest = std::make_unique<char[]>(arg.length() * 2 + 1);
@@ -96,4 +107,13 @@ std::string DBConnection::Escape(const std::string& arg) const
 	mysql_real_escape_string(&conn, dest.get(), arg.c_str(), arg.length());
 
 	return dest.get();
+}
+
+std::string DBConnection::EscapeTupleElem(const char* arg) const
+{
+	return EscapeTupleElem(std::string(arg));
+}
+std::string DBConnection::EscapeTupleElem(const std::string& arg) const
+{
+	return "'" + Escape(arg) + "'";
 }

@@ -1,6 +1,8 @@
 #include "stdafx.h"
 #include "DataSaver.h"
 
+#include "Functional.h"
+
 #include "ApiResultStruct.h"
 #include "DBConnection.h"
 
@@ -19,14 +21,12 @@ bool DataSaver::RegisterUser(const std::string& region, long accountId, long sum
 
 bool DataSaver::SaveMatchResults(const std::vector<MatchReferenceDto>& apiResult)
 {
-	const auto something = std::make_tuple("boo");
+	auto args = FTL::TransformToVector(apiResult, [](const MatchReferenceDto& elem)
+	{
+		return std::tuple{ elem.gameId, elem.champion, elem.lane, elem.platformId, elem.queue, elem.role, elem.season, elem.timestamp };
+	});
 
-	const auto query = conn->ComposeQuery("INSERT IGNORE INTO `match` (`match_id`, `champion`, `lane`, `platform_id`, `queue`, `role`, `season`, `timestamp`) VALUES (%s)",
-		{
-			
-		});
-
-	const auto result = conn->WriteQuery("INSERT IGNORE INTO `match` (`match_id`, `champion`, `lane`, `platform_id`, `queue`, `role`, `season`, `timestamp`) VALUES (%ld, %d, '%s', '%s', %d, '%s', %d, %d)");
+	const auto result = conn->WriteQuery("INSERT IGNORE INTO `match` (`match_id`, `champion`, `lane`, `platform_id`, `queue`, `role`, `season`, `timestamp`) VALUES %s", args);
 
 	return result.AffectedRowsCount() != 0;
 }

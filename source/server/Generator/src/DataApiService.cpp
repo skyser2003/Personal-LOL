@@ -52,6 +52,9 @@ DataApiService::DataApiService(const std::string& apiKey, std::shared_ptr<DataSa
 	auto result = apiCaller->GetResultDebug<ApiType::MATCH_MATCHLISTS_BY_ACCOUNT>(accountId);
 	auto& jsonResult = std::get<0>(result);
 
+
+	jsonResult.HasFailed() ? false : dataSaver->SaveMatchResults(jsonResult.matches);
+
 	response->set_val(std::get<1>(result).dump());
 
 	return grpc::Status::OK;
