@@ -61,6 +61,12 @@ private:
 		return Escape(strArg);
 	}
 
+	template <>
+	auto Escape(const char* arg) const
+	{
+		return Escape(std::string(arg));
+	}
+
 	std::string Escape(const std::string& arg) const;
 
 	const DBInfo info;
