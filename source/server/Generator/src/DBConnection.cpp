@@ -17,15 +17,6 @@ bool DBConnection::Connect(int retryCount, int retrySleepMs)
 		return mysql_real_connect(&conn, info.host.c_str(), info.user.c_str(), info.pw.c_str(), info.db.c_str(), 3306, nullptr, 0);;
 	};
 
-	// TODO
-	/*
-	const auto retryCondition = retryCount < 0 ? []() -> bool { return true; }
-		: [&retryCount]()
-	{
-		return (retryCount--) == 0;
-	};
-	*/
-
 	const auto test = [&retryCount]()
 	{
 		return (retryCount--) == 0;
