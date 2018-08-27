@@ -61,7 +61,7 @@ private:
 		return Escape(strArg);
 	}
 
-	std::string Escape(std::string arg) const;
+	std::string Escape(const std::string& arg) const;
 
 	const DBInfo info;
 	MYSQL& conn;

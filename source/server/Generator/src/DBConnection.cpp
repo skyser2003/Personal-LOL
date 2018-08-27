@@ -98,14 +98,11 @@ DBWriteResult DBConnection::WriteQuery(const std::string& query)
 	}
 }
 
-std::string DBConnection::Escape(std::string arg) const
+std::string DBConnection::Escape(const std::string& arg) const
 {
-	auto* dest = new char[arg.length() * 2 + 1];
+	auto dest = std::make_unique<char[]>(arg.length() * 2 + 1);
 
-	mysql_real_escape_string(&conn, dest, arg.c_str(), arg.length());
+	mysql_real_escape_string(&conn, dest.get(), arg.c_str(), arg.length());
 
-	auto ret = std::string(dest);
-	delete[] dest;
-
-	return ret;
+	return dest.get();
 }
