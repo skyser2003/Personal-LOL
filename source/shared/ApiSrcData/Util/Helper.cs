@@ -66,7 +66,7 @@ namespace ApiSrcData
             {
                 {typeof(bool), "bool"},
                 {typeof(int), "int"},
-                {typeof(long), "long"},
+                {typeof(long), "long long"},
                 {typeof(string), "std::string"}
             };
 

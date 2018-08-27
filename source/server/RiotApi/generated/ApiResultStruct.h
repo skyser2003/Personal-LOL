@@ -15,8 +15,8 @@ namespace RiotApi
 		BannedChampions(const nlohmann::json& json);
 
 		int pickTurn;
-		long championId;
-		long teamId;
+		long long championId;
+		long long teamId;
 	};
 
 	struct Observer
@@ -41,9 +41,9 @@ namespace RiotApi
 		Perks();
 		Perks(const nlohmann::json& json);
 
-		long perkStyle;
-		std::vector<long> perkIds;
-		long perkSubStyle;
+		long long perkStyle;
+		std::vector<long long> perkIds;
+		long long perkSubStyle;
 	};
 
 	struct CurrentGameParticipant
@@ -51,16 +51,16 @@ namespace RiotApi
 		CurrentGameParticipant();
 		CurrentGameParticipant(const nlohmann::json& json);
 
-		long profileIconId;
-		long championId;
+		long long profileIconId;
+		long long championId;
 		std::string summonerName;
 		std::vector<GameCustomizationObject> gameCustomizationObject;
 		bool bot;
 		Perks perks;
-		long spell2ld;
-		long teamId;
-		long spell1d;
-		long summonerId;
+		long long spell2ld;
+		long long teamId;
+		long long spell1d;
+		long long summonerId;
 	};
 
 	struct MatchReferenceDto
@@ -69,13 +69,13 @@ namespace RiotApi
 		MatchReferenceDto(const nlohmann::json& json);
 
 		std::string lane;
-		long gameId;
+		long long gameId;
 		int champion;
 		std::string platformId;
 		int season;
 		int queue;
 		std::string role;
-		long timestamp;
+		long long timestamp;
 	};
 
 	// Failed response
@@ -115,17 +115,17 @@ namespace RiotApi
 	public:
 		ApiResult(const nlohmann::json& json);
 
-		const long gameId;
-		const long gameStartTime;
+		const long long gameId;
+		const long long gameStartTime;
 		const std::string platformId;
 		const std::string gameMode;
-		const long mapId;
+		const long long mapId;
 		const std::string gameType;
 		const std::vector<BannedChampions> bannedChampions;
 		const Observer observer;
 		const std::vector<CurrentGameParticipant> participants;
-		const long gameLength;
-		const long gameQueueConfigId;
+		const long long gameLength;
+		const long long gameQueueConfigId;
 	};
 	template <>
 	class ApiResult<ApiType::SUMMONER_SUMMONERS_BY_NAME> : public FailedApiResult
@@ -135,9 +135,9 @@ namespace RiotApi
 
 		const int profileIconId;
 		const std::string name;
-		const long summonerLevel;
-		const long revisionDate;
-		const long id;
-		const long accountId;
+		const long long summonerLevel;
+		const long long revisionDate;
+		const long long id;
+		const long long accountId;
 	};
 }
