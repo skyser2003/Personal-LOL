@@ -22,6 +22,8 @@ DataApiService::DataApiService(const std::string& apiKey, std::shared_ptr<DataSa
 
 }
 
+DataApiService::~DataApiService() = default;
+
 ::grpc::Status DataApiService::RegisterUser(::grpc::ServerContext* context, const ::SummonerName* request, ::BoolResult* response)
 {
 	const auto& name = request->name();

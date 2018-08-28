@@ -11,6 +11,8 @@ ApiCaller::ApiCaller(const std::string& apiKey) : apiKey(apiKey), webClient(new 
 
 }
 
+ApiCaller::~ApiCaller() = default;
+
 std::string ApiCaller::Forward(const std::string& arg) const
 {
 	return webClient->EncodeURIComponent(arg);

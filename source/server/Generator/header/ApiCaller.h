@@ -15,6 +15,7 @@ class ApiCaller
 {
 public:
 	ApiCaller(const std::string& apiKey);
+	~ApiCaller();
 
 	template <RiotApi::ApiType type, typename... Args>
 	RiotApi::ApiResult<type> GetResult(Args&&... args) const
