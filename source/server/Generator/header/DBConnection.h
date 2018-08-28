@@ -2,6 +2,7 @@
 
 #include <vector>
 #include <tuple>
+#include <execution>
 
 #include <boost/format.hpp>
 #include "mysql.h"
