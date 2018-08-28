@@ -46,6 +46,8 @@ bool DBConnection::Connect(int retryCount, int retrySleepMs)
 				break;
 			}
 		}
+
+		return true;
 	}
 	else
 	{
@@ -60,6 +62,8 @@ bool DBConnection::Connect(int retryCount, int retrySleepMs)
 				break;
 			}
 		}
+
+		return 0 <= retryCount;
 	}
 }
 
