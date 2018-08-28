@@ -56,12 +56,12 @@ public:
 		for (const auto& tuple : args)
 		{
 			auto strArgs = Escape(tuple);
-			std::string batchElem = std::reduce(std::next(strArgs.begin()), strArgs.end(), *strArgs.begin(), &DBConnection::ConcatQueryArgs);
+			std::string batchElem = std::accumulate(std::next(strArgs.begin()), strArgs.end(), *strArgs.begin(), &DBConnection::ConcatQueryArgs);
 
 			batchElems.push_back("(" + batchElem + ")");
 		}
 
-		auto finalArg = std::reduce(std::next(batchElems.begin()), batchElems.end(), *batchElems.begin(), &DBConnection::ConcatQueryArgs);
+		auto finalArg = std::accumulate(std::next(batchElems.begin()), batchElems.end(), *batchElems.begin(), &DBConnection::ConcatQueryArgs);
 
 		return (boost::format(query) % finalArg).str();
 	}
@@ -74,12 +74,12 @@ public:
 		for (const auto& tuple : args)
 		{
 			auto strArgs = Escape(tuple);
-			std::string batchElem = std::reduce(std::next(strArgs.begin()), strArgs.end(), *strArgs.begin(), &DBConnection::ConcatQueryArgs);
+			std::string batchElem = std::accumulate(std::next(strArgs.begin()), strArgs.end(), *strArgs.begin(), &DBConnection::ConcatQueryArgs);
 
 			batchElems.push_back("(" + batchElem + ")");
 		}
 
-		auto finalArg = std::reduce(std::next(batchElems.begin()), batchElems.end(), *batchElems.begin(), &DBConnection::ConcatQueryArgs);
+		auto finalArg = std::accumulate(std::next(batchElems.begin()), batchElems.end(), *batchElems.begin(), &DBConnection::ConcatQueryArgs);
 
 		return (boost::format(query) % finalArg).str();
 	}
