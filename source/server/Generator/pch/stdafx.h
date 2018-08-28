@@ -11,7 +11,7 @@
 #include <mutex>
 #include <queue>
 #include <sstream>
-#include <execution>
+#include <algorithm>
 
 #ifndef WIN32
 #include <experimental/string_view>
