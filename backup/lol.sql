@@ -1,6 +1,6 @@
 -- --------------------------------------------------------
 -- Host:                         skyser.kr
--- Server version:               10.2.16-MariaDB-10.2.16+maria~xenial-log - mariadb.org binary distribution
+-- Server version:               10.3.9-MariaDB-1:10.3.9+maria~bionic - mariadb.org binary distribution
 -- Server OS:                    debian-linux-gnu
 -- HeidiSQL Version:             9.5.0.5196
 -- --------------------------------------------------------
@@ -25,7 +25,7 @@ CREATE TABLE IF NOT EXISTS `match` (
   `queue` int(11) DEFAULT NULL,
   `role` char(50) DEFAULT NULL,
   `season` int(11) DEFAULT NULL,
-  `timestamp` int(11) DEFAULT NULL,
+  `timestamp` bigint(20) DEFAULT NULL,
   UNIQUE KEY `matchId` (`match_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
